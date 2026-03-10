@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wood Flooring - Stone - Outdoor Living | Stonewood Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #334862;
+  --green: #5C7A56;
+  --green-light: #70926E;
+  --green-dark: #4A6645;
+  --text-dark: #4a4a4a;
+  --text-body: #666;
+  --text-muted: #999;
+  --bg-white: #fff;
+  --bg-warm: #f9f7f4;
+  --bg-stone: #f0ede8;
+  --border: #e5e2dd;
+  --border-light: #eee;
+  --amber: #C4882A;
+  --amber-dark: #A8721F;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; color: var(--text-body); background: var(--bg-white); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ===================== VIEW 1: HOMEPAGE ===================== */
+
+/* --- Top bar --- */
+.sw-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 12px 30px;
+}
+
+.sw-logo img { height: 64px; }
+
+.sw-top-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.sw-search-box {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 10px;
+  gap: 6px;
+}
+
+.sw-search-box input {
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  width: 140px;
+  color: var(--text-body);
+}
+
+.sw-search-icon { opacity: 0.4; cursor: pointer; }
+
+/* --- Main Nav --- */
+.sw-nav {
+  background: var(--bg-white);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.sw-nav-inner {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sw-nav a {
+  display: block;
+  padding: 14px 18px;
+  font-size: 12.8px;
+  font-weight: 400;
+  letter-spacing: 0.26px;
+  text-transform: uppercase;
+  color: rgba(74, 74, 74, 0.85);
+  transition: color 0.2s;
+}
+
+.sw-nav a:hover { color: var(--green); }
+
+/* --- Hero Section with AI Input --- */
+.sw-hero {
+  position: relative;
+  min-height: 600px;
+  background: url('img/hero-bg.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sw-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.sw-hero-center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  max-width: 740px;
+  padding: 0 24px;
+}
+
+.sw-hero-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 44px;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.sw-hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+
+/* ===================== AI INPUT (inside hero) ===================== */
+.ai-quote-section {
+  text-align: center;
+}
+
+.ai-quote-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ai-input-box {
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px 14px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.ai-input-box:focus-within {
+  border-color: var(--green-light);
+  box-shadow: 0 4px 32px rgba(92,122,86,0.1);
+}
+
+.ai-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-dark);
+  resize: none;
+  min-height: 64px;
+  max-height: 160px;
+  background: transparent;
+}
+
+.ai-textarea::placeholder { color: #bbb; }
+
+.ai-input-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.ai-input-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ai-icon-btn {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: transparent;
+  color: #bbb;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.ai-icon-btn:hover { background: var(--bg-stone); color: var(--text-body); }
+
+.contractor-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--text-body);
+  cursor: pointer;
+  margin-left: 12px;
+  user-select: none;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.contractor-check:hover { color: var(--text-dark); }
+
+.contractor-check input { display: none; }
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  background: var(--bg-white);
+}
+
+.contractor-check input:checked + .check-box {
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.contractor-check input:checked + .check-box::after {
+  content: '';
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+.ai-submit-btn {
+  width: 38px;
+  height: 38px;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.ai-submit-btn:hover { background: var(--green-dark); transform: scale(1.05); }
+
+.ai-quick-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ai-pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 99px;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.ai-pill:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); color: #fff; }
+
+.ai-pill svg { opacity: 0.6; stroke: rgba(255,255,255,0.8); }
+.ai-pill:hover svg { opacity: 1; }
+
+/* ===================== TRENDING SECTION ===================== */
+.sw-trending {
+  padding: 48px 30px 56px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sw-trending-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sw-trending-title::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--green);
+}
+
+.sw-trending-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.sw-trend-card {
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.sw-trend-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+.sw-trend-card img { width: 100%; height: 220px; object-fit: cover; }
+
+.sw-trend-name {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* ===================== VIEW 2: QUOTE BUILDER ===================== */
+.quote-builder-view {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg-white);
+  overflow: hidden;
+}
+
+.quote-builder-view.active { display: flex; flex-direction: column; }
+
+/* QB Header */
+.qb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 30px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-white);
+  flex-shrink: 0;
+}
+
+.qb-logo { display: flex; align-items: center; gap: 10px; }
+.qb-logo img { height: 36px; }
+.qb-logo span { font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600; color: var(--navy); }
+
+.qb-back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-body);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.qb-back:hover { border-color: var(--text-dark); color: var(--text-dark); }
+
+/* QB Body */
+.qb-body {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* QB Left Panel — Chat */
+.qb-left {
+  background: var(--bg-white);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.qb-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chat-msg {
+  max-width: 88%;
+  line-height: 1.55;
+  font-size: 14px;
+  animation: msgIn 0.3s cubic-bezier(0.23,1,0.32,1);
+}
+
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-msg.user {
+  align-self: flex-end;
+  background: var(--green);
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 16px 16px 4px 16px;
+}
+
+.chat-msg.ai {
+  align-self: flex-start;
+  background: var(--bg-warm);
+  color: var(--text-dark);
+  padding: 14px 16px;
+  border-radius: 16px 16px 16px 4px;
+  border: 1px solid var(--border-light);
+}
+
+.chat-msg.ai .msg-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+.chat-typing {
+  align-self: flex-start;
+  padding: 14px 18px;
+  background: var(--bg-warm);
+  border-radius: 16px 16px 16px 4px;
+  border: 1px solid var(--border-light);
+  display: none;
+}
+
+.chat-typing.visible { display: flex; gap: 5px; }
+
+.typing-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: typingBounce 1.2s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Chat Input */
+.qb-chat-input-wrap {
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-white);
+}
+
+.qb-chat-input-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px 12px;
+  transition: border-color 0.2s;
+}
+
+.qb-chat-input-box:focus-within { border-color: var(--green-light); }
+
+.qb-chat-textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-dark);
+  resize: none;
+  min-height: 22px;
+  max-height: 100px;
+  background: transparent;
+}
+
+.qb-chat-textarea::placeholder { color: #bbb; }
+
+.qb-chat-send {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.qb-chat-send:hover { background: var(--green-dark); }
+
+.qb-chat-upload-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.qb-chat-upload-btn:hover { color: var(--text-body); background: var(--border-light); }
+
+/* QB Right Panel */
+.qb-right {
+  padding: 32px 40px 140px;
+  overflow-y: auto;
+  background: var(--bg-stone);
+}
+
+.qb-results { max-width: 800px; }
+
+.qb-result-section {
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+}
+
+.qb-result-section.in { opacity: 1; transform: translateY(0); }
+
+.qb-product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.qb-product-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.qb-product-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); transform: translateY(-2px); }
+
+.qb-product-img { width: 100%; height: 180px; object-fit: cover; }
+
+.qb-product-body { padding: 18px; }
+
+.qb-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 99px;
+  margin-bottom: 8px;
+}
+
+.qb-badge-best { background: rgba(92,122,86,0.12); color: var(--green); }
+.qb-badge-alt { background: rgba(51,72,98,0.08); color: var(--navy); }
+
+.qb-product-name { font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+.qb-product-desc { font-size: 12.5px; color: var(--text-body); line-height: 1.5; margin-bottom: 12px; }
+
+.qb-product-footer { display: flex; align-items: center; justify-content: space-between; }
+.qb-price { font-size: 19px; font-weight: 900; color: var(--green); }
+.qb-price small { font-size: 11px; font-weight: 400; color: var(--text-muted); }
+
+.qb-select-btn {
+  padding: 7px 18px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  font-family: 'Lato', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--navy);
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.qb-select-btn:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.qb-select-btn.selected { background: var(--green); color: #fff; border-color: var(--green); }
+
+/* Quote Card */
+.qb-quote-card {
+  background: var(--bg-white);
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--border);
+}
+
+.qb-quote-table { width: 100%; border-collapse: collapse; }
+.qb-quote-table tr { border-bottom: 1px solid var(--border-light); }
+.qb-quote-table tr:last-child { border-bottom: none; }
+.qb-quote-table td { padding: 11px 0; font-size: 13px; color: var(--text-body); }
+.qb-quote-table td:first-child { color: var(--text-dark); font-weight: 700; }
+.qb-quote-table td:last-child { text-align: right; }
+
+.qb-total-row td { padding-top: 14px; }
+.qb-total-row td:first-child { font-size: 15px; font-weight: 900; }
+.qb-total-row td:last-child { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; color: var(--green); }
+
+.qb-fine { margin-top: 14px; font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+/* Mockup Card */
+.qb-mockup-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.qb-mockup-img { width: 100%; height: 260px; object-fit: cover; }
+.qb-mockup-body { padding: 18px 22px; }
+.qb-mockup-caption { font-size: 12.5px; color: var(--text-muted); line-height: 1.5; }
+
+/* Reserve Bar */
+.qb-reserve-bar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 380px);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border);
+  padding: 14px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+}
+
+.qb-reserve-btn {
+  width: 100%;
+  max-width: 480px;
+  padding: 15px 32px;
+  border: none;
+  background: var(--amber);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.qb-reserve-btn:hover { background: var(--amber-dark); box-shadow: 0 4px 16px rgba(196,136,42,0.3); }
+
+.qb-reserve-fine { font-size: 11px; color: var(--text-muted); }
+
+/* Skeleton Loading */
+.qb-loading { display: none; }
+.qb-loading.visible { display: block; }
+
+.qb-skeleton-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.qb-skeleton-card { background: var(--bg-white); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+.qb-skeleton-img { width: 100%; height: 180px; background: linear-gradient(110deg, #eee 30%, #f5f5f5 50%, #eee 70%); background-size: 200% 100%; animation: shimmer 1.4s ease-in-out infinite; }
+.qb-skeleton-body { padding: 18px; }
+.qb-skeleton-line { height: 12px; border-radius: 6px; background: linear-gradient(110deg, #eee 30%, #f5f5f5 50%, #eee 70%); background-size: 200% 100%; animation: shimmer 1.4s ease-in-out infinite; margin-bottom: 8px; }
+.qb-skeleton-line.w60 { width: 60%; }
+.qb-skeleton-line.w35 { width: 35%; }
+
+.qb-loading-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.qb-loading-dots::after { content: ''; animation: dots 1.4s steps(4) infinite; }
+
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+@keyframes dots { 0% { content: ''; } 25% { content: '.'; } 50% { content: '..'; } 75% { content: '...'; } }
+
+/* ===================== LOGIN MODAL ===================== */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 250;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-overlay.active { display: flex; }
+
+.login-modal {
+  background: var(--bg-white);
+  border-radius: 20px;
+  padding: 44px 40px 36px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  animation: modalIn 0.35s cubic-bezier(0.23,1,0.32,1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.login-logo img { height: 48px; margin-bottom: 20px; }
+
+.login-title {
+  font-family: 'Lato', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.login-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+
+.login-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.login-input:focus { border-color: var(--green-light); }
+.login-input::placeholder { color: #bbb; }
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  background: var(--green);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover { background: var(--green-dark); }
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.login-divider::before, .login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.login-btn-outline {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-dark);
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.login-btn-outline:hover { border-color: var(--text-dark); }
+
+.login-fine {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.login-fine a { color: var(--green); font-weight: 700; text-decoration: none; }
+.login-fine a:hover { text-decoration: underline; }
+
+/* ===================== TRANSITION OVERLAY ===================== */
+.transition-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-warm);
+  z-index: 190;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.transition-overlay.active { opacity: 1; pointer-events: all; }
+
+.transition-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.transition-text { font-size: 14px; color: var(--text-muted); letter-spacing: 0.5px; }
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 900px) {
+  .sw-topbar { padding: 10px 16px; }
+  .sw-logo img { height: 48px; }
+  .sw-top-right { display: none; }
+  .sw-nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 8px; }
+  .sw-nav a { padding: 12px 12px; font-size: 11px; white-space: nowrap; }
+  .sw-hero { min-height: 480px; }
+  .sw-hero-title { font-size: 28px; }
+  .ai-quick-actions { gap: 8px; }
+  .ai-pill { padding: 8px 14px; font-size: 12px; }
+  .sw-trending-grid { grid-template-columns: 1fr 1fr; }
+
+  .qb-body { grid-template-columns: 1fr; }
+  .qb-left { max-height: 300px; }
+  .qb-right { padding: 24px 20px 140px; }
+  .qb-product-grid { grid-template-columns: 1fr; }
+  .qb-reserve-bar { width: 100%; padding: 12px 20px; }
+  .qb-skeleton-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .sw-hero-products { display: none; }
+  .sw-trend-card img { height: 160px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== VIEW 1: HOMEPAGE ==================== -->
+<div id="homepageView">
+
+  <!-- Top Bar -->
+  <div class="sw-topbar">
+    <a href="https://www.stonewoodproducts.com" class="sw-logo">
+      <img src="img/logo.png" alt="Stonewood Products">
+    </a>
+    <div class="sw-top-right">
+      <div class="sw-search-box">
+        <input type="text" placeholder="Search">
+        <svg class="sw-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </div>
+      <span>Login</span>
+      <span>Truck / $0</span>
+    </div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="sw-nav">
+    <div class="sw-nav-inner">
+      <a href="#">STONE</a>
+      <a href="#">FLOORING</a>
+      <a href="#">WOOD</a>
+      <a href="#">OUTDOOR LIVING</a>
+      <a href="#">INSPIRATION</a>
+      <a href="#">GUIDES</a>
+      <a href="#">CATALOGS</a>
+      <a href="#">ABOUT</a>
+      <a href="#">CONTACT</a>
+    </div>
+  </nav>
+
+  <!-- Hero with AI Input centered -->
+  <section class="sw-hero">
+    <div class="sw-hero-center">
+      <h1 class="sw-hero-title">Get a quote for your project</h1>
+      <p class="sw-hero-sub">Describe what you're building and get an instant estimate with product recommendations.</p>
+
+      <div class="ai-input-box">
+        <textarea class="ai-textarea" id="aiInput" rows="1" placeholder="Describe your project &mdash; what are you building?" oninput="autoResize(this)"></textarea>
+        <div class="ai-input-actions">
+          <div class="ai-input-left">
+            <button class="ai-icon-btn" title="Upload a photo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M12 3v12M7 8l5-5 5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ai-icon-btn" title="Take a photo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </button>
+            <label class="contractor-check">
+              Contractor?
+              <input type="checkbox" id="contractorCheck">
+              <span class="check-box"></span>
+            </label>
+          </div>
+          <button class="ai-submit-btn" onclick="submitQuote()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-quick-actions">
+        <button class="ai-pill" onclick="quickFill('Pool deck patio, 500 sq ft, dark stone, Cape Cod')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 12h18"/></svg>
+          Patio Quote
+        </button>
+        <button class="ai-pill" onclick="quickFill('Hardwood flooring, 1200 sq ft open floor plan, coastal modern')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Flooring Estimate
+        </button>
+        <button class="ai-pill" onclick="quickFill('Stone veneer for fireplace surround, 80 sq ft, warm tones')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Stone Veneer
+        </button>
+        <button class="ai-pill" onclick="quickFill('Cedar fence around pool, 120 linear feet')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          Fencing
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending -->
+  <section class="sw-trending">
+    <h4 class="sw-trending-title">Trending</h4>
+    <div class="sw-trending-grid">
+      <div class="sw-trend-card">
+        <img src="img/midnight-grey.jpg" alt="Midnight Grey Granite Pavers">
+        <div class="sw-trend-name">Midnight Grey Granite Pavers</div>
+      </div>
+      <div class="sw-trend-card">
+        <img src="img/stratton-floors.jpg" alt="Wide Plank Floors | Stratton">
+        <div class="sw-trend-name">Wide Plank Floors | Stratton</div>
+      </div>
+      <div class="sw-trend-card">
+        <img src="img/silver-travertine.jpg" alt="Silver Travertine Ashlar">
+        <div class="sw-trend-name">Silver Travertine Ashlar</div>
+      </div>
+      <div class="sw-trend-card">
+        <img src="img/barnwood.jpg" alt="Barnwood Paneling">
+        <div class="sw-trend-name">Barnwood&trade; Paneling | Driftwood</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ==================== LOGIN MODAL ==================== -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-modal">
+    <div class="login-logo">
+      <img src="img/logo.png" alt="">
+    </div>
+    <h3 class="login-title">Sign in to see your quote</h3>
+    <p class="login-sub">Create a free account or log in to save quotes, track orders, and get personalized recommendations.</p>
+    <div class="login-form">
+      <input type="email" class="login-input" placeholder="Email address" id="loginEmail">
+      <input type="password" class="login-input" placeholder="Password" id="loginPassword">
+      <button class="login-btn" onclick="completeLogin()">Sign In</button>
+      <div class="login-divider"><span>or</span></div>
+      <button class="login-btn-outline" onclick="completeLogin()">Continue as Guest</button>
+    </div>
+    <p class="login-fine">Don't have an account? <a href="#" onclick="completeLogin(); return false;">Create one free</a></p>
+  </div>
+</div>
+
+<!-- ==================== TRANSITION ==================== -->
+<div class="transition-overlay" id="transitionOverlay">
+  <div class="transition-spinner"></div>
+  <div class="transition-text">Building your quote...</div>
+</div>
+
+<!-- ==================== VIEW 2: QUOTE BUILDER ==================== -->
+<div class="quote-builder-view" id="quoteBuilderView">
+
+  <div class="qb-header">
+    <div class="qb-logo">
+      <img src="img/logo.png" alt="">
+      <span>Stonewood Products</span>
+    </div>
+    <button class="qb-back" onclick="goBack()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Site
+    </button>
+  </div>
+
+  <div class="qb-body">
+
+    <!-- Left Panel — Chat -->
+    <div class="qb-left">
+      <div class="qb-chat-messages" id="chatMessages">
+        <!-- Messages injected by JS -->
+      </div>
+      <div class="qb-chat-input-wrap">
+        <div class="qb-chat-input-box">
+          <button class="qb-chat-upload-btn" title="Upload photo">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M12 3v12M7 8l5-5 5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <textarea class="qb-chat-textarea" id="chatInput" rows="1" placeholder="Refine your quote or ask a question..." oninput="autoResize(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendChat()}"></textarea>
+          <button class="qb-chat-send" onclick="sendChat()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel -->
+    <div class="qb-right">
+      <div class="qb-results">
+
+        <!-- Loading -->
+        <div class="qb-loading" id="qbLoading">
+          <div class="qb-loading-label">Analyzing your project<span class="qb-loading-dots"></span></div>
+          <div class="qb-skeleton-grid">
+            <div class="qb-skeleton-card"><div class="qb-skeleton-img"></div><div class="qb-skeleton-body"><div class="qb-skeleton-line w60"></div><div class="qb-skeleton-line"></div><div class="qb-skeleton-line w35"></div></div></div>
+            <div class="qb-skeleton-card"><div class="qb-skeleton-img"></div><div class="qb-skeleton-body"><div class="qb-skeleton-line w60"></div><div class="qb-skeleton-line"></div><div class="qb-skeleton-line w35"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="qb-result-section" id="qbSec1">
+          <div class="qb-section-label">Recommended Products</div>
+          <div class="qb-product-grid">
+            <div class="qb-product-card">
+              <img class="qb-product-img" src="img/midnight-grey-paver.jpg" alt="Midnight Grey Granite Pavers" onerror="this.style.background='#555'">
+              <div class="qb-product-body">
+                <span class="qb-badge qb-badge-best">Best Match</span>
+                <div class="qb-product-name">Midnight Grey Granite Pavers</div>
+                <p class="qb-product-desc">Dense, frost-resistant granite with a dark charcoal tone. Ideal for pool decks and coastal patios.</p>
+                <div class="qb-product-footer">
+                  <div class="qb-price">$7.20 <small>/ sq ft</small></div>
+                  <button class="qb-select-btn selected">Selected</button>
+                </div>
+              </div>
+            </div>
+            <div class="qb-product-card">
+              <img class="qb-product-img" src="img/bluestone-pool.jpg" alt="Bluestone Pavers" onerror="this.style.background='#6B7F8E'">
+              <div class="qb-product-body">
+                <span class="qb-badge qb-badge-alt">Also Consider</span>
+                <div class="qb-product-name">Bluestone Pavers</div>
+                <p class="qb-product-desc">Classic New England bluestone with natural cleft surface. Naturally slip-resistant for coastal applications.</p>
+                <div class="qb-product-footer">
+                  <div class="qb-price">$8.40 <small>/ sq ft</small></div>
+                  <button class="qb-select-btn" onclick="this.classList.toggle('selected'); this.textContent=this.classList.contains('selected')?'Selected':'Select'">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estimate -->
+        <div class="qb-result-section" id="qbSec2">
+          <div class="qb-section-label">Your Project Estimate</div>
+          <div class="qb-quote-card">
+            <table class="qb-quote-table">
+              <tr><td>Material</td><td>Midnight Grey Granite Pavers</td><td></td></tr>
+              <tr><td>Area</td><td>500 sq ft + 10% overage</td><td>550 sq ft</td></tr>
+              <tr><td>Material Cost</td><td>550 x $7.20 / sq ft</td><td>$3,960</td></tr>
+              <tr><td>Delivery</td><td>Standard &mdash; Cape Cod</td><td>$175</td></tr>
+              <tr class="qb-total-row"><td>Total Estimate</td><td></td><td>$4,135</td></tr>
+            </table>
+            <p class="qb-fine">This estimate is based on current catalog pricing and is subject to final confirmation by our team.</p>
+          </div>
+        </div>
+
+        <!-- Visualization -->
+        <div class="qb-result-section" id="qbSec3">
+          <div class="qb-section-label">Your Space, Visualized</div>
+          <div class="qb-mockup-card">
+            <img class="qb-mockup-img" src="img/bluestone-pool.jpg" alt="Pool deck visualization" onerror="this.style.background='#888'">
+            <div class="qb-mockup-body">
+              <p class="qb-mockup-caption">Upload a photo of your space to generate a personalized AI mockup with the selected materials installed.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Reserve Bar -->
+  <div class="qb-reserve-bar" id="qbReserveBar" style="display:none;">
+    <button class="qb-reserve-btn">Reserve This Quote &mdash; $413 Deposit (10%)</button>
+    <span class="qb-reserve-fine">Holds your price for 7 days. No further commitment required.</span>
+  </div>
+
+</div>
+
+<script>
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = el.scrollHeight + 'px';
+}
+
+function quickFill(text) {
+  const ta = document.getElementById('aiInput');
+  ta.value = text;
+  autoResize(ta);
+  submitQuote();
+}
+
+function submitQuote() {
+  const ta = document.getElementById('aiInput');
+  if (!ta.value.trim()) {
+    ta.value = 'I want to build a pool deck patio, about 500 square feet, coastal Cape Cod home, I like darker stone.';
+    autoResize(ta);
+  }
+
+  // Store project text
+  window._projectText = ta.value;
+
+  // Show login modal
+  document.getElementById('loginOverlay').classList.add('active');
+}
+
+function completeLogin() {
+  document.getElementById('loginOverlay').classList.remove('active');
+
+  const projectText = window._projectText || '';
+  const isContractor = document.getElementById('contractorCheck').checked;
+
+  // Clear chat
+  const chatEl = document.getElementById('chatMessages');
+  chatEl.innerHTML = '';
+
+  // Show transition
+  const overlay = document.getElementById('transitionOverlay');
+  overlay.classList.add('active');
+
+  document.querySelectorAll('.qb-result-section').forEach(s => s.classList.remove('in'));
+  document.getElementById('qbReserveBar').style.display = 'none';
+
+  setTimeout(() => {
+    document.getElementById('homepageView').style.display = 'none';
+    const qb = document.getElementById('quoteBuilderView');
+    qb.classList.add('active');
+
+    document.getElementById('qbLoading').classList.add('visible');
+    overlay.classList.remove('active');
+
+    // Add user message to chat
+    addChatMsg('user', projectText);
+
+    // Simulate AI typing then response
+    setTimeout(() => {
+      const typingEl = addTypingIndicator();
+
+      setTimeout(() => {
+        typingEl.remove();
+        const aiMsg = isContractor
+          ? "Great \u2014 I see you're a contractor working on a 500 sq ft pool deck with dark stone on Cape Cod. I've pulled two options that work well for commercial-grade pool surrounds. The <strong>Midnight Grey Granite</strong> is our most popular for this application. I've built your estimate with 10% overage at contractor pricing. Want me to adjust the square footage or explore different materials?"
+          : "I found two great options for your pool deck patio. Based on your preference for darker stone and the coastal Cape Cod location, I'd recommend the <strong>Midnight Grey Granite Pavers</strong> \u2014 they're frost-resistant and perfect for pool decks. I've built an estimate for 500 sq ft with 10% overage included. You can upload a photo of your space and I'll show you a mockup of how it would look!";
+        addChatMsg('ai', aiMsg);
+      }, 1200);
+    }, 400);
+
+    // Show results
+    setTimeout(() => {
+      document.getElementById('qbLoading').classList.remove('visible');
+
+      const sections = document.querySelectorAll('.qb-result-section');
+      sections.forEach((sec, i) => {
+        setTimeout(() => sec.classList.add('in'), i * 350);
+      });
+
+      setTimeout(() => {
+        document.getElementById('qbReserveBar').style.display = 'flex';
+      }, sections.length * 350 + 200);
+    }, 1800);
+
+  }, 800);
+}
+
+function addChatMsg(type, html) {
+  const chatEl = document.getElementById('chatMessages');
+  const msg = document.createElement('div');
+  msg.className = 'chat-msg ' + type;
+  if (type === 'ai') {
+    msg.innerHTML = '<div class="msg-label">Stonewood AI</div>' + html;
+  } else {
+    msg.textContent = html;
+  }
+  chatEl.appendChild(msg);
+  chatEl.scrollTop = chatEl.scrollHeight;
+  return msg;
+}
+
+function addTypingIndicator() {
+  const chatEl = document.getElementById('chatMessages');
+  const el = document.createElement('div');
+  el.className = 'chat-typing visible';
+  el.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  chatEl.appendChild(el);
+  chatEl.scrollTop = chatEl.scrollHeight;
+  return el;
+}
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  addChatMsg('user', text);
+  input.value = '';
+  input.style.height = 'auto';
+
+  // Simulate AI response
+  const typingEl = addTypingIndicator();
+  setTimeout(() => {
+    typingEl.remove();
+
+    const responses = [
+      "Absolutely! I can adjust the square footage. Just let me know the updated measurements and I'll recalculate the estimate for you.",
+      "Great question \u2014 both options are slip-resistant and freeze-thaw rated for coastal New England. The Midnight Grey has a slightly smoother finish while the Bluestone has a natural cleft texture.",
+      "I can add that to the quote. Would you also like me to include matching step treads or coping for the pool edge? Those are popular additions for this type of project.",
+      "The delivery estimate for Cape Cod is typically 5\u20137 business days from order confirmation. We deliver with our own flatbed trucks for stone orders."
+    ];
+    const resp = responses[Math.floor(Math.random() * responses.length)];
+    addChatMsg('ai', resp);
+  }, 1500);
+}
+
+function goBack() {
+  const qb = document.getElementById('quoteBuilderView');
+  qb.classList.remove('active');
+  document.getElementById('homepageView').style.display = 'block';
+  window.scrollTo({ top: document.querySelector('.ai-quote-section').offsetTop - 60, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
