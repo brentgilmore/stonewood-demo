@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Outdoor Shower | Stonewood Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #334862;
+  --green: #5C7A56;
+  --green-light: #70926E;
+  --green-dark: #4A6645;
+  --text-dark: #4a4a4a;
+  --text-body: #666;
+  --text-muted: #999;
+  --bg-white: #fff;
+  --bg-warm: #f9f7f4;
+  --bg-stone: #f0ede8;
+  --border: #e5e2dd;
+  --border-light: #eee;
+  --amber: #C4882A;
+  --amber-dark: #A8721F;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; color: var(--text-body); background: var(--bg-white); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* --- Top bar --- */
+.sw-topbar { display: flex; align-items: center; justify-content: space-between; max-width: 1300px; margin: 0 auto; padding: 12px 30px; }
+.sw-logo img { height: 64px; }
+.sw-top-right { display: flex; align-items: center; gap: 24px; font-size: 13px; color: var(--text-body); }
+.sw-search-box { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px; gap: 6px; }
+.sw-search-box input { border: none; outline: none; font-family: 'Lato', sans-serif; font-size: 13px; width: 140px; color: var(--text-body); }
+.sw-search-icon { opacity: 0.4; cursor: pointer; }
+
+/* --- Nav --- */
+.sw-nav { background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; }
+.sw-nav-inner { display: flex; justify-content: center; gap: 0; max-width: 1300px; margin: 0 auto; }
+.sw-nav a { display: block; padding: 14px 18px; font-size: 12.8px; font-weight: 400; letter-spacing: 0.26px; text-transform: uppercase; color: rgba(74,74,74,0.85); transition: color 0.2s; }
+.sw-nav a:hover { color: var(--green); }
+.sw-nav a.active { color: var(--green); font-weight: 700; }
+.sw-nav-item { position: relative; }
+.sw-nav-item > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 3.5px solid transparent; border-right: 3.5px solid transparent; border-top: 4px solid currentColor; margin-left: 5px; vertical-align: middle; opacity: 0.5; transition: transform 0.2s; }
+.sw-nav-item:hover > a::after { transform: rotate(180deg); }
+.sw-nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--bg-white); border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); padding: 8px 0; min-width: 200px; opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(8px); transition: all 0.2s ease; z-index: 101; }
+.sw-nav-item:hover .sw-nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.sw-nav-dropdown a { display: block !important; padding: 10px 20px !important; font-size: 13px !important; text-transform: none !important; letter-spacing: 0 !important; color: var(--text-body) !important; white-space: nowrap; }
+.sw-nav-dropdown a:hover { background: var(--bg-warm) !important; color: var(--green) !important; }
+
+/* ===================== STEP PROGRESS ===================== */
+.step-progress {
+  background: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 0 30px;
+  position: sticky;
+  top: 46px;
+  z-index: 90;
+}
+.step-progress-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+.step-tab {
+  flex: 1;
+  padding: 14px 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.step-tab:hover { color: var(--text-body); }
+.step-tab.active { color: var(--green); border-bottom-color: var(--green); }
+.step-tab.done { color: var(--text-dark); }
+.step-tab-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--border-light); color: var(--text-muted);
+  font-size: 11px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.step-tab.active .step-tab-num { background: var(--green); color: #fff; }
+.step-tab.done .step-tab-num { background: var(--green); color: #fff; }
+
+/* ===================== STEP BODY ===================== */
+.step-panel { display: none; }
+.step-panel.active { display: block; animation: fadeUp 0.35s ease; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.step-body {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px 80px;
+}
+
+.step-heading {
+  font-family: 'Lato', sans-serif;
+  font-size: 34px;
+  font-weight: 300;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+.step-subheading {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* ===================== MATERIAL CARDS — photo based ===================== */
+.material-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.mat-card {
+  border: 2px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: var(--bg-white);
+  position: relative;
+}
+.mat-card:hover { border-color: var(--green-light); box-shadow: 0 8px 32px rgba(0,0,0,0.07); transform: translateY(-2px); }
+.mat-card.selected { border-color: var(--green); box-shadow: 0 0 0 1px var(--green); }
+
+.mat-card.selected::before {
+  content: '✓';
+  position: absolute; top: 16px; right: 16px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  font-size: 14px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; box-shadow: 0 2px 8px rgba(92,122,86,0.3);
+}
+
+.mat-photo {
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.mat-tag {
+  position: absolute; bottom: 12px; left: 12px;
+  padding: 5px 14px; border-radius: 99px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.mat-tag-popular { background: rgba(92,122,86,0.85); color: #fff; }
+.mat-tag-alt { background: rgba(255,255,255,0.85); color: var(--text-dark); }
+
+.mat-body { padding: 20px 22px; }
+.mat-name { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
+.mat-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+
+.mat-features {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.mat-feature {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-body);
+}
+.mat-feature svg { color: var(--green); flex-shrink: 0; }
+
+.mat-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+.mat-price { font-size: 20px; font-weight: 900; color: var(--green); }
+.mat-price small { font-size: 12px; font-weight: 400; color: var(--text-muted); }
+.mat-starting { font-size: 12px; color: var(--text-muted); }
+
+/* ===================== DIMENSION STEP ===================== */
+.dim-layout {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 48px;
+  align-items: start;
+}
+
+.dim-section-title {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--text-dark);
+  margin-bottom: 14px; margin-top: 28px;
+}
+.dim-section-title:first-child { margin-top: 0; }
+
+/* Style chips */
+.style-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.style-chip {
+  padding: 10px 20px; border: 2px solid var(--border-light); border-radius: 99px;
+  font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+  color: var(--text-body); background: var(--bg-white); cursor: pointer; transition: all 0.2s;
+}
+.style-chip:hover { border-color: var(--green-light); color: var(--text-dark); }
+.style-chip.selected { border-color: var(--green); background: rgba(92,122,86,0.06); color: var(--green); }
+
+/* Sliders */
+.dim-slider-group { margin-bottom: 20px; }
+.dim-slider-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.dim-slider-label span { font-size: 13px; color: var(--text-body); }
+.dim-slider-label strong { font-size: 20px; font-weight: 900; color: var(--text-dark); }
+.dim-slider-label strong small { font-size: 13px; font-weight: 400; color: var(--text-muted); }
+
+input[type="range"] {
+  -webkit-appearance: none; width: 100%; height: 6px;
+  border-radius: 3px; background: var(--border); outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%;
+  background: var(--green); cursor: pointer;
+  box-shadow: 0 2px 8px rgba(92,122,86,0.3); border: 3px solid #fff;
+}
+
+/* Bird's eye panel */
+.birdseye-panel {
+  background: var(--bg-warm); border: 1px solid var(--border); border-radius: 14px;
+  padding: 28px; position: sticky; top: 120px; text-align: center;
+}
+.birdseye-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px;
+}
+#birdseyeSvg { width: 100%; max-width: 380px; margin: 0 auto; }
+
+.birdseye-meta {
+  margin-top: 18px; font-size: 13px; color: var(--text-body); line-height: 1.7;
+}
+.birdseye-meta strong { color: var(--text-dark); }
+
+.birdseye-price {
+  margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);
+  font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: var(--green);
+}
+.birdseye-price small { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 400; color: var(--text-muted); }
+
+/* Upsell banners */
+.upsell-banner {
+  background: linear-gradient(135deg, var(--bg-warm), var(--bg-stone));
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 28px; margin-top: 32px;
+  display: flex; align-items: center; gap: 18px;
+}
+.upsell-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: rgba(196,136,42,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 20px;
+}
+.upsell-text { flex: 1; }
+.upsell-text strong { font-size: 14px; color: var(--text-dark); display: block; margin-bottom: 2px; }
+.upsell-text span { font-size: 12.5px; color: var(--text-muted); line-height: 1.45; }
+.upsell-add {
+  padding: 10px 22px; border: 1.5px solid var(--amber); background: transparent;
+  color: var(--amber); font-family: 'Lato', sans-serif; font-size: 11px;
+  font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  border-radius: 99px; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.upsell-add:hover { background: var(--amber); color: #fff; }
+.upsell-add.added { background: var(--green); color: #fff; border-color: var(--green); }
+
+/* ===================== ADD-ONS ===================== */
+.addons-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+.addon-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 18px; border: 2px solid var(--border-light); border-radius: 10px;
+  cursor: pointer; transition: all 0.2s; background: var(--bg-white);
+}
+.addon-card:hover { border-color: var(--green-light); }
+.addon-card.selected { border-color: var(--green); background: rgba(92,122,86,0.03); }
+
+.addon-icon {
+  width: 40px; height: 40px; border-radius: 10px; background: var(--bg-stone);
+  display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+.addon-info { flex: 1; min-width: 0; }
+.addon-name { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+.addon-desc { font-size: 11.5px; color: var(--text-muted); margin-top: 1px; }
+.addon-price { font-size: 14px; font-weight: 900; color: var(--green); white-space: nowrap; }
+
+.addon-check {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s;
+}
+.addon-card.selected .addon-check { background: var(--green); border-color: var(--green); }
+.addon-card.selected .addon-check::after { content: '✓'; color: #fff; font-size: 12px; font-weight: 900; }
+
+/* ===================== QUOTE ===================== */
+.quote-layout {
+  display: grid; grid-template-columns: 1fr 400px; gap: 40px; align-items: start;
+}
+
+.quote-card {
+  background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+}
+.quote-card-header {
+  background: var(--bg-warm); padding: 22px 28px; border-bottom: 1px solid var(--border-light);
+}
+.quote-card-header h3 {
+  font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 600; color: var(--text-dark);
+}
+.quote-card-body { padding: 24px 28px; }
+
+.quote-line {
+  display: flex; justify-content: space-between; padding: 10px 0;
+  font-size: 14px; border-bottom: 1px solid var(--border-light);
+}
+.quote-line:last-of-type { border-bottom: none; }
+.quote-line-label { color: var(--text-body); flex: 1; }
+.quote-line-value { color: var(--text-dark); font-weight: 700; flex: 1; text-align: center; }
+.quote-line-price { color: var(--text-dark); font-weight: 700; text-align: right; min-width: 80px; }
+
+.quote-line.sub .quote-line-label { color: var(--text-muted); padding-left: 16px; font-size: 13px; }
+.quote-line.sub .quote-line-price { font-size: 13px; }
+
+.quote-total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 20px 0 0; margin-top: 8px; border-top: 2px solid var(--text-dark);
+}
+.quote-total-label { font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); }
+.quote-total-price { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: var(--green); }
+
+.quote-actions { padding: 0 28px 28px; }
+.quote-cta {
+  width: 100%; padding: 16px; border: none; background: var(--amber); color: #fff;
+  font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; border-radius: 4px;
+  cursor: pointer; transition: all 0.25s; margin-bottom: 8px;
+}
+.quote-cta:hover { background: var(--amber-dark); }
+.quote-secondary {
+  width: 100%; padding: 14px; border: 1.5px solid var(--border); background: transparent;
+  color: var(--text-body); font-family: 'Lato', sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 0.5px; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+}
+.quote-secondary:hover { border-color: var(--text-dark); color: var(--text-dark); }
+.quote-fine { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 12px; line-height: 1.5; }
+
+/* Quote sidebar */
+.quote-mini-birdseye {
+  background: var(--bg-warm); border: 1px solid var(--border); border-radius: 14px;
+  padding: 24px; text-align: center; margin-bottom: 16px;
+}
+.quote-mini-birdseye svg { max-width: 240px; margin: 0 auto; }
+.quote-mini-label { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+
+.quote-photo {
+  border-radius: 14px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 16px;
+}
+.quote-photo img { width: 100%; height: 200px; object-fit: cover; }
+
+.quote-specs {
+  background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px;
+}
+.quote-spec-line {
+  display: flex; justify-content: space-between; padding: 7px 0;
+  font-size: 13px; border-bottom: 1px solid var(--border-light);
+}
+.quote-spec-line:last-child { border-bottom: none; }
+.quote-spec-label { color: var(--text-muted); }
+.quote-spec-value { color: var(--text-dark); font-weight: 700; }
+
+/* Step nav */
+.step-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--border-light);
+}
+.btn-back, .btn-next {
+  padding: 14px 32px; font-family: 'Lato', sans-serif; font-size: 13px;
+  font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  border-radius: 4px; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 10px;
+}
+.btn-back { background: transparent; border: 1px solid var(--border); color: var(--text-body); }
+.btn-back:hover { border-color: var(--text-dark); color: var(--text-dark); }
+.btn-next { background: var(--green); border: none; color: #fff; }
+.btn-next:hover { background: var(--green-dark); }
+.btn-next.finish { background: var(--amber); }
+.btn-next.finish:hover { background: var(--amber-dark); }
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 1024px) {
+  .dim-layout, .quote-layout { grid-template-columns: 1fr; }
+  .birdseye-panel { position: static; }
+}
+@media (max-width: 768px) {
+  .sw-topbar { padding: 10px 16px; }
+  .sw-logo img { height: 48px; }
+  .sw-top-right { display: none; }
+  .sw-nav-inner { overflow-x: auto; justify-content: flex-start; padding: 0 8px; }
+  .sw-nav a { padding: 12px 12px; font-size: 11px; white-space: nowrap; }
+  .material-grid { grid-template-columns: 1fr; }
+  .addons-grid { grid-template-columns: 1fr; }
+  .step-tab .tab-text { display: none; }
+  .step-body { padding: 28px 16px 60px; }
+  .upsell-banner { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="sw-topbar">
+  <a href="index.html" class="sw-logo"><img src="img/logo.png" alt="Stonewood Products"></a>
+  <div class="sw-top-right">
+    <div class="sw-search-box">
+      <input type="text" placeholder="Search">
+      <svg class="sw-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </div>
+    <span>Login</span>
+    <span>Truck / $0</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="sw-nav">
+  <div class="sw-nav-inner">
+    <a href="index.html">STONE</a>
+    <a href="index.html">FLOORING</a>
+    <a href="index.html">WOOD</a>
+    <div class="sw-nav-item">
+      <a href="#" class="active">OUTDOOR LIVING</a>
+      <div class="sw-nav-dropdown">
+        <a href="outdoor-showers.html" style="color:var(--green)!important;font-weight:700!important;">Outdoor Showers</a>
+        <a href="#">Decking</a>
+        <a href="#">Fencing</a>
+        <a href="#">Pergolas</a>
+      </div>
+    </div>
+    <a href="index.html">INSPIRATION</a>
+    <a href="index.html">GUIDES</a>
+    <a href="index.html">CATALOGS</a>
+    <a href="index.html">ABOUT</a>
+    <a href="index.html">CONTACT</a>
+  </div>
+</nav>
+
+<!-- Step Progress -->
+<div class="step-progress">
+  <div class="step-progress-inner">
+    <div class="step-tab active" data-step="0" onclick="goStep(0)">
+      <span class="step-tab-num">1</span>
+      <span class="tab-text">Material</span>
+    </div>
+    <div class="step-tab" data-step="1" onclick="goStep(1)">
+      <span class="step-tab-num">2</span>
+      <span class="tab-text">Size &amp; Layout</span>
+    </div>
+    <div class="step-tab" data-step="2" onclick="goStep(2)">
+      <span class="step-tab-num">3</span>
+      <span class="tab-text">Add-Ons</span>
+    </div>
+    <div class="step-tab" data-step="3" onclick="goStep(3)">
+      <span class="step-tab-num">4</span>
+      <span class="tab-text">Your Quote</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 1: Material ===== -->
+<div class="step-panel active" data-step="0">
+  <div class="step-body">
+    <h2 class="step-heading">Build your dream outdoor shower</h2>
+    <p class="step-subheading">Start by choosing your material. This determines the look, durability, and price.</p>
+
+    <div class="material-grid">
+      <div class="mat-card selected" data-mat="cedar" data-sqft="8.50" data-color="#B5651D" data-light="#D4A574">
+        <div class="mat-photo" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg');">
+          <span class="mat-tag mat-tag-popular">Most Popular</span>
+        </div>
+        <div class="mat-body">
+          <div class="mat-name">Western Red Cedar</div>
+          <div class="mat-desc">Naturally rot-resistant and aromatic. Weathers to a beautiful silver-grey patina over time. The classic Cape Cod outdoor shower.</div>
+          <div class="mat-features">
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Naturally rot-resistant
+            </div>
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Aromatic scent
+            </div>
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              15-20 year lifespan
+            </div>
+          </div>
+          <div class="mat-price-row">
+            <div class="mat-price">$8.50 <small>/ lin ft</small></div>
+            <div class="mat-starting">Kits from $595</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mat-card" data-mat="pvc" data-sqft="10.25" data-color="#D8D8D0" data-light="#F0F0EA">
+        <div class="mat-photo" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2018/04/standard-pvc-freestanding-outdoor-shower.jpg');">
+          <span class="mat-tag mat-tag-alt">Zero Maintenance</span>
+        </div>
+        <div class="mat-body">
+          <div class="mat-name">Cellular PVC</div>
+          <div class="mat-desc">Never rots, never needs staining. Bright white finish that stays clean year after year. Also available in Azek colors and wood-grain textures.</div>
+          <div class="mat-features">
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Zero maintenance
+            </div>
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Won't rot or warp
+            </div>
+            <div class="mat-feature">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              25+ year lifespan
+            </div>
+          </div>
+          <div class="mat-price-row">
+            <div class="mat-price">$10.25 <small>/ lin ft</small></div>
+            <div class="mat-starting">Kits from $695</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="upsell-banner" id="upsellStain">
+      <div class="upsell-icon">🪵</div>
+      <div class="upsell-text">
+        <strong>Add Pre-Staining &mdash; $120</strong>
+        <span>We'll apply a UV-protective stain before shipping. Extends cedar life by 3-5 years and skips your first season of maintenance.</span>
+      </div>
+      <button class="upsell-add" data-upsell="stain" data-price="120" onclick="toggleUpsell(this)">Add $120</button>
+    </div>
+
+    <div class="step-nav">
+      <a href="index.html" class="btn-back">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back to Home
+      </a>
+      <button class="btn-next" onclick="goStep(1)">
+        Next: Size &amp; Layout
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 2: Size & Layout ===== -->
+<div class="step-panel" data-step="1">
+  <div class="step-body">
+    <h2 class="step-heading">Set your size and layout</h2>
+    <p class="step-subheading">Choose your enclosure style and drag the sliders. The bird's eye view updates live.</p>
+
+    <div class="dim-layout">
+      <div class="dim-controls">
+        <div class="dim-section-title">Enclosure Style</div>
+        <div class="style-chips">
+          <button class="style-chip" data-style="freestanding" onclick="setStyle(this)">Free-Standing</button>
+          <button class="style-chip selected" data-style="2-wall" onclick="setStyle(this)">2-Wall</button>
+          <button class="style-chip" data-style="3-wall" onclick="setStyle(this)">3-Wall</button>
+          <button class="style-chip" data-style="full" onclick="setStyle(this)">Full Enclosure</button>
+        </div>
+
+        <div class="dim-section-title">Width</div>
+        <div class="dim-slider-group">
+          <div class="dim-slider-label">
+            <span>Shower width</span>
+            <strong id="widthVal">4<small> ft</small></strong>
+          </div>
+          <input type="range" id="widthSlider" min="3" max="8" step="0.5" value="4" oninput="updateDimensions()">
+        </div>
+
+        <div class="dim-section-title">Depth</div>
+        <div class="dim-slider-group">
+          <div class="dim-slider-label">
+            <span>Shower depth</span>
+            <strong id="depthVal">4<small> ft</small></strong>
+          </div>
+          <input type="range" id="depthSlider" min="3" max="8" step="0.5" value="4" oninput="updateDimensions()">
+        </div>
+
+        <div class="dim-section-title">Wall Height</div>
+        <div class="dim-slider-group">
+          <div class="dim-slider-label">
+            <span>Enclosure height</span>
+            <strong id="heightVal">7<small> ft</small></strong>
+          </div>
+          <input type="range" id="heightSlider" min="6" max="8" step="0.5" value="7" oninput="updateDimensions()">
+        </div>
+
+        <div class="upsell-banner">
+          <div class="upsell-icon">👕</div>
+          <div class="upsell-text">
+            <strong>Add Changing Area &mdash; $340</strong>
+            <span>Extends the enclosure with a 3'x3' private changing section with hooks and privacy door.</span>
+          </div>
+          <button class="upsell-add" data-upsell="changing" data-price="340" onclick="toggleUpsell(this)">Add $340</button>
+        </div>
+      </div>
+
+      <div class="birdseye-panel">
+        <div class="birdseye-label">Top-Down View</div>
+        <svg id="birdseyeSvg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="birdseye-meta">
+          <strong id="beSqFt">16 sq ft</strong> shower area &bull;
+          <strong id="beLinFt">8 lin ft</strong> of walls &bull;
+          <strong id="beWallSqFt">56 sq ft</strong> wall coverage
+        </div>
+        <div class="birdseye-price" id="bePrice">$595 <small>estimated</small></div>
+      </div>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goStep(0)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back: Material
+      </button>
+      <button class="btn-next" onclick="goStep(2)">
+        Next: Add-Ons
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 3: Add-Ons ===== -->
+<div class="step-panel" data-step="2">
+  <div class="step-body">
+    <h2 class="step-heading">Fixtures &amp; add-ons</h2>
+    <p class="step-subheading">Every kit includes a rain head and mixer valve. Add extras below.</p>
+
+    <div class="dim-section-title">Included With Every Kit</div>
+    <div class="addons-grid" style="margin-bottom:28px; opacity:0.65; pointer-events:none;">
+      <div class="addon-card selected">
+        <div class="addon-icon">🚿</div>
+        <div class="addon-info">
+          <div class="addon-name">Hot &amp; Cold Mixer Valve</div>
+          <div class="addon-desc">Single-handle chrome mixing valve</div>
+        </div>
+        <div class="addon-price" style="color:var(--text-muted);">Included</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card selected">
+        <div class="addon-icon">🌧</div>
+        <div class="addon-info">
+          <div class="addon-name">8" Rain Shower Head</div>
+          <div class="addon-desc">Brushed nickel overhead rain head</div>
+        </div>
+        <div class="addon-price" style="color:var(--text-muted);">Included</div>
+        <div class="addon-check"></div>
+      </div>
+    </div>
+
+    <div class="dim-section-title">Optional Upgrades</div>
+    <div class="addons-grid">
+      <div class="addon-card" data-addon="handheld" data-price="85" onclick="toggleAddon(this)">
+        <div class="addon-icon">✋</div>
+        <div class="addon-info">
+          <div class="addon-name">Handheld Sprayer</div>
+          <div class="addon-desc">Detachable on adjustable slide bar</div>
+        </div>
+        <div class="addon-price">+$85</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="footwash" data-price="65" onclick="toggleAddon(this)">
+        <div class="addon-icon">🦶</div>
+        <div class="addon-info">
+          <div class="addon-name">Foot Wash Spigot</div>
+          <div class="addon-desc">Low-mount rinse for sandy feet</div>
+        </div>
+        <div class="addon-price">+$65</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="bench" data-price="145" onclick="toggleAddon(this)">
+        <div class="addon-icon">🪑</div>
+        <div class="addon-info">
+          <div class="addon-name">Built-in Cedar Bench</div>
+          <div class="addon-desc">Fold-down seat in matching wood</div>
+        </div>
+        <div class="addon-price">+$145</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="hooks" data-price="35" onclick="toggleAddon(this)">
+        <div class="addon-icon">🪝</div>
+        <div class="addon-info">
+          <div class="addon-name">Stainless Hooks (4-pack)</div>
+          <div class="addon-desc">Marine-grade towel &amp; robe hooks</div>
+        </div>
+        <div class="addon-price">+$35</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="floor" data-price="195" onclick="toggleAddon(this)">
+        <div class="addon-icon">🟫</div>
+        <div class="addon-info">
+          <div class="addon-name">Cedar Floor Grate</div>
+          <div class="addon-desc">Snap-together panels with drainage</div>
+        </div>
+        <div class="addon-price">+$195</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="light" data-price="110" onclick="toggleAddon(this)">
+        <div class="addon-icon">💡</div>
+        <div class="addon-info">
+          <div class="addon-name">Solar LED Light</div>
+          <div class="addon-desc">Warm white overhead, no wiring needed</div>
+        </div>
+        <div class="addon-price">+$110</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="privacy" data-price="175" onclick="toggleAddon(this)">
+        <div class="addon-icon">🚪</div>
+        <div class="addon-info">
+          <div class="addon-name">Privacy Door</div>
+          <div class="addon-desc">Louvered door with latch hardware</div>
+        </div>
+        <div class="addon-price">+$175</div>
+        <div class="addon-check"></div>
+      </div>
+      <div class="addon-card" data-addon="shelf" data-price="55" onclick="toggleAddon(this)">
+        <div class="addon-icon">📦</div>
+        <div class="addon-info">
+          <div class="addon-name">Built-in Shelf</div>
+          <div class="addon-desc">Matching wood shelf for soap &amp; shampoo</div>
+        </div>
+        <div class="addon-price">+$55</div>
+        <div class="addon-check"></div>
+      </div>
+    </div>
+
+    <div class="upsell-banner">
+      <div class="upsell-icon">🔧</div>
+      <div class="upsell-text">
+        <strong>Professional Installation &mdash; $450</strong>
+        <span>Our crew handles everything: plumbing, leveling, and anchoring. Cape Cod &amp; South Shore area.</span>
+      </div>
+      <button class="upsell-add" data-upsell="install" data-price="450" onclick="toggleUpsell(this)">Add $450</button>
+    </div>
+
+    <div class="step-nav">
+      <button class="btn-back" onclick="goStep(1)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Back: Size
+      </button>
+      <button class="btn-next finish" onclick="goStep(3)">
+        See Your Quote
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== STEP 4: Quote ===== -->
+<div class="step-panel" data-step="3">
+  <div class="step-body">
+    <h2 class="step-heading">Your outdoor shower quote</h2>
+    <p class="step-subheading">Here's the full breakdown. Reserve online or call us to finalize.</p>
+
+    <div class="quote-layout">
+      <div>
+        <div class="quote-card">
+          <div class="quote-card-header">
+            <h3 id="quoteTitle">Cedar 2-Wall Outdoor Shower</h3>
+          </div>
+          <div class="quote-card-body">
+            <div class="quote-line">
+              <span class="quote-line-label">Enclosure Kit</span>
+              <span class="quote-line-value" id="qStyle">2-Wall, 4' &times; 4' &times; 7'</span>
+              <span class="quote-line-price" id="qBasePrice">$595</span>
+            </div>
+            <div class="quote-line">
+              <span class="quote-line-label">Material</span>
+              <span class="quote-line-value" id="qMat">Western Red Cedar</span>
+              <span class="quote-line-price" id="qMatPrice">Included</span>
+            </div>
+            <div class="quote-line">
+              <span class="quote-line-label">Fixtures (standard)</span>
+              <span class="quote-line-value">Rain head + mixer valve</span>
+              <span class="quote-line-price">$0</span>
+            </div>
+            <div id="qAddonLines"></div>
+            <div id="qUpsellLines"></div>
+            <div class="quote-line">
+              <span class="quote-line-label">Shipping</span>
+              <span class="quote-line-value" id="qShipping">Free</span>
+              <span class="quote-line-price">$0</span>
+            </div>
+            <div class="quote-total">
+              <span class="quote-total-label">Total Estimate</span>
+              <span class="quote-total-price" id="qTotal">$595</span>
+            </div>
+          </div>
+          <div class="quote-actions">
+            <button class="quote-cta" id="qDepositBtn">Reserve This Quote &mdash; $60 Deposit</button>
+            <button class="quote-secondary">Email Me This Quote</button>
+            <div class="quote-fine">Price valid for 7 days. Final quote confirmed within 1 business day.<br>Free shipping on orders over $500.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-sidebar">
+        <div class="quote-photo">
+          <img id="quotePhoto" src="https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg" alt="Your shower">
+        </div>
+        <div class="quote-mini-birdseye">
+          <div class="quote-mini-label">Your Layout</div>
+          <svg id="quoteBirdseye" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>
+        </div>
+        <div class="quote-specs">
+          <div class="quote-spec-line">
+            <span class="quote-spec-label">Material</span>
+            <span class="quote-spec-value" id="qsMat">Cedar</span>
+          </div>
+          <div class="quote-spec-line">
+            <span class="quote-spec-label">Style</span>
+            <span class="quote-spec-value" id="qsStyle">2-Wall</span>
+          </div>
+          <div class="quote-spec-line">
+            <span class="quote-spec-label">Dimensions</span>
+            <span class="quote-spec-value" id="qsDim">4' &times; 4' &times; 7'</span>
+          </div>
+          <div class="quote-spec-line">
+            <span class="quote-spec-label">Floor Area</span>
+            <span class="quote-spec-value" id="qsArea">16 sq ft</span>
+          </div>
+          <div class="quote-spec-line">
+            <span class="quote-spec-label">Wall Coverage</span>
+            <span class="quote-spec-value" id="qsWall">56 sq ft</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== STATE ====================
+const state = {
+  material: 'cedar',
+  materialLabel: 'Western Red Cedar',
+  materialColor: '#B5651D',
+  materialLight: '#D4A574',
+  materialSqft: 8.50,
+  style: '2-wall',
+  width: 4, depth: 4, height: 7,
+  addons: {},
+  upsells: {}
+};
+
+const materialLabels = { cedar: 'Western Red Cedar', pvc: 'Cellular PVC' };
+const styleNames = { 'freestanding': 'Free-Standing', '2-wall': '2-Wall', '3-wall': '3-Wall', 'full': 'Full Enclosure' };
+const styleBasePrices = { 'freestanding': 395, '2-wall': 595, '3-wall': 795, 'full': 995 };
+const addonNames = { handheld:'Handheld Sprayer', footwash:'Foot Wash Spigot', bench:'Built-in Bench', hooks:'Stainless Hooks', floor:'Cedar Floor Grate', light:'Solar LED Light', privacy:'Privacy Door', shelf:'Built-in Shelf' };
+const upsellNames = { stain:'Pre-Staining', changing:'Changing Area', install:'Professional Installation' };
+
+const cedarPhotos = [
+  'https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2015/04/complete-free-standing-shower-kit.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-showers-deluxe-house-mount.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2016/06/outdoor-shower-kit-ideas-house-mount-83-cedar-TX-UT-NV.jpg'
+];
+const pvcPhotos = [
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/04/standard-pvc-freestanding-outdoor-shower.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/07/outdoor-shower-azek-style-deluxe-free-standing.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/04/outdoor-showers-83-house-mount.jpg'
+];
+
+// ==================== NAVIGATION ====================
+function goStep(n) {
+  document.querySelectorAll('.step-tab').forEach((tab, i) => {
+    tab.classList.remove('active', 'done');
+    if (i === n) tab.classList.add('active');
+    else if (i < n) tab.classList.add('done');
+  });
+  document.querySelectorAll('.step-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector(`.step-panel[data-step="${n}"]`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (n === 1) updateBirdseye();
+  if (n === 3) buildQuote();
+}
+
+// ==================== MATERIAL ====================
+document.querySelectorAll('.mat-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.mat-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    state.material = card.dataset.mat;
+    state.materialLabel = materialLabels[card.dataset.mat];
+    state.materialColor = card.dataset.color;
+    state.materialLight = card.dataset.light;
+    state.materialSqft = parseFloat(card.dataset.sqft);
+    // Show/hide stain upsell
+    document.getElementById('upsellStain').style.display = state.material === 'pvc' ? 'none' : '';
+  });
+});
+
+// ==================== STYLE ====================
+function setStyle(el) {
+  document.querySelectorAll('.style-chip').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  state.style = el.dataset.style;
+  updateDimensions();
+}
+
+// ==================== DIMENSIONS ====================
+function updateDimensions() {
+  state.width = parseFloat(document.getElementById('widthSlider').value);
+  state.depth = parseFloat(document.getElementById('depthSlider').value);
+  state.height = parseFloat(document.getElementById('heightSlider').value);
+  document.getElementById('widthVal').innerHTML = state.width + '<small> ft</small>';
+  document.getElementById('depthVal').innerHTML = state.depth + '<small> ft</small>';
+  document.getElementById('heightVal').innerHTML = state.height + '<small> ft</small>';
+  updateBirdseye();
+}
+
+// ==================== BIRD'S EYE ====================
+function drawBirdseye(svgEl, viewBox, showPrice) {
+  const w = state.width, d = state.depth, style = state.style;
+  const color = state.materialColor;
+  const light = state.materialLight;
+  const vb = viewBox || 400;
+  const scale = Math.min(50, (vb - 100) / Math.max(w, d));
+  const showerW = w * scale, showerD = d * scale;
+  const ox = (vb - showerW) / 2, oy = (vb - showerD) / 2;
+  const wt = Math.max(6, scale * 0.16);
+
+  let h = '';
+  h += `<rect x="0" y="0" width="${vb}" height="${vb}" fill="#f9f7f4" rx="8"/>`;
+  // Deck shadow
+  h += `<rect x="${ox-24}" y="${oy-24}" width="${showerW+48}" height="${showerD+48}" fill="#ebe8e3" rx="4"/>`;
+  // Deck planks
+  h += `<rect x="${ox-16}" y="${oy-16}" width="${showerW+32}" height="${showerD+32}" fill="#f0ede8" rx="3"/>`;
+  for (let i = 0; i < (showerW+32); i += 12) {
+    h += `<line x1="${ox-16+i}" y1="${oy-16}" x2="${ox-16+i}" y2="${oy+showerD+16}" stroke="#e5e2dd" stroke-width="0.5"/>`;
+  }
+  // Shower floor
+  h += `<rect x="${ox}" y="${oy}" width="${showerW}" height="${showerD}" fill="${light}" opacity="0.35" rx="2"/>`;
+  // Floor grid
+  for (let i=1; i<w; i++) h += `<line x1="${ox+i*scale}" y1="${oy}" x2="${ox+i*scale}" y2="${oy+showerD}" stroke="${color}" opacity="0.08" stroke-width="0.5"/>`;
+  for (let i=1; i<d; i++) h += `<line x1="${ox}" y1="${oy+i*scale}" x2="${ox+showerW}" y2="${oy+i*scale}" stroke="${color}" opacity="0.08" stroke-width="0.5"/>`;
+
+  // Walls
+  if (style === 'freestanding') {
+    h += `<rect x="${ox+showerW/2-wt/2}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="2"/>`;
+  } else if (style === '2-wall') {
+    h += `<rect x="${ox}" y="${oy}" width="${showerW}" height="${wt}" fill="${color}" rx="1"/>`;
+    h += `<rect x="${ox}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="1"/>`;
+  } else if (style === '3-wall') {
+    h += `<rect x="${ox}" y="${oy}" width="${showerW}" height="${wt}" fill="${color}" rx="1"/>`;
+    h += `<rect x="${ox}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="1"/>`;
+    h += `<rect x="${ox+showerW-wt}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="1"/>`;
+    const dw = Math.min(30, showerW*0.3);
+    h += `<line x1="${ox}" y1="${oy+showerD}" x2="${ox+(showerW-dw)/2}" y2="${oy+showerD}" stroke="${color}" stroke-width="${wt}" stroke-linecap="round"/>`;
+    h += `<line x1="${ox+(showerW+dw)/2}" y1="${oy+showerD}" x2="${ox+showerW}" y2="${oy+showerD}" stroke="${color}" stroke-width="${wt}" stroke-linecap="round"/>`;
+    const ds = ox+(showerW+dw)/2;
+    h += `<path d="M ${ds} ${oy+showerD} A ${dw} ${dw} 0 0 1 ${ds+dw*0.7} ${oy+showerD-dw*0.7}" fill="none" stroke="${color}" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>`;
+  } else if (style === 'full') {
+    h += `<rect x="${ox}" y="${oy}" width="${showerW}" height="${wt}" fill="${color}" rx="1"/>`;
+    h += `<rect x="${ox}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="1"/>`;
+    h += `<rect x="${ox+showerW-wt}" y="${oy}" width="${wt}" height="${showerD}" fill="${color}" rx="1"/>`;
+    const dw = Math.min(30, showerW*0.3);
+    h += `<line x1="${ox}" y1="${oy+showerD}" x2="${ox+(showerW-dw)/2}" y2="${oy+showerD}" stroke="${color}" stroke-width="${wt}" stroke-linecap="round"/>`;
+    h += `<line x1="${ox+(showerW+dw)/2}" y1="${oy+showerD}" x2="${ox+showerW}" y2="${oy+showerD}" stroke="${color}" stroke-width="${wt}" stroke-linecap="round"/>`;
+    const ds = ox+(showerW+dw)/2;
+    h += `<path d="M ${ds} ${oy+showerD} A ${dw} ${dw} 0 0 1 ${ds+dw*0.7} ${oy+showerD+dw*0.7}" fill="none" stroke="${color}" stroke-width="1" stroke-dasharray="3,3" opacity="0.35"/>`;
+  }
+
+  // Shower head
+  h += `<circle cx="${ox+showerW/2}" cy="${oy+showerD*0.2}" r="${scale*0.28}" fill="none" stroke="#aaa" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+  h += `<circle cx="${ox+showerW/2}" cy="${oy+showerD*0.2}" r="${scale*0.08}" fill="#bbb"/>`;
+
+  // Dimension: width (top)
+  const ay = oy - 20;
+  h += `<line x1="${ox}" y1="${ay}" x2="${ox+showerW}" y2="${ay}" stroke="#999" stroke-width="1"/>`;
+  h += `<line x1="${ox}" y1="${ay-5}" x2="${ox}" y2="${ay+5}" stroke="#999" stroke-width="1"/>`;
+  h += `<line x1="${ox+showerW}" y1="${ay-5}" x2="${ox+showerW}" y2="${ay+5}" stroke="#999" stroke-width="1"/>`;
+  h += `<text x="${ox+showerW/2}" y="${ay-7}" text-anchor="middle" font-size="13" font-weight="700" fill="#4a4a4a" font-family="Lato,sans-serif">${w} ft</text>`;
+
+  // Dimension: depth (right)
+  const ax = ox + showerW + 20;
+  h += `<line x1="${ax}" y1="${oy}" x2="${ax}" y2="${oy+showerD}" stroke="#999" stroke-width="1"/>`;
+  h += `<line x1="${ax-5}" y1="${oy}" x2="${ax+5}" y2="${oy}" stroke="#999" stroke-width="1"/>`;
+  h += `<line x1="${ax-5}" y1="${oy+showerD}" x2="${ax+5}" y2="${oy+showerD}" stroke="#999" stroke-width="1"/>`;
+  h += `<text x="${ax+8}" y="${oy+showerD/2+4}" font-size="13" font-weight="700" fill="#4a4a4a" font-family="Lato,sans-serif">${d} ft</text>`;
+
+  // Area in center
+  h += `<text x="${ox+showerW/2}" y="${oy+showerD*0.75}" text-anchor="middle" font-size="11" fill="#999" font-family="Lato,sans-serif">${w*d} sq ft</text>`;
+
+  svgEl.innerHTML = h;
+}
+
+function updateBirdseye() {
+  drawBirdseye(document.getElementById('birdseyeSvg'), 400);
+
+  const w = state.width, d = state.depth, h = state.height;
+  const wallPer = getWallPerimeter();
+  const wallSqFt = Math.round(wallPer * h);
+
+  document.getElementById('beSqFt').textContent = (w*d) + ' sq ft';
+  document.getElementById('beLinFt').textContent = Math.round(wallPer) + ' lin ft';
+  document.getElementById('beWallSqFt').textContent = wallSqFt + ' sq ft';
+
+  // Running price
+  const total = calcTotal();
+  document.getElementById('bePrice').innerHTML = '$' + total.toLocaleString() + ' <small>estimated</small>';
+}
+
+function getWallPerimeter() {
+  const w = state.width, d = state.depth;
+  switch (state.style) {
+    case 'freestanding': return d;
+    case '2-wall': return w + d;
+    case '3-wall': return w + d * 2;
+    case 'full': return (w + d) * 2;
+    default: return w + d;
+  }
+}
+
+function calcTotal() {
+  const base = styleBasePrices[state.style] || 595;
+  const w = state.width, d = state.depth, h = state.height;
+  const sizeUp = Math.max(0, Math.round(((w*d) - 16) * state.materialSqft));
+  const heightUp = Math.max(0, Math.round((h - 7) * getWallPerimeter() * state.materialSqft));
+  const matUp = state.material === 'pvc' ? Math.round((10.25 - 8.50) * getWallPerimeter() * h) : 0;
+  const addons = Object.values(state.addons).reduce((a,b) => a+b, 0);
+  const upsells = Object.values(state.upsells).reduce((a,b) => a+b, 0);
+  return base + sizeUp + heightUp + matUp + addons + upsells;
+}
+
+// ==================== ADD-ONS ====================
+function toggleAddon(el) {
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) state.addons[el.dataset.addon] = parseInt(el.dataset.price);
+  else delete state.addons[el.dataset.addon];
+}
+
+function toggleUpsell(btn) {
+  const name = btn.dataset.upsell, price = parseInt(btn.dataset.price);
+  if (btn.classList.contains('added')) {
+    btn.classList.remove('added');
+    btn.textContent = `Add $${price}`;
+    delete state.upsells[name];
+  } else {
+    btn.classList.add('added');
+    btn.textContent = '✓ Added';
+    state.upsells[name] = price;
+  }
+}
+
+// ==================== BUILD QUOTE ====================
+function buildQuote() {
+  const w = state.width, d = state.depth, h = state.height;
+  const styleName = styleNames[state.style];
+  const base = styleBasePrices[state.style] || 595;
+  const sizeUp = Math.max(0, Math.round(((w*d)-16) * state.materialSqft));
+  const heightUp = Math.max(0, Math.round((h-7) * getWallPerimeter() * state.materialSqft));
+  const matUp = state.material === 'pvc' ? Math.round((10.25 - 8.50) * getWallPerimeter() * h) : 0;
+
+  document.getElementById('quoteTitle').textContent = `${state.materialLabel} ${styleName} Outdoor Shower`;
+  document.getElementById('qStyle').innerHTML = `${styleName}, ${w}' &times; ${d}' &times; ${h}'`;
+  document.getElementById('qBasePrice').textContent = '$' + (base + sizeUp + heightUp);
+  document.getElementById('qMat').textContent = state.materialLabel;
+  document.getElementById('qMatPrice').textContent = matUp > 0 ? '+$' + matUp : 'Included';
+
+  // Add-on lines
+  let addonHtml = '';
+  for (const [k,p] of Object.entries(state.addons)) {
+    addonHtml += `<div class="quote-line sub"><span class="quote-line-label">${addonNames[k]}</span><span class="quote-line-value"></span><span class="quote-line-price">+$${p}</span></div>`;
+  }
+  document.getElementById('qAddonLines').innerHTML = addonHtml;
+
+  let upsellHtml = '';
+  for (const [k,p] of Object.entries(state.upsells)) {
+    upsellHtml += `<div class="quote-line sub"><span class="quote-line-label">${upsellNames[k]}</span><span class="quote-line-value"></span><span class="quote-line-price">+$${p}</span></div>`;
+  }
+  document.getElementById('qUpsellLines').innerHTML = upsellHtml;
+
+  const total = calcTotal();
+  document.getElementById('qTotal').textContent = '$' + total.toLocaleString();
+  document.getElementById('qShipping').textContent = total >= 500 ? 'Free' : 'Standard';
+  document.getElementById('qDepositBtn').textContent = `Reserve This Quote — $${Math.round(total * 0.1)} Deposit (10%)`;
+
+  // Sidebar
+  const photos = state.material === 'pvc' ? pvcPhotos : cedarPhotos;
+  document.getElementById('quotePhoto').src = photos[Math.floor(Math.random() * photos.length)];
+  document.getElementById('qsMat').textContent = state.materialLabel;
+  document.getElementById('qsStyle').textContent = styleName;
+  document.getElementById('qsDim').innerHTML = `${w}' &times; ${d}' &times; ${h}'`;
+  document.getElementById('qsArea').textContent = (w*d) + ' sq ft';
+  document.getElementById('qsWall').textContent = Math.round(getWallPerimeter() * h) + ' sq ft';
+
+  drawBirdseye(document.getElementById('quoteBirdseye'), 300);
+}
+
+// Init
+updateDimensions();
+</script>
+
+</body>
+</html>

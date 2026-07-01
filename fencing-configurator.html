@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Your Cedar Fence | Stonewood Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #334862;
+  --navy-dark: #25344a;
+  --green: #5C7A56;
+  --green-light: #70926E;
+  --green-dark: #4A6645;
+  --dark: #3a3a3a;
+  --body: #5a5a5a;
+  --muted: #999;
+  --light-bg: #f7f5f1;
+  --stone: #efece6;
+  --white: #fff;
+  --border: #e5e2dd;
+  --cedar: #b07b46;
+  --amber: #C4882A;
+  --amber-dark: #A8721F;
+  --success: #5C7A56;
+}
+
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: 'Lato', sans-serif; color: var(--body);
+  background: var(--white); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--dark); font-weight: 600; }
+button { cursor: pointer; font-family: 'Lato', sans-serif; }
+img { max-width: 100%; display: block; }
+
+/* ========== HEADER (on hero) ========== */
+.site-header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+}
+.site-header-logo { text-decoration: none; display: flex; align-items: center; }
+.site-header-logo img { height: 60px; filter: drop-shadow(0 2px 10px rgba(0,0,0,0.55)); }
+.site-header-nav { display: flex; align-items: center; gap: 30px; }
+.site-header-nav a {
+  font-size: 13px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+  color: rgba(255,255,255,0.9); text-decoration: none; transition: color 0.2s;
+}
+.site-header-nav a:hover { color: #fff; }
+.site-header-right { display: flex; align-items: center; gap: 20px; }
+.site-header-phone {
+  font-size: 15px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+}
+
+/* ========== HERO ========== */
+.hero {
+  height: 100vh; width: 100vw;
+  background: linear-gradient(rgba(20,30,25,0.34), rgba(20,30,25,0.55)),
+    url('img/fence/hero-pool.jpg') center/cover no-repeat;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 60px 32px; color: #fff;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 99px; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 28px; backdrop-filter: blur(4px);
+}
+.hero h1 {
+  font-size: 76px; color: #fff; line-height: 1.06; margin-bottom: 20px;
+  max-width: 880px; letter-spacing: -1px; font-weight: 600;
+}
+.hero-sub { font-size: 22px; color: rgba(255,255,255,0.92); margin-bottom: 40px; font-weight: 400; max-width: 620px; }
+.hero-cta {
+  padding: 22px 60px; background: var(--amber); color: #fff; border: none;
+  border-radius: 6px; font-size: 19px; font-weight: 900; letter-spacing: 0.5px;
+  text-transform: uppercase; transition: all 0.25s;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+.hero-cta:hover { background: var(--amber-dark); transform: translateY(-2px); }
+.hero-trust {
+  display: flex; align-items: center; gap: 28px; margin-top: 22px; flex-wrap: wrap; justify-content: center;
+}
+.hero-trust-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.78);
+}
+.hero-proof {
+  display: flex; align-items: center; gap: 30px; margin-top: 34px; flex-wrap: wrap; justify-content: center;
+}
+.hero-proof-item { display: flex; align-items: center; gap: 8px; font-size: 16px; color: rgba(255,255,255,0.92); font-weight: 600; }
+.hero-proof-stars { color: #f0c14b; font-size: 17px; letter-spacing: 2px; }
+.hero-proof-divider { width: 1px; height: 22px; background: rgba(255,255,255,0.28); }
+
+/* ========== BUILDER CONTAINER ========== */
+.builder {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  display: none; flex-direction: column; background: var(--white); z-index: 200;
+}
+.builder.active { display: flex; }
+
+/* Progress bar */
+.progress-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 62px;
+  border-bottom: 1px solid var(--border); background: var(--white); flex-shrink: 0;
+}
+.progress-logo { text-decoration: none; display: flex; align-items: center; }
+.progress-logo img { height: 38px; }
+.progress-steps { display: flex; align-items: center; gap: 0; flex: 1; justify-content: center; }
+.progress-step {
+  display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase;
+  color: var(--muted); cursor: pointer; transition: color 0.2s; position: relative;
+}
+.progress-step .step-num {
+  width: 28px; height: 28px; border-radius: 50%; background: #eee;
+  color: var(--muted); font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.3s;
+}
+.progress-step.active { color: var(--green); }
+.progress-step.active .step-num { background: var(--green); color: #fff; }
+.progress-step.done { color: var(--dark); }
+.progress-step.done .step-num { background: var(--success); color: #fff; }
+.progress-step::after {
+  content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 1px; background: var(--border);
+}
+.progress-step:last-child::after { display: none; }
+.progress-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px; color: var(--navy); text-align: right; line-height: 1.1;
+}
+.progress-price small { font-family: 'Lato', sans-serif; font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; display: block; }
+
+/* ========== PAGES ========== */
+.pages-wrap { flex: 1; overflow: hidden; position: relative; }
+.page {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(60px); overflow-y: auto;
+}
+.page.active { opacity: 1; pointer-events: all; transform: translateX(0); }
+.page.exit-left { opacity: 0; transform: translateX(-60px); }
+
+.page-center {
+  width: 100%; display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-start; padding: 36px 40px 110px; min-height: 100%;
+}
+.page-split { width: 100%; display: grid; grid-template-columns: 1fr 1fr; min-height: 100%; }
+.page-split-img { background-size: cover; background-position: center; }
+.page-split-content { display: flex; flex-direction: column; justify-content: center; padding: 60px 56px; }
+
+.page-label {
+  font-size: 12.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--green); margin-bottom: 12px;
+}
+.page-title { font-size: 46px; margin-bottom: 8px; letter-spacing: -0.5px; }
+.page-sub { font-size: 17px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; max-width: 640px; text-align: center; }
+
+/* ========== STYLE CARDS (use/height) ========== */
+.style-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1120px; width: 100%; }
+.style-card {
+  border: 3px solid var(--border); border-radius: 16px; overflow: hidden;
+  cursor: pointer; transition: all 0.3s; background: var(--white); text-align: left;
+}
+.style-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.09); }
+.style-card.selected { border-color: var(--green); box-shadow: 0 0 0 2px var(--green); }
+.style-card-img { height: 280px; background-color: var(--light-bg); background-size: contain; background-repeat: no-repeat; background-position: center; background-origin: content-box; padding: 18px; position: relative; }
+.style-card-img .tag {
+  position: absolute; bottom: 14px; left: 14px;
+  padding: 6px 16px; border-radius: 99px; font-size: 11px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.94); color: var(--dark);
+}
+.style-card-body { padding: 24px 26px; }
+.style-card-name { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--dark); margin-bottom: 2px; }
+.style-card-dim { font-size: 15px; color: var(--green); font-weight: 700; margin-bottom: 8px; }
+.style-card-desc { font-size: 15px; color: var(--body); line-height: 1.5; margin-bottom: 14px; }
+.style-card-price { font-size: 24px; font-weight: 900; color: var(--navy); }
+.style-card-price small { font-size: 13px; font-weight: 400; color: var(--muted); }
+
+/* ========== OPTION ROW (design / grade) ========== */
+.opt-section { max-width: 980px; width: 100%; margin-bottom: 8px; }
+.opt-section h3 { font-size: 15px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; color: var(--dark); margin-bottom: 14px; font-family: 'Lato', sans-serif; }
+.opt-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 34px; }
+.opt-card {
+  border: 3px solid var(--border); border-radius: 14px; overflow: hidden;
+  cursor: pointer; transition: all 0.25s; background: var(--white); display: flex; align-items: stretch;
+}
+.opt-card:hover { border-color: var(--green); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+.opt-card.selected { border-color: var(--green); box-shadow: 0 0 0 2px var(--green); }
+.opt-card-img { width: 160px; flex-shrink: 0; background-color: var(--light-bg); background-size: contain; background-repeat: no-repeat; background-position: center; background-origin: content-box; padding: 12px; }
+.opt-card-body { padding: 20px 22px; flex: 1; }
+.opt-card-name { font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 5px; }
+.opt-card-desc { font-size: 14px; color: var(--muted); line-height: 1.45; margin-bottom: 8px; }
+.opt-card-tag { font-size: 13px; font-weight: 800; color: var(--green); }
+.opt-card-tag.minus { color: var(--amber-dark); }
+
+/* ========== LAYOUT PAGE (linear feet) ========== */
+.layout-wrap { max-width: 880px; width: 100%; display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.layout-field { margin-bottom: 26px; }
+.layout-field label { display: block; font-size: 14px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: 0.3px; }
+.layout-field .hint { font-size: 13px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+.ft-input-row { display: flex; align-items: center; gap: 14px; }
+.ft-input-row input[type=range] { flex: 1; accent-color: var(--green); height: 6px; }
+.ft-num {
+  width: 120px; display: flex; align-items: baseline; gap: 4px;
+  font-family: 'Playfair Display', serif; font-size: 34px; color: var(--navy);
+}
+.ft-num small { font-family: 'Lato', sans-serif; font-size: 14px; color: var(--muted); font-weight: 700; }
+.seg { display: inline-flex; gap: 4px; background: var(--light-bg); border-radius: 99px; padding: 4px; }
+.seg button {
+  padding: 11px 26px; border: none; background: transparent; border-radius: 99px;
+  font-size: 14px; font-weight: 700; color: var(--muted); transition: all 0.2s;
+}
+.seg button.active { background: var(--white); color: var(--dark); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.gate-row { display: flex; gap: 12px; }
+.gate-pill {
+  flex: 1; border: 2px solid var(--border); border-radius: 12px; padding: 14px; text-align: center;
+  cursor: pointer; transition: all 0.2s; background: var(--white);
+}
+.gate-pill:hover { border-color: var(--green); }
+.gate-pill.selected { border-color: var(--green); box-shadow: 0 0 0 2px var(--green); }
+.gate-pill .gn { font-size: 15px; font-weight: 800; color: var(--dark); }
+.gate-pill .gp { font-size: 13px; color: var(--green); font-weight: 700; margin-top: 2px; }
+.stepper { display: inline-flex; align-items: center; gap: 0; border: 2px solid var(--border); border-radius: 10px; overflow: hidden; }
+.stepper button { width: 42px; height: 42px; background: var(--light-bg); border: none; font-size: 20px; font-weight: 700; color: var(--dark); }
+.stepper button:hover { background: var(--stone); }
+.stepper span { width: 54px; text-align: center; font-size: 18px; font-weight: 800; color: var(--dark); }
+
+/* live estimate card */
+.layout-est {
+  position: sticky; top: 0; background: var(--light-bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 26px;
+}
+.layout-est h4 { font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
+.est-line { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.est-line:last-of-type { border-bottom: none; }
+.est-line .v { font-weight: 800; color: var(--dark); }
+.est-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; padding-top: 14px; border-top: 2px solid var(--dark); }
+.est-total .l { font-size: 13px; font-weight: 800; text-transform: uppercase; color: var(--dark); }
+.est-total .v { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--navy); }
+
+/* ========== AI CUSTOM PAGE ========== */
+.custom-examples { display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap; justify-content: center; }
+.custom-example {
+  padding: 13px 22px; border: 1.5px solid var(--border); border-radius: 99px;
+  font-size: 15px; font-weight: 600; color: var(--body); background: var(--white); transition: all 0.2s;
+}
+.custom-example:hover { border-color: var(--green); color: var(--green); }
+.custom-input-box {
+  background: var(--white); border: 2px solid var(--border); border-radius: 16px;
+  padding: 26px; transition: border-color 0.3s;
+}
+.custom-input-box:focus-within { border-color: var(--green); }
+.custom-ta {
+  width: 100%; min-height: 120px; border: none; outline: none; resize: vertical;
+  font-family: 'Lato', sans-serif; font-size: 19px; line-height: 1.7; color: var(--dark); background: transparent;
+}
+.custom-ta::placeholder { color: #bbb; }
+.custom-btn-row { display: flex; justify-content: flex-end; margin-top: 14px; padding-top: 14px; border-top: 1px solid #eee; }
+.custom-loading { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 40px; color: var(--green); }
+.custom-loading.show { display: flex; }
+.custom-dots { display: flex; gap: 6px; }
+.custom-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: dp 1.2s ease-in-out infinite; }
+.custom-dots span:nth-child(2) { animation-delay: 0.2s; }
+.custom-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dp { 0%,80%,100% { opacity: 0.15; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1); } }
+
+/* ========== QUOTE PAGE ========== */
+.quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1040px; width: 100%; }
+.quote-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.quote-card-head { padding: 22px 28px; border-bottom: 1px solid var(--border); }
+.quote-card-head h3 { font-size: 23px; }
+.quote-card-body { padding: 24px 28px; }
+.quote-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+.quote-line:last-of-type { border-bottom: none; }
+.ql-label { color: var(--body); }
+.ql-val { color: var(--dark); font-weight: 700; }
+.quote-total { display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0 0; margin-top: 12px; border-top: 2px solid var(--dark); }
+.quote-total-label { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--dark); }
+.quote-total-val { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--navy); }
+.quote-shipping { margin-top: 16px; padding-top: 14px; border-top: 1px solid #f0f0f0; }
+.quote-shipping label { font-size: 13px; font-weight: 700; color: var(--dark); display: block; margin-bottom: 8px; }
+.quote-zip-row { display: flex; gap: 8px; }
+.quote-zip-row input { flex: 1; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; font-family: 'Lato'; font-size: 15px; outline: none; }
+.quote-zip-row input:focus { border-color: var(--green); }
+.quote-zip-row button { padding: 12px 20px; background: var(--green); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; }
+.quote-actions { padding: 0 28px 28px; }
+.quote-cta { width: 100%; padding: 18px; background: var(--amber); color: #fff; border: none; border-radius: 8px; font-size: 18px; font-weight: 900; letter-spacing: 0.3px; transition: background 0.2s; margin-bottom: 10px; }
+.quote-cta:hover { background: var(--amber-dark); }
+.quote-sec { width: 100%; padding: 14px; background: transparent; color: var(--body); border: 2px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 700; transition: all 0.2s; }
+.quote-sec:hover { border-color: var(--dark); color: var(--dark); }
+.quote-fine { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+.quote-photo { border-radius: 16px; overflow: hidden; }
+.quote-photo img { width: 100%; height: 460px; object-fit: cover; }
+
+/* ========== NAV BUTTONS ========== */
+.page-nav {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 40px; background: linear-gradient(transparent, var(--white) 30%); pointer-events: none;
+}
+.page-nav > * { pointer-events: all; }
+.nav-back {
+  padding: 14px 28px; background: transparent; border: 2px solid var(--border);
+  border-radius: 8px; font-size: 14px; font-weight: 700; color: var(--body);
+  display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+}
+.nav-back:hover { border-color: var(--dark); color: var(--dark); }
+.nav-next {
+  padding: 16px 40px; background: var(--amber); color: #fff; border: none;
+  border-radius: 8px; font-size: 16px; font-weight: 900; letter-spacing: 0.3px;
+  display: flex; align-items: center; gap: 8px; transition: all 0.2s; box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.nav-next:hover { background: var(--amber-dark); }
+.nav-next.green { background: var(--green); }
+.nav-next.green:hover { background: var(--green-dark); }
+
+/* ========== BTN HELPERS ========== */
+.btn-amber { padding: 16px 40px; background: var(--amber); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 900; transition: all 0.2s; }
+.btn-amber:hover { background: var(--amber-dark); }
+.btn-green { padding: 16px 40px; background: var(--green); color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 900; transition: all 0.2s; }
+.btn-green:hover { background: var(--green-dark); }
+.btn-outline { padding: 16px 40px; background: transparent; color: var(--green); border: 2px solid var(--green); border-radius: 8px; font-size: 16px; font-weight: 700; transition: all 0.2s; }
+.btn-outline:hover { background: var(--green); color: #fff; }
+.mobile-float-cta { display: none; }
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+  .site-header-nav, .site-header-phone { display: none; }
+  .hero h1 { font-size: 44px; }
+  .hero-proof-divider { display: none; }
+  .hero-trust { gap: 12px; }
+  .style-cards { grid-template-columns: 1fr; }
+  .opt-row { grid-template-columns: 1fr; }
+  .layout-wrap { grid-template-columns: 1fr; }
+  .quote-grid { grid-template-columns: 1fr; }
+  .page-split { grid-template-columns: 1fr !important; }
+  .page-split-img { height: 280px; }
+  .page-split-content { padding: 32px 24px !important; }
+  .page-title { font-size: 36px !important; }
+  .progress-step .step-text { display: none; }
+  .progress-price { font-size: 22px; }
+  .mobile-float-cta {
+    display: flex !important; position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 300;
+    padding: 18px; background: var(--amber); color: #fff; border: none; border-radius: 12px;
+    font-size: 18px; font-weight: 900; text-align: center; justify-content: center; align-items: center; gap: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO LANDING ==================== -->
+<div id="landing">
+  <header class="site-header">
+    <a href="index.html" class="site-header-logo"><img src="img/logo.png" alt="Stonewood Products"></a>
+    <nav class="site-header-nav">
+      <a href="#">Pool Fence</a>
+      <a href="#">Privacy</a>
+      <a href="#">Garden</a>
+      <a href="#">Gates</a>
+      <a href="#">Gallery</a>
+    </nav>
+    <div class="site-header-right">
+      <a href="tel:18555908772" class="site-header-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        1-855-590-8772
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge"><span>🌲</span> New England Cedar &bull; Ships Nationwide</div>
+    <h1>Design Your Cedar Fence</h1>
+    <p class="hero-sub">Tell us about your yard in plain English — our AI lays it out, counts the panels, and prices it instantly.</p>
+    <button class="hero-cta" onclick="startBuilder()">Design My Fence →</button>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span>🪵</span> Real Northern White &amp; Red Cedar</div>
+      <div class="hero-trust-item"><span>🟢</span> Pre-Built Panels</div>
+      <div class="hero-trust-item"><span>🛡️</span> Built to Last Decades</div>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><span class="hero-proof-stars">★★★★★</span> 4.9 / 5 Rating</div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item"><strong>Pool · Privacy · Garden</strong></div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">Clear &amp; Knotty Grades</div>
+    </div>
+  </section>
+  <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:15px;color:rgba(255,255,255,0.55);">
+    A <strong>Stonewood Products</strong> concept demo &bull; AI-assisted fence design
+  </div>
+</div>
+
+<button class="mobile-float-cta" style="display:none;" onclick="startBuilder()">Design My Fence →</button>
+
+<!-- ==================== BUILDER ==================== -->
+<div class="builder" id="builder">
+
+  <div class="progress-bar">
+    <a href="#" class="progress-logo" onclick="exitBuilder(); return false;">
+      <img src="img/logo.png" alt="Stonewood">
+    </a>
+    <div class="progress-steps" id="progSteps"></div>
+    <div class="progress-price" id="progPrice"><small>Your Estimate</small>—</div>
+  </div>
+
+  <div class="pages-wrap">
+
+    <!-- PAGE 0: STYLE / USE -->
+    <div class="page active" data-page="0">
+      <div class="page-center">
+        <div class="page-label">Step 1 — What's it for?</div>
+        <h2 class="page-title">Choose Your Fence Style</h2>
+        <p class="page-sub">Each style is sized for its job. All are real cedar, pre-built into panels, and ship ready to install.</p>
+        <div class="style-cards">
+          <div class="style-card" data-style="garden" onclick="pickStyle(this)">
+            <div class="style-card-img" style="background-image:url('img/fence/garden-std.jpg')"></div>
+            <div class="style-card-body">
+              <div class="style-card-name">Garden</div>
+              <div class="style-card-dim">36" tall</div>
+              <div class="style-card-desc">Low decorative fence to frame beds, borders, and pet areas.</div>
+              <div class="style-card-price" id="pGarden">$189 <small>/ 6' panel</small></div>
+            </div>
+          </div>
+          <div class="style-card" data-style="privacy" onclick="pickStyle(this)">
+            <div class="style-card-img" style="background-image:url('img/fence/privacy-std.jpg')"><span class="tag">Most Popular</span></div>
+            <div class="style-card-body">
+              <div class="style-card-name">Privacy</div>
+              <div class="style-card-dim">42" tall</div>
+              <div class="style-card-desc">All-purpose privacy and yard definition. The everyday workhorse.</div>
+              <div class="style-card-price" id="pPrivacy">$229 <small>/ 6' panel</small></div>
+            </div>
+          </div>
+          <div class="style-card" data-style="pool" onclick="pickStyle(this)">
+            <div class="style-card-img" style="background-image:url('img/fence/pool-std.jpg')"><span class="tag">Code-Ready</span></div>
+            <div class="style-card-body">
+              <div class="style-card-name">Pool Height</div>
+              <div class="style-card-dim">48" tall</div>
+              <div class="style-card-desc">Meets pool-barrier height. Pairs with self-closing gates.</div>
+              <div class="style-card-price" id="pPool">$279 <small>/ 6' panel</small></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:36px;text-align:center;">
+          <button onclick="goPage(4)" style="background:none;border:none;color:var(--green);font-size:16px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:8px;">
+            <span style="display:inline-flex;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;align-items:center;justify-content:center;font-size:13px;">AI</span>
+            Not sure? Just describe your yard and let AI design it →
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 1: DESIGN & GRADE -->
+    <div class="page" data-page="1">
+      <div class="page-center">
+        <div class="page-label">Step 2 — Look &amp; material</div>
+        <h2 class="page-title">Design &amp; Grade</h2>
+        <p class="page-sub">Pick a board pattern and a cedar grade. Both ship pre-assembled in panels.</p>
+
+        <div class="opt-section">
+          <h3>Board Design</h3>
+          <div class="opt-row">
+            <div class="opt-card selected" data-group="design" data-val="standard" onclick="pickOpt(this)">
+              <div class="opt-card-img" id="imgStd" style="background-image:url('img/fence/privacy-std.jpg')"></div>
+              <div class="opt-card-body">
+                <div class="opt-card-name">Standard</div>
+                <div class="opt-card-desc">Clean vertical boards. Timeless and the best value.</div>
+                <div class="opt-card-tag">Included</div>
+              </div>
+            </div>
+            <div class="opt-card" data-group="design" data-val="x" onclick="pickOpt(this)">
+              <div class="opt-card-img" id="imgX" style="background-image:url('img/fence/privacy-x.jpg')"></div>
+              <div class="opt-card-body">
+                <div class="opt-card-name">X-Design</div>
+                <div class="opt-card-desc">Diagonal cross-brace adds structure and a custom look.</div>
+                <div class="opt-card-tag">+$45 / panel</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="opt-section">
+          <h3>Cedar Grade</h3>
+          <div class="opt-row" style="margin-bottom:8px;">
+            <div class="opt-card selected" data-group="grade" data-val="clear" onclick="pickOpt(this)">
+              <div class="opt-card-img" style="background-image:url('img/fence/grade-clear.jpg')"></div>
+              <div class="opt-card-body">
+                <div class="opt-card-name">Clear Cedar</div>
+                <div class="opt-card-desc">Smooth, knot-free boards for the cleanest finish.</div>
+                <div class="opt-card-tag">Included</div>
+              </div>
+            </div>
+            <div class="opt-card" data-group="grade" data-val="knotty" onclick="pickOpt(this)">
+              <div class="opt-card-img" style="background-image:url('img/fence/grade-knotty.jpg')"></div>
+              <div class="opt-card-body">
+                <div class="opt-card-name">Knotty Cedar</div>
+                <div class="opt-card-desc">Classic rustic character with natural knots. Saves ~15%.</div>
+                <div class="opt-card-tag minus">Save 15%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: LAYOUT (linear feet) -->
+    <div class="page" data-page="2">
+      <div class="page-center">
+        <div class="page-label">Step 3 — How much fence?</div>
+        <h2 class="page-title">Your Layout</h2>
+        <p class="page-sub">Tell us roughly how much you need. We'll figure panels, posts, and hardware.</p>
+        <div class="layout-wrap">
+          <div>
+            <div class="layout-field">
+              <label>Total length to fence</label>
+              <div class="ft-input-row">
+                <input type="range" id="ftRange" min="12" max="300" step="2" value="80" oninput="setFeet(this.value)">
+                <div class="ft-num"><span id="ftVal">80</span><small>linear ft</small></div>
+              </div>
+              <div class="hint">Estimate by pacing it out — one big step ≈ 3 feet. The AI designer can do this for you from a description.</div>
+            </div>
+
+            <div class="layout-field">
+              <label>Panel length</label>
+              <div class="seg">
+                <button class="active" data-len="6" onclick="setLen(this,6)">6 ft panels</button>
+                <button data-len="8" onclick="setLen(this,8)">8 ft panels</button>
+              </div>
+              <div class="hint">8-ft panels mean fewer posts and a faster install; 6-ft panels handle slopes and corners better.</div>
+            </div>
+
+            <div class="layout-field">
+              <label>Gates</label>
+              <div class="gate-row">
+                <div class="gate-pill" data-gate="none" onclick="setGate(this,'none')">
+                  <div class="gn">No gate</div><div class="gp">&nbsp;</div>
+                </div>
+                <div class="gate-pill selected" data-gate="solid" onclick="setGate(this,'solid')">
+                  <div class="gn">Solid Gate</div><div class="gp">+$349</div>
+                </div>
+                <div class="gate-pill" data-gate="grid" onclick="setGate(this,'grid')">
+                  <div class="gn">Grid / Mesh Gate</div><div class="gp">+$299</div>
+                </div>
+              </div>
+              <div class="layout-field" style="margin-top:16px;display:flex;align-items:center;gap:16px;">
+                <label style="margin:0;">How many gates?</label>
+                <div class="stepper">
+                  <button onclick="bumpGate(-1)">−</button><span id="gateQty">1</span><button onclick="bumpGate(1)">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="layout-est">
+            <h4>Live Estimate</h4>
+            <div class="est-line"><span>Panels needed</span><span class="v" id="ePanels">—</span></div>
+            <div class="est-line"><span>Posts</span><span class="v" id="ePosts">—</span></div>
+            <div class="est-line"><span>Style</span><span class="v" id="eStyle">—</span></div>
+            <div class="est-line"><span>Design / Grade</span><span class="v" id="eDG">—</span></div>
+            <div class="est-line"><span>Gates</span><span class="v" id="eGates">—</span></div>
+            <div class="est-total"><span class="l">Estimate</span><span class="v" id="eTotal">—</span></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.4;">Posts, caps &amp; hardware included. Final price confirmed after a quick layout review.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: QUOTE -->
+    <div class="page" data-page="3">
+      <div class="page-center">
+        <div class="page-label">Your Quote</div>
+        <h2 class="page-title">Your Cedar Fence</h2>
+        <p class="page-sub">Review your project and lock it in. A specialist confirms the final layout before anything ships.</p>
+        <div class="quote-grid">
+          <div>
+            <div class="quote-card">
+              <div class="quote-card-head"><h3 id="qName">Privacy Fence — Clear Cedar</h3></div>
+              <div class="quote-card-body">
+                <div class="quote-line"><span class="ql-label">Style</span><span class="ql-val" id="qStyle">Privacy (42")</span></div>
+                <div class="quote-line"><span class="ql-label">Design</span><span class="ql-val" id="qDesign">Standard</span></div>
+                <div class="quote-line"><span class="ql-label">Grade</span><span class="ql-val" id="qGrade">Clear Cedar</span></div>
+                <div class="quote-line"><span class="ql-label">Run length</span><span class="ql-val" id="qLen">80 linear ft</span></div>
+                <div class="quote-line"><span class="ql-label">Panels</span><span class="ql-val" id="qPanels">14 × 6'</span></div>
+                <div class="quote-line"><span class="ql-label">Posts &amp; hardware</span><span class="ql-val">Included</span></div>
+                <div id="qExtras"></div>
+                <div class="quote-shipping">
+                  <label>Shipping Estimate</label>
+                  <div class="quote-zip-row">
+                    <input type="text" placeholder="Enter zip code" maxlength="5" id="zipIn">
+                    <button onclick="calcShip()">Estimate</button>
+                  </div>
+                  <div id="shipResult" style="font-size:14px;color:var(--dark);margin-top:10px;"></div>
+                </div>
+                <div class="quote-total">
+                  <span class="quote-total-label">Estimate</span>
+                  <span class="quote-total-val" id="qTotal">$3,206</span>
+                </div>
+              </div>
+              <div class="quote-actions">
+                <button class="quote-cta">Request Final Quote →</button>
+                <button class="quote-sec">Save &amp; Email This Design</button>
+                <div class="quote-fine">Concept demo — pricing is illustrative. Call 1-855-590-8772 to talk to a fence specialist.</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="quote-photo">
+              <img id="qImg" src="img/fence/privacy-std.jpg" alt="Your fence">
+            </div>
+            <div id="qSketchWrap" style="display:none;margin-top:16px;background:#f5f5f3;border:1px solid #e0e0dc;border-radius:16px;padding:24px;text-align:center;">
+              <div style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Your AI Layout</div>
+              <svg id="qSketch" width="100%" height="300" viewBox="0 0 480 420" preserveAspectRatio="xMidYMid meet" style="max-width:100%;"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: AI CUSTOM -->
+    <div class="page" data-page="4">
+      <div class="page-center" style="background:var(--light-bg);">
+        <button onclick="goPage(0)" style="align-self:flex-start; background:none; border:none; color:var(--green); font-size:14px; font-weight:800; display:flex; align-items:center; gap:6px; margin-bottom:18px; cursor:pointer;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back to Styles
+        </button>
+        <div class="page-label">AI Fence Designer</div>
+        <h2 class="page-title">Describe Your Yard</h2>
+        <p class="page-sub" style="font-size:19px;">Pool, corners, a slope, a gate by the driveway? Just say it the way you'd say it to a neighbor. Powered by Claude.</p>
+
+        <div id="customInitView" style="max-width:780px;width:100%;">
+          <div class="custom-examples">
+            <button class="custom-example" onclick="fillExample(0)">Enclose my pool, ~90 ft</button>
+            <button class="custom-example" onclick="fillExample(1)">Privacy along the back, two corners</button>
+            <button class="custom-example" onclick="fillExample(2)">Short garden border with a gate</button>
+          </div>
+          <div class="custom-input-box">
+            <textarea class="custom-ta" id="customIn" placeholder="I need to fence in my pool — it's a rectangle about 30 by 16 feet with a 4-foot deck around it. I want the code-height fence with a self-closing gate near the patio doors, in knotty cedar..."></textarea>
+            <div class="custom-btn-row">
+              <button class="btn-green" style="font-size:18px; padding:18px 44px;" onclick="runCustom()">Design My Fence →</button>
+            </div>
+          </div>
+          <div class="custom-loading" id="cLoading">
+            <div class="custom-dots"><span></span><span></span><span></span></div>
+            <span style="font-size:15px;font-weight:700;">Laying out your fence...</span>
+          </div>
+        </div>
+
+        <!-- SPLIT VIEW -->
+        <div id="customSplitView" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;">
+          <div style="display:grid;grid-template-columns:340px 1fr;height:100%;">
+            <div style="display:flex;flex-direction:column;height:100%;border-right:1px solid var(--border);background:var(--white);">
+              <div style="padding:18px 20px 12px;border-bottom:1px solid var(--border);flex-shrink:0;">
+                <div style="font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--green);margin-bottom:4px;">Fence Design Chat</div>
+                <div style="font-size:12px;color:var(--muted);">Describe changes. The layout updates live.</div>
+              </div>
+              <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
+              <div style="padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;background:var(--light-bg);">
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                  <textarea id="chatInput" style="flex:1;height:48px;border:2px solid var(--border);border-radius:10px;padding:12px;font-family:'Lato',sans-serif;font-size:14px;resize:none;outline:none;color:var(--dark);background:var(--white);" placeholder="Add a second gate, switch to X-design..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendFollowUp();}"></textarea>
+                  <button onclick="sendFollowUp()" style="width:48px;height:48px;border-radius:10px;background:var(--green);border:none;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;">→</button>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex;flex-direction:column;height:100%;background:var(--light-bg);">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--border);background:var(--white);flex-shrink:0;gap:16px;">
+                <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+                  <div>
+                    <span id="cPrice" style="font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);">$4,200 – $4,900</span>
+                    <span style="font-size:11px;color:var(--muted);margin-left:6px;">est.</span>
+                  </div>
+                  <div style="width:1px;height:32px;background:var(--border);"></div>
+                  <ul id="cList" style="list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:var(--dark);margin:0;padding:0;"></ul>
+                </div>
+                <button class="btn-amber" style="font-size:14px;padding:12px 28px;white-space:nowrap;flex-shrink:0;" onclick="customToQuote()">Review Quote →</button>
+              </div>
+              <div style="flex:1;display:flex;align-items:flex-start;justify-content:center;padding:16px 16px 0;min-height:0;">
+                <svg id="cSketch" viewBox="0 0 480 420" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;max-height:calc(100vh - 180px);"></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /pages-wrap -->
+
+  <!-- NAV BUTTONS -->
+  <div class="page-nav" id="pageNav">
+    <button class="nav-back" onclick="navBack()">← Back</button>
+    <button class="nav-next" id="navNextBtn" onclick="navNext()">Next →</button>
+  </div>
+</div><!-- /builder -->
+
+<script>
+// ==================== STATE ====================
+const S = { style: null, design: 'standard', grade: 'clear', feet: 80, len: 6, gate: 'solid', gateQty: 1, currentPage: 0, isCustom: false, customPrice: '' };
+
+// base price per 6' panel by style+grade (clear). knotty = -15%
+const panelBase = { garden: 189, privacy: 229, pool: 279 };
+const X_ADDER = 45;          // per panel, X-design
+const LEN8_MULT = 1.28;      // 8' panel costs ~28% more than 6'
+const KNOTTY_MULT = 0.85;
+const gatePrice = { none: 0, solid: 349, grid: 299 };
+
+const styleNames = { garden: 'Garden (36")', privacy: 'Privacy (42")', pool: 'Pool Height (48")' };
+const styleImgs = {
+  garden:  { standard: 'img/fence/garden-std.jpg', x: 'img/fence/garden-x.jpg' },
+  privacy: { standard: 'img/fence/privacy-std.jpg', x: 'img/fence/privacy-x.jpg' },
+  pool:    { standard: 'img/fence/pool-std.jpg', x: 'img/fence/pool-x.jpg' }
+};
+
+// ==================== PROGRESS STEPS ====================
+const stepLabels = ['Style', 'Design', 'Layout', 'Quote'];
+const stepPageMap = [0, 1, 2, 3];
+function renderSteps() {
+  let h = '';
+  for (let i = 0; i < 4; i++) {
+    h += `<div class="progress-step" data-step="${i}" onclick="goPage(${stepPageMap[i]})"><span class="step-num">${i+1}</span><span class="step-text">${stepLabels[i]}</span></div>`;
+  }
+  document.getElementById('progSteps').innerHTML = h;
+}
+renderSteps();
+
+// ==================== OPEN/CLOSE ====================
+function startBuilder() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('builder').classList.add('active');
+}
+function exitBuilder() {
+  document.getElementById('builder').classList.remove('active');
+  document.getElementById('landing').style.display = '';
+}
+
+// ==================== NAV ====================
+function goPage(n) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => p.classList.remove('active', 'exit-left'));
+  const target = document.querySelector(`.page[data-page="${n}"]`);
+  if (n > S.currentPage) {
+    const cur = document.querySelector(`.page[data-page="${S.currentPage}"]`);
+    if (cur) cur.classList.add('exit-left');
+  }
+  setTimeout(() => target.classList.add('active'), 50);
+  S.currentPage = n;
+
+  let stepIdx = (n <= 3) ? n : 3;
+  document.querySelectorAll('.progress-step').forEach(s => {
+    const si = parseInt(s.dataset.step);
+    s.classList.remove('active', 'done');
+    if (si === stepIdx) s.classList.add('active');
+    else if (si < stepIdx) s.classList.add('done');
+  });
+
+  // Hide global nav on AI custom page (it has its own controls)
+  document.getElementById('pageNav').style.display = (n === 4) ? 'none' : 'flex';
+
+  if (n === 2) updateEstimate();
+  if (n === 3) buildQuote();
+}
+
+function navNext() {
+  if (S.currentPage === 0) { if (!S.style) S.style = 'privacy'; goPage(1); }
+  else if (S.currentPage === 1) goPage(2);
+  else if (S.currentPage === 2) goPage(3);
+}
+function navBack() {
+  if (S.currentPage === 0) exitBuilder();
+  else if (S.currentPage <= 3) goPage(S.currentPage - 1);
+}
+
+// ==================== STYLE ====================
+function pickStyle(el) {
+  S.style = el.dataset.style;
+  document.querySelectorAll('.style-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  syncDesignImgs();
+  updatePrice();
+  setTimeout(() => goPage(1), 450);
+}
+
+function syncDesignImgs() {
+  if (!S.style) return;
+  document.getElementById('imgStd').style.backgroundImage = `url('${styleImgs[S.style].standard}')`;
+  document.getElementById('imgX').style.backgroundImage = `url('${styleImgs[S.style].x}')`;
+}
+
+// ==================== OPTIONS (design/grade) ====================
+function pickOpt(el) {
+  const group = el.dataset.group;
+  document.querySelectorAll(`.opt-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  S[group] = el.dataset.val;
+  updatePrice();
+}
+
+// ==================== LAYOUT ====================
+function setFeet(v) { S.feet = parseInt(v); document.getElementById('ftVal').textContent = v; updateEstimate(); }
+function setLen(el, l) {
+  S.len = l;
+  document.querySelectorAll('.seg button').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  updateEstimate();
+}
+function setGate(el, g) {
+  S.gate = g;
+  document.querySelectorAll('.gate-pill').forEach(p => p.classList.remove('selected'));
+  el.classList.add('selected');
+  if (g === 'none') S.gateQty = 0; else if (S.gateQty === 0) S.gateQty = 1;
+  document.getElementById('gateQty').textContent = S.gateQty;
+  updateEstimate();
+}
+function bumpGate(d) {
+  S.gateQty = Math.max(0, S.gateQty + d);
+  if (S.gateQty === 0) S.gate = 'none';
+  else if (S.gate === 'none') S.gate = 'solid';
+  document.getElementById('gateQty').textContent = S.gateQty;
+  document.querySelectorAll('.gate-pill').forEach(p => p.classList.toggle('selected', p.dataset.gate === S.gate));
+  updateEstimate();
+}
+
+function panelCount() { return Math.max(1, Math.ceil(S.feet / S.len)); }
+function postCount() { return panelCount() + 1; }
+
+function unitPanelPrice() {
+  if (!S.style) return 0;
+  let p = panelBase[S.style];
+  if (S.design === 'x') p += X_ADDER;
+  if (S.len === 8) p = Math.round(p * LEN8_MULT);
+  if (S.grade === 'knotty') p = Math.round(p * KNOTTY_MULT);
+  return p;
+}
+function gateTotal() { return (S.gate === 'none' ? 0 : gatePrice[S.gate]) * S.gateQty; }
+function getTotal() {
+  if (!S.style) return 0;
+  return unitPanelPrice() * panelCount() + gateTotal();
+}
+
+function updateEstimate() {
+  const panels = panelCount();
+  document.getElementById('ePanels').textContent = panels + ' × ' + S.len + "'";
+  document.getElementById('ePosts').textContent = postCount();
+  document.getElementById('eStyle').textContent = S.style ? styleNames[S.style] : '—';
+  document.getElementById('eDG').textContent = (S.design === 'x' ? 'X-Design' : 'Standard') + ' · ' + (S.grade === 'knotty' ? 'Knotty' : 'Clear');
+  document.getElementById('eGates').textContent = S.gateQty > 0 ? S.gateQty + ' × ' + (S.gate === 'grid' ? 'Grid' : 'Solid') : 'None';
+  document.getElementById('eTotal').textContent = '$' + getTotal().toLocaleString();
+  updatePrice();
+}
+
+// ==================== PRICE (header) ====================
+function updatePrice() {
+  if (S.isCustom) {
+    const m = S.customPrice.match(/[\d,]+/g);
+    const hi = m ? parseInt(m[m.length - 1].replace(/,/g, '')) : 0;
+    document.getElementById('progPrice').innerHTML = '<small>Your Estimate</small>' + S.customPrice;
+    return;
+  }
+  const t = getTotal();
+  // Update standard-flow style card prices
+  if (document.getElementById('pGarden')) {
+    document.getElementById('pGarden').innerHTML = '$' + panelBase.garden + ' <small>/ 6\' panel</small>';
+    document.getElementById('pPrivacy').innerHTML = '$' + panelBase.privacy + ' <small>/ 6\' panel</small>';
+    document.getElementById('pPool').innerHTML = '$' + panelBase.pool + ' <small>/ 6\' panel</small>';
+  }
+  document.getElementById('progPrice').innerHTML = '<small>Your Estimate</small>$' + (t > 0 ? t.toLocaleString() : '—');
+}
+
+// ==================== QUOTE ====================
+function buildQuote() {
+  if (S.isCustom) { buildCustomQuote(); return; }
+  if (!S.style) S.style = 'privacy';
+  const t = getTotal();
+  const gradeName = S.grade === 'knotty' ? 'Knotty Cedar' : 'Clear Cedar';
+  const designName = S.design === 'x' ? 'X-Design' : 'Standard';
+  document.getElementById('qName').textContent = styleNames[S.style].split(' (')[0] + ' Fence — ' + gradeName;
+  document.getElementById('qStyle').textContent = styleNames[S.style];
+  document.getElementById('qDesign').textContent = designName;
+  document.getElementById('qGrade').textContent = gradeName;
+  document.getElementById('qLen').textContent = S.feet + ' linear ft';
+  document.getElementById('qPanels').textContent = panelCount() + ' × ' + S.len + "'";
+  document.getElementById('qTotal').textContent = '$' + t.toLocaleString();
+
+  const ex = document.getElementById('qExtras');
+  ex.innerHTML = '';
+  if (S.gateQty > 0) {
+    ex.innerHTML = `<div class="quote-line"><span class="ql-label">${S.gateQty} × ${S.gate === 'grid' ? 'Grid/Mesh' : 'Solid'} Gate</span><span class="ql-val">+$${gateTotal().toLocaleString()}</span></div>`;
+  }
+  document.getElementById('qImg').src = styleImgs[S.style][S.design];
+  document.getElementById('qSketchWrap').style.display = 'none';
+}
+
+// ==================== SHIPPING ====================
+function calcShip() {
+  const zip = document.getElementById('zipIn').value;
+  if (zip.length < 5) return;
+  const f = parseInt(zip.charAt(0));
+  const est = f <= 1 ? '$120 – $190' : f <= 3 ? '$190 – $280' : f <= 5 ? '$280 – $390' : f <= 7 ? '$390 – $520' : '$520 – $680';
+  document.getElementById('shipResult').innerHTML = '<strong>Estimated freight: ' + est + '</strong><br>Palletized LTL, curbside. 7–14 business days.';
+}
+
+// ==================== AI CUSTOM ====================
+const examples = [
+  { text: 'I need to enclose my pool — it sits in a rectangle about 30 by 16 feet with a 4-foot deck all around. I want the code-height cedar fence with a self-closing gate near the patio doors. Knotty cedar is fine.',
+    price: '$4,400 – $5,200',
+    plan: { type: 'pool', feet: 92, panels: 16, len: 6, gates: 1, style: 'pool', grade: 'knotty', design: 'standard' },
+    items: ['Pool Height 48" — code-ready','Knotty cedar, Standard boards','~92 linear ft (rectangular run)','16 × 6\' panels + 17 posts','1 × self-closing grid gate','Post caps & hardware included'] },
+  { text: 'Privacy fence along the back of my yard and partway down both sides. The back is about 60 feet and each side runs maybe 25 feet before it meets the house. Two corners. Clear cedar, X-design looks nice.',
+    price: '$3,900 – $4,600',
+    plan: { type: 'lshape', feet: 110, panels: 14, len: 8, gates: 1, style: 'privacy', grade: 'clear', design: 'x' },
+    items: ['Privacy 42" — Clear cedar','X-Design cross-brace','~110 linear ft, two corners','14 × 8\' panels + 16 posts','1 × solid gate (side yard)','Post caps & hardware included'] },
+  { text: 'Just a low decorative border around my vegetable garden to keep the dog out. Roughly 40 feet, a square-ish bed, with one little gate to get in with a wheelbarrow.',
+    price: '$1,450 – $1,800',
+    plan: { type: 'square', feet: 44, panels: 8, len: 6, gates: 1, style: 'garden', grade: 'knotty', design: 'standard' },
+    items: ['Garden 36" — decorative border','Knotty cedar, Standard boards','~44 linear ft, square layout','8 × 6\' panels + 9 posts','1 × solid gate (wheelbarrow width)','Post caps & hardware included'] }
+];
+
+function fillExample(n) { document.getElementById('customIn').value = examples[n].text; }
+
+function runCustom() {
+  let v = document.getElementById('customIn').value.trim();
+  if (!v) { v = examples[0].text; document.getElementById('customIn').value = v; }
+  document.getElementById('cLoading').classList.add('show');
+
+  // In production this calls the Claude API. Demo: keyword routing.
+  let ex = examples[1];
+  const lc = v.toLowerCase();
+  if (lc.includes('pool')) ex = examples[0];
+  else if (lc.includes('garden') || lc.includes('border') || lc.includes('vegetable') || lc.includes('dog')) ex = examples[2];
+  else if (lc.includes('privacy') || lc.includes('back') || lc.includes('corner')) ex = examples[1];
+
+  setTimeout(() => {
+    document.getElementById('cLoading').classList.remove('show');
+    S.isCustom = true;
+    S.customPrice = ex.price;
+    S.customPlan = ex.plan;
+    document.getElementById('customInitView').style.display = 'none';
+    document.getElementById('customSplitView').style.display = 'block';
+    document.getElementById('progPrice').innerHTML = '<small>Your Estimate</small>' + ex.price;
+
+    const msgs = document.getElementById('chatMessages');
+    msgs.innerHTML = '';
+    addChatMsg(msgs, 'user', v);
+    addChatMsg(msgs, 'ai', `Got it. I laid out a <strong>${styleNames[ex.plan.style].split(' (')[0]}</strong> run of about <strong>${ex.plan.feet} linear feet</strong> — that's roughly ${ex.plan.panels} panels plus posts, caps, and your gate. The plan view on the right shows the layout. Want to change anything?`);
+
+    document.getElementById('cPrice').textContent = ex.price;
+    const list = document.getElementById('cList');
+    list.innerHTML = '';
+    ex.items.forEach(i => list.innerHTML += `<li style="display:flex;align-items:center;gap:3px;"><span style="color:var(--success);font-weight:800;">✓</span> ${i}</li>`);
+    drawSketch(ex.plan.type, ex.plan);
+  }, 2100);
+}
+
+function addChatMsg(container, role, text) {
+  const d = document.createElement('div');
+  d.style.cssText = 'margin-bottom:16px;';
+  if (role === 'user') {
+    d.innerHTML = `<div style="background:#eef2ee;border-radius:12px;padding:14px 18px;font-size:14px;color:var(--dark);line-height:1.5;margin-left:24px;">${text}</div>`;
+  } else {
+    d.innerHTML = `<div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">AI</div>
+      <div style="font-size:14px;color:var(--dark);line-height:1.55;">${text}</div></div>`;
+  }
+  container.appendChild(d);
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendFollowUp() {
+  const input = document.getElementById('chatInput');
+  const v = input.value.trim();
+  if (!v) return;
+  const msgs = document.getElementById('chatMessages');
+  addChatMsg(msgs, 'user', v);
+  input.value = '';
+  const lc = v.toLowerCase();
+  setTimeout(() => {
+    let reply = 'Done — I updated the layout on the right and adjusted the estimate.';
+    // light interactivity on common asks
+    if (lc.includes('gate')) { S.customPlan.gates += 1; reply = 'Added another gate to the run. Updated the layout and bumped the estimate.'; }
+    if (lc.includes('x-design') || lc.includes('x design') || lc.includes('cross')) { S.customPlan.design = 'x'; reply = 'Switched the panels to X-Design — that adds about $45 per panel. Plan view updated.'; }
+    if (lc.includes('knotty')) { S.customPlan.grade = 'knotty'; reply = 'Switched to knotty cedar — saves about 15%. New estimate shown.'; }
+    if (lc.includes('8') || lc.includes('eight') || lc.includes('fewer post')) { S.customPlan.len = 8; S.customPlan.panels = Math.ceil(S.customPlan.feet / 8); reply = 'Moved to 8-ft panels — fewer posts and a quicker install. Recalculated.'; }
+    addChatMsg(msgs, 'ai', reply);
+    drawSketch(S.customPlan.type, S.customPlan);
+  }, 1100);
+}
+
+function customToQuote() {
+  S.isCustom = true;
+  goPage(3);
+}
+
+function buildCustomQuote() {
+  const p = S.customPlan || examples[1].plan;
+  const gradeName = p.grade === 'knotty' ? 'Knotty Cedar' : 'Clear Cedar';
+  document.getElementById('qName').textContent = 'Custom ' + styleNames[p.style].split(' (')[0] + ' Fence';
+  document.getElementById('qStyle').textContent = styleNames[p.style];
+  document.getElementById('qDesign').textContent = p.design === 'x' ? 'X-Design' : 'Standard';
+  document.getElementById('qGrade').textContent = gradeName;
+  document.getElementById('qLen').textContent = '~' + p.feet + ' linear ft';
+  document.getElementById('qPanels').textContent = p.panels + ' × ' + p.len + "'";
+  document.getElementById('qTotal').textContent = S.customPrice;
+
+  const ex = document.getElementById('qExtras');
+  ex.innerHTML = `<div class="quote-line"><span class="ql-label">Gates</span><span class="ql-val">${p.gates} × gate</span></div>
+    <div class="quote-line"><span class="ql-label">AI design basis</span><span class="ql-val">Your description</span></div>`;
+  document.getElementById('qImg').src = styleImgs[p.style][p.design];
+
+  // copy sketch into quote
+  const src = document.getElementById('cSketch');
+  if (src && src.innerHTML) {
+    document.getElementById('qSketchWrap').style.display = 'block';
+    document.getElementById('qSketch').innerHTML = src.innerHTML;
+  }
+}
+
+// ==================== PLAN-VIEW SKETCH ====================
+function drawSketch(type, plan) {
+  const svg = document.getElementById('cSketch');
+  const W = 480, H = 420;
+  const fence = '#7a6a52', post = '#5b4d3a', lbl = '#777', dim = '#444', water = '#bcd4dd', grass = '#eef1ea';
+  let s = '';
+  s += `<rect width="${W}" height="${H}" fill="#f5f5f3" rx="10"/>`;
+  for (let g = 20; g < W; g += 20) s += `<line x1="${g}" y1="0" x2="${g}" y2="${H}" stroke="#e8e8e4" stroke-width="0.5"/>`;
+  for (let g = 20; g < H; g += 20) s += `<line x1="0" y1="${g}" x2="${W}" y2="${g}" stroke="#e8e8e4" stroke-width="0.5"/>`;
+  s += `<text x="${W/2}" y="26" text-anchor="middle" font-size="10" fill="${lbl}" font-family="Lato" font-weight="700" letter-spacing="2">PLAN VIEW — ${plan.feet}′ RUN</text>`;
+
+  const drawFence = (x1, y1, x2, y2) => {
+    s += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${fence}" stroke-width="5" stroke-linecap="round"/>`;
+    // posts along the line
+    const segs = 6; for (let i = 0; i <= segs; i++) {
+      const px = x1 + (x2 - x1) * i / segs, py = y1 + (y2 - y1) * i / segs;
+      s += `<circle cx="${px}" cy="${py}" r="3.2" fill="${post}"/>`;
+    }
+  };
+  const gate = (x, y) => {
+    s += `<rect x="${x-9}" y="${y-9}" width="18" height="18" fill="#fff" stroke="${post}" stroke-width="1.5" rx="2"/>`;
+    s += `<path d="M ${x-9} ${y+9} A 18 18 0 0 1 ${x+9} ${y-9}" fill="none" stroke="var(--green)" stroke-width="1.4" stroke-dasharray="4,3"/>`;
+    s += `<text x="${x}" y="${y+26}" text-anchor="middle" font-size="8.5" fill="var(--green)" font-family="Lato" font-weight="800">GATE</text>`;
+  };
+
+  if (type === 'pool') {
+    // house wall top, pool centered, fence rectangle around
+    s += `<rect x="60" y="80" width="360" height="240" fill="none" stroke="${fence}" stroke-width="5" rx="6"/>`;
+    for (let x = 60; x <= 420; x += 60) { s += `<circle cx="${x}" cy="80" r="3.2" fill="${post}"/><circle cx="${x}" cy="320" r="3.2" fill="${post}"/>`; }
+    for (let y = 80; y <= 320; y += 60) { s += `<circle cx="60" cy="${y}" r="3.2" fill="${post}"/><circle cx="420" cy="${y}" r="3.2" fill="${post}"/>`; }
+    s += `<rect x="90" y="110" width="300" height="170" fill="#f1f4f2" rx="4"/>`;
+    s += `<rect x="150" y="150" width="180" height="90" fill="${water}" rx="40"/>`;
+    s += `<text x="240" y="200" text-anchor="middle" font-size="11" fill="#6f8a93" font-family="Lato" font-weight="700">POOL</text>`;
+    gate(240, 320);
+    s += `<text x="240" y="385" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Lato" font-weight="600">~${plan.feet}′ enclosure · ${plan.panels} panels</text>`;
+  } else if (type === 'lshape') {
+    // L-shaped run against house
+    s += `<rect x="50" y="60" width="380" height="16" fill="#c7c2b8" rx="2"/>`;
+    s += `<text x="240" y="54" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Lato" font-weight="600" letter-spacing="1">HOUSE</text>`;
+    drawFence(70, 96, 70, 300);   // left side
+    drawFence(70, 300, 410, 300); // back
+    drawFence(410, 300, 410, 96); // right side
+    s += `<rect x="78" y="104" width="324" height="188" fill="${grass}" opacity="0.5" rx="4"/>`;
+    s += `<text x="240" y="210" text-anchor="middle" font-size="11" fill="#8a9a82" font-family="Lato" font-weight="700">BACK YARD</text>`;
+    gate(410, 200);
+    s += `<text x="92" y="${300}" text-anchor="start" font-size="8.5" fill="${lbl}" font-family="Lato" font-weight="600" dy="16">corner</text>`;
+  } else if (type === 'square') {
+    s += `<rect x="120" y="100" width="240" height="220" fill="none" stroke="${fence}" stroke-width="5" rx="6"/>`;
+    for (let x = 120; x <= 360; x += 48) { s += `<circle cx="${x}" cy="100" r="3.2" fill="${post}"/><circle cx="${x}" cy="320" r="3.2" fill="${post}"/>`; }
+    for (let y = 100; y <= 320; y += 44) { s += `<circle cx="120" cy="${y}" r="3.2" fill="${post}"/><circle cx="360" cy="${y}" r="3.2" fill="${post}"/>`; }
+    s += `<rect x="132" y="112" width="216" height="196" fill="#eef3e8" rx="4"/>`;
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) s += `<circle cx="${156 + c*52}" cy="${148 + r*56}" r="9" fill="none" stroke="#a9bd8f" stroke-width="1.4"/>`;
+    s += `<text x="240" y="${330}" text-anchor="middle" font-size="10" fill="#7d9163" font-family="Lato" font-weight="700">GARDEN BED</text>`;
+    gate(240, 100);
+  }
+  svg.innerHTML = s;
+}
+
+// init
+updatePrice();
+
+// Auto-launch the AI designer when arriving from the home page with ?q=
+(function(){
+  const q = new URLSearchParams(window.location.search).get('q');
+  if (!q) return;
+  startBuilder();
+  goPage(4);
+  document.getElementById('customIn').value = q;
+  runCustom();
+})();
+</script>
+</body>
+</html>

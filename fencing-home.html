@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cedar Fencing | Stonewood Products</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #334862;
+  --green: #5C7A56;
+  --green-light: #70926E;
+  --green-dark: #4A6645;
+  --text-dark: #4a4a4a;
+  --text-body: #666;
+  --text-muted: #999;
+  --bg-white: #fff;
+  --bg-warm: #f9f7f4;
+  --bg-stone: #f0ede8;
+  --border: #e5e2dd;
+  --border-light: #eee;
+  --amber: #C4882A;
+  --amber-dark: #A8721F;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Lato', sans-serif; color: var(--text-body); background: var(--bg-white); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--text-dark); font-weight: 600; }
+
+/* --- Promo banner --- */
+.sw-promo { background: var(--navy); color: #fff; text-align: center; font-size: 12.5px; font-weight: 700; letter-spacing: 0.6px; padding: 9px 16px; }
+.sw-promo span { opacity: 0.65; margin: 0 6px; }
+
+/* --- Top bar --- */
+.sw-topbar { display: flex; align-items: center; justify-content: space-between; max-width: 1300px; margin: 0 auto; padding: 14px 30px; }
+.sw-logo img { height: 64px; }
+.sw-top-right { display: flex; align-items: center; gap: 24px; font-size: 13px; color: var(--text-body); }
+.sw-search-box { display: flex; align-items: center; border: 1px solid #ddd; border-radius: 4px; padding: 6px 10px; gap: 6px; }
+.sw-search-box input { border: none; outline: none; font-family: 'Lato', sans-serif; font-size: 13px; width: 140px; color: var(--text-body); }
+.sw-search-icon { opacity: 0.4; cursor: pointer; }
+.sw-top-link { cursor: pointer; }
+
+/* --- Nav --- */
+.sw-nav { background: var(--bg-white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; }
+.sw-nav-inner { display: flex; justify-content: center; gap: 0; max-width: 1300px; margin: 0 auto; }
+.sw-nav a { display: block; padding: 15px 18px; font-size: 12.8px; font-weight: 400; letter-spacing: 0.26px; text-transform: uppercase; color: rgba(74,74,74,0.85); transition: color 0.2s; }
+.sw-nav a:hover { color: var(--green); }
+.sw-nav a.active { color: var(--green); font-weight: 700; }
+.sw-nav-item { position: relative; }
+.sw-nav-item > a::after { content: ''; display: inline-block; width: 0; height: 0; border-left: 3.5px solid transparent; border-right: 3.5px solid transparent; border-top: 4px solid currentColor; margin-left: 5px; vertical-align: middle; opacity: 0.5; transition: transform 0.2s; }
+.sw-nav-item:hover > a::after { transform: rotate(180deg); }
+.sw-nav-dropdown { position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px); background: var(--bg-white); border: 1px solid var(--border-light); border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); padding: 8px 0; min-width: 200px; opacity: 0; visibility: hidden; transition: all 0.2s ease; z-index: 101; }
+.sw-nav-item:hover .sw-nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.sw-nav-dropdown a { display: block !important; padding: 10px 20px !important; font-size: 13px !important; text-transform: none !important; letter-spacing: 0 !important; color: var(--text-body) !important; white-space: nowrap; }
+.sw-nav-dropdown a:hover { background: var(--bg-warm) !important; color: var(--green) !important; }
+
+/* ===================== HERO ===================== */
+.hero {
+  position: relative; min-height: 560px; display: flex; align-items: stretch;
+  text-align: center; color: #fff;
+  background: linear-gradient(rgba(20,30,25,0.42) 0%, rgba(20,30,25,0.30) 40%, rgba(20,30,25,0.12) 100%), url('img/fence/hero-banner.jpg') center 52%/cover no-repeat;
+}
+.hero-inner { max-width: 880px; width: 100%; margin: 0 auto; display: flex; flex-direction: column; padding: 48px 24px 44px; }
+.hero h1 {
+  font-family: 'Lato', sans-serif; font-size: clamp(32px, 4.2vw, 50px); font-weight: 700; color: #fff;
+  line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 8px; text-shadow: 0 2px 14px rgba(0,0,0,0.35);
+}
+.hero-sub { font-size: 15px; color: rgba(255,255,255,0.82); margin-bottom: 0; text-shadow: 0 1px 8px rgba(0,0,0,0.4); }
+.hero-input-wrap { margin-top: 14px; }
+
+/* Natural-language input — matches the homepage demo */
+.ai-input-box {
+  background: var(--bg-white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 16px 20px 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.22); text-align: left;
+  max-width: 720px; margin: 0 auto; transition: border-color 0.3s, box-shadow 0.3s;
+}
+.ai-input-box:focus-within { border-color: var(--green-light); box-shadow: 0 4px 32px rgba(92,122,86,0.18); }
+.ai-textarea {
+  width: 100%; border: none; outline: none; font-family: 'Lato', sans-serif;
+  font-size: 16px; line-height: 1.6; color: var(--text-dark); resize: none;
+  min-height: 30px; max-height: 110px; background: transparent;
+}
+.ai-textarea::placeholder { color: #bbb; }
+.ai-input-actions { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.ai-input-left { display: flex; align-items: center; gap: 4px; }
+.ai-icon-btn {
+  width: 34px; height: 34px; border: none; background: transparent; color: #bbb;
+  border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.ai-icon-btn:hover { background: var(--bg-stone); color: var(--text-body); }
+.ai-submit-btn {
+  width: 38px; height: 38px; border: none; background: var(--green); color: #fff;
+  border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s;
+}
+.ai-submit-btn:hover { background: var(--green-dark); transform: scale(1.05); }
+.ai-quick-actions { display: flex; gap: 10px; margin-top: 24px; justify-content: center; flex-wrap: wrap; }
+.ai-pill {
+  display: flex; align-items: center; gap: 7px; padding: 11px 22px;
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 99px;
+  font-family: 'Lato', sans-serif; font-size: 15px; color: rgba(255,255,255,0.85); cursor: pointer;
+  transition: all 0.2s; backdrop-filter: blur(4px);
+}
+.ai-pill:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.4); color: #fff; }
+.ai-pill svg { opacity: 0.6; stroke: rgba(255,255,255,0.8); }
+.ai-pill:hover svg { opacity: 1; }
+
+/* ===================== INTRO STRIP ===================== */
+.intro { max-width: 980px; margin: 0 auto; padding: 64px 30px 50px; text-align: center; }
+.intro h2 { font-size: 20px; color: var(--green); font-style: italic; font-weight: 500; margin-bottom: 18px; }
+.intro p { font-size: 17px; line-height: 1.7; color: var(--text-body); max-width: 760px; margin: 0 auto 26px; }
+.intro-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; align-items: center; }
+.btn-amber { background: var(--amber); color: #fff; border: none; border-radius: 5px; padding: 15px 36px; font-size: 14px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; cursor: pointer; transition: background 0.2s; }
+.btn-amber:hover { background: var(--amber-dark); }
+.btn-text { color: var(--green); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+
+/* ===================== SECTION HEADERS ===================== */
+.section { max-width: 1240px; margin: 0 auto; padding: 30px 30px; }
+.section-head { text-align: center; margin-bottom: 38px; }
+.section-head .kicker { font-size: 12.5px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+.section-head h2 { font-size: 40px; letter-spacing: -0.5px; margin-bottom: 8px; }
+.section-head p { font-size: 17px; color: var(--text-muted); }
+
+/* ===================== HEIGHT BLOCKS ===================== */
+.height-block { display: grid; grid-template-columns: 300px 1fr; gap: 36px; align-items: center; padding: 30px 0; border-top: 1px solid var(--border-light); }
+.height-block:first-of-type { border-top: none; }
+.height-info .h-tall { font-size: 14px; font-weight: 800; color: var(--amber); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+.height-info h3 { font-size: 34px; margin-bottom: 10px; }
+.height-info p { font-size: 15px; line-height: 1.6; color: var(--text-body); }
+.height-info .h-opts { font-size: 14px; color: var(--text-muted); margin-top: 12px; line-height: 1.6; }
+.height-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.h-card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: var(--bg-white); transition: all 0.2s; cursor: pointer; }
+.h-card:hover { border-color: var(--green); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.07); }
+.h-card-img { height: 150px; background-color: var(--bg-warm); background-size: contain; background-repeat: no-repeat; background-position: center; background-origin: content-box; padding: 12px; }
+.h-card-cap { padding: 10px 12px; text-align: center; font-size: 13px; font-weight: 700; color: var(--text-dark); border-top: 1px solid var(--border-light); }
+.h-card-cap small { display: block; font-weight: 400; color: var(--text-muted); font-size: 12px; }
+
+/* gate row (two wide) */
+.gate-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 520px; }
+
+/* ===================== STYLES SECTION ===================== */
+.styles-wrap { background: var(--bg-warm); padding: 10px 0 60px; }
+.style-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1040px; margin: 0 auto; }
+.style-card { background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
+.style-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.1); border-color: var(--green); }
+.style-card-img { height: 230px; background-color: var(--bg-warm); background-size: contain; background-repeat: no-repeat; background-position: center; background-origin: content-box; padding: 16px; }
+.style-card-name { padding: 18px; text-align: center; font-family: 'Playfair Display', serif; font-size: 24px; color: var(--text-dark); }
+
+/* video */
+.video-strip { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; max-width: 1040px; margin: 50px auto 0; }
+.video-box { position: relative; border-radius: 14px; overflow: hidden; aspect-ratio: 16/9; background: #111 url('img/fence/intro.jpg') center/cover no-repeat; }
+.video-box::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.28); }
+.video-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 2; width: 76px; height: 76px; border-radius: 50%; background: rgba(255,255,255,0.92); display: flex; align-items: center; justify-content: center; }
+.video-play svg { margin-left: 4px; color: var(--green); }
+.video-text h3 { font-size: 28px; margin-bottom: 12px; }
+.video-text p { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+
+/* ===================== CUSTOMIZE STEPS ===================== */
+.cust { max-width: 1080px; margin: 0 auto; padding: 64px 30px; }
+.cust-step { margin-bottom: 44px; }
+.cust-step > h3 { font-size: 30px; margin-bottom: 22px; display: flex; align-items: center; gap: 14px; }
+.cust-step > h3 .n { width: 44px; height: 44px; border-radius: 50%; background: var(--green); color: #fff; font-size: 20px; font-weight: 800; font-family: 'Lato', sans-serif; display: flex; align-items: center; justify-content: center; }
+.cust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.cust-card { background: var(--bg-warm); border: 1px solid var(--border); border-radius: 12px; padding: 26px 28px; }
+.cust-card h4 { font-size: 19px; margin-bottom: 8px; color: var(--green-dark); font-family: 'Lato', sans-serif; font-weight: 800; }
+.cust-card p { font-size: 15px; line-height: 1.6; color: var(--text-body); }
+.cust-card .pills { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.cust-card .pill { background: #fff; border: 1px solid var(--border); border-radius: 99px; padding: 8px 16px; font-size: 13px; font-weight: 700; color: var(--text-dark); }
+.cust-cta { text-align: center; margin-top: 10px; }
+
+/* disclaimer */
+.disclaimer { background: var(--bg-stone); text-align: center; padding: 30px 24px; font-size: 15px; color: var(--text-body); font-style: italic; }
+.disclaimer strong { font-style: normal; color: var(--text-dark); }
+
+/* ===================== FOOTER ===================== */
+.sw-footer { background: var(--navy); color: rgba(255,255,255,0.8); padding: 56px 30px 0; }
+.sw-footer-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.sw-footer h4 { color: #fff; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 18px; }
+.sw-footer ul { list-style: none; }
+.sw-footer ul li { padding: 6px 0; font-size: 14px; }
+.sw-footer ul li a:hover { color: #fff; }
+.sw-news p { font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+.sw-news-form { display: flex; gap: 8px; }
+.sw-news-form input { flex: 1; padding: 12px 14px; border: none; border-radius: 5px; font-family: 'Lato'; font-size: 14px; outline: none; }
+.sw-news-form button { background: var(--amber); color: #fff; border: none; border-radius: 5px; padding: 12px 22px; font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; cursor: pointer; }
+.sw-foot-bottom { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 22px 0; font-size: 13px; flex-wrap: wrap; gap: 12px; }
+.sw-foot-bottom a { margin: 0 6px; }
+.sw-social { display: flex; gap: 12px; }
+.sw-social a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.sw-social a:hover { background: rgba(255,255,255,0.12); }
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 980px) {
+  .height-block { grid-template-columns: 1fr; gap: 20px; }
+  .video-strip { grid-template-columns: 1fr; }
+  .cust-grid { grid-template-columns: 1fr; }
+  .style-cards { grid-template-columns: 1fr; max-width: 420px; }
+  .sw-footer-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .sw-top-right { display: none; }
+  .sw-nav-inner { overflow-x: auto; justify-content: flex-start; }
+  .sw-nav a { white-space: nowrap; font-size: 11px; padding: 13px 12px; }
+  .hero h1 { font-size: 38px; }
+  .nl-box { flex-direction: column; align-items: stretch; padding: 14px; gap: 10px; padding-left: 14px; }
+  .nl-box input { padding: 6px 4px; }
+  .nl-btn { justify-content: center; }
+  .height-grid { grid-template-columns: 1fr 1fr; }
+  .section-head h2 { font-size: 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Promo banner -->
+<div class="sw-promo">Get Ready for the 4th! <span>•</span> Patio Pavers <span>•</span> Outdoor Kitchens <span>•</span> &amp; More!</div>
+
+<!-- Top Bar -->
+<div class="sw-topbar">
+  <a href="index.html" class="sw-logo"><img src="img/logo.png" alt="Stonewood Products"></a>
+  <div class="sw-top-right">
+    <div class="sw-search-box">
+      <input type="text" placeholder="Search">
+      <svg class="sw-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </div>
+    <span class="sw-top-link">Login</span>
+    <span class="sw-top-link">Truck / $0</span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="sw-nav">
+  <div class="sw-nav-inner">
+    <a href="index.html">STONE</a>
+    <a href="index.html">FLOORING</a>
+    <a href="index.html">WOOD</a>
+    <div class="sw-nav-item">
+      <a href="#" class="active">OUTDOOR LIVING</a>
+      <div class="sw-nav-dropdown">
+        <a href="#" style="color:var(--green)!important;font-weight:700!important;">Cedar Fencing</a>
+        <a href="outdoor-showers.html">Outdoor Showers</a>
+        <a href="#">Decking</a>
+        <a href="#">Pergolas</a>
+      </div>
+    </div>
+    <a href="index.html">INSPIRATION</a>
+    <a href="index.html">GUIDES</a>
+    <a href="index.html">ABOUT</a>
+    <a href="index.html">CONTACT</a>
+  </div>
+</nav>
+
+<!-- ===================== HERO (existing site banner) ===================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>What kind of fence do you need?</h1>
+
+    <div class="hero-input-wrap">
+      <div class="ai-input-box">
+        <textarea class="ai-textarea" id="nlInput" rows="1" placeholder="Describe what you need" oninput="autoResize(this)" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();goDesign();}"></textarea>
+        <div class="ai-input-actions">
+          <div class="ai-input-left">
+            <button class="ai-icon-btn" title="Upload a photo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M12 3v12M7 8l5-5 5 5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="ai-icon-btn" title="Take a photo">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </button>
+          </div>
+          <button class="ai-submit-btn" onclick="goDesign()" aria-label="Design it">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<div class="intro">
+  <h2>High Quality Cedar at Amazing Value</h2>
+  <p>For your cedar fence needs, Stonewood Products manufactures an array of fencing options at great value. We'll work with you start to finish — whether it's for a pool, just for privacy, to keep the pets in, or simply a garden fence. Have a custom request? We can help.</p>
+  <div class="intro-actions">
+    <button class="btn-amber" onclick="document.querySelector('.section').scrollIntoView({behavior:'smooth'});">Browse Fence Styles</button>
+    <a class="btn-text" href="#">↓ Cedar Fencing Cut Sheet (PDF)</a>
+  </div>
+</div>
+
+<!-- ===================== HEIGHTS ===================== -->
+<section class="section">
+  <div class="section-head">
+    <div class="kicker">Pick a Style</div>
+    <h2>Three Heights, One Material</h2>
+    <p>Each offered in 6′ or 8′ lengths · Knotty or Clear · with or without the X.</p>
+  </div>
+
+  <div class="height-block">
+    <div class="height-info">
+      <div class="h-tall">48&quot; Tall</div>
+      <h3>Pool Height</h3>
+      <p>Meets pool-barrier height requirements and pairs with self-closing gates.</p>
+      <div class="h-opts">Offered in: 6′ or 8′ lengths<br>Knotty or Clear · Choose X or No X</div>
+    </div>
+    <div class="height-grid">
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/pool-std.jpg')"></div><div class="h-card-cap">6′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/pool-x.jpg')"></div><div class="h-card-cap">6′ X-Design<small>With X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/pool-std-8.jpg')"></div><div class="h-card-cap">8′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/pool-x-8.jpg')"></div><div class="h-card-cap">8′ X-Design<small>With X</small></div></div>
+    </div>
+  </div>
+
+  <div class="height-block">
+    <div class="height-info">
+      <div class="h-tall">42&quot; Tall</div>
+      <h3>Privacy</h3>
+      <p>All-purpose privacy and yard definition. The everyday workhorse fence.</p>
+      <div class="h-opts">Offered in: 6′ or 8′ lengths<br>Knotty or Clear · Choose X or No X</div>
+    </div>
+    <div class="height-grid">
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/privacy-std.jpg')"></div><div class="h-card-cap">6′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/privacy-x.jpg')"></div><div class="h-card-cap">6′ X-Design<small>With X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/privacy-std-8.jpg')"></div><div class="h-card-cap">8′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/privacy-x-8.jpg')"></div><div class="h-card-cap">8′ X-Design<small>With X</small></div></div>
+    </div>
+  </div>
+
+  <div class="height-block">
+    <div class="height-info">
+      <div class="h-tall">36&quot; Tall</div>
+      <h3>Garden</h3>
+      <p>A low decorative fence to frame beds, borders, and keep pets in or out.</p>
+      <div class="h-opts">Offered in: 6′ or 8′ lengths<br>Knotty or Clear · Choose X or No X</div>
+    </div>
+    <div class="height-grid">
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/garden-std.jpg')"></div><div class="h-card-cap">6′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/garden-x.jpg')"></div><div class="h-card-cap">6′ X-Design<small>With X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/garden-std-8.jpg')"></div><div class="h-card-cap">8′ Standard<small>No X</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/garden-x-8.jpg')"></div><div class="h-card-cap">8′ X-Design<small>With X</small></div></div>
+    </div>
+  </div>
+
+  <div class="height-block">
+    <div class="height-info">
+      <div class="h-tall">Matching</div>
+      <h3>Gate Options</h3>
+      <p>Mesh? Solid? We'll work with you. Gates ship in your chosen grade and style.</p>
+      <div class="h-opts">Offered in: various styles<br>Knotty or Clear · Mesh or Solid</div>
+    </div>
+    <div class="height-grid gate-grid">
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/gate-solid.jpg')"></div><div class="h-card-cap">Solid Gate<small>Full privacy</small></div></div>
+      <div class="h-card"><div class="h-card-img" style="background-image:url('img/fence/gate-grid.jpg')"></div><div class="h-card-cap">Grid / Mesh Gate<small>Pool-friendly</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STYLES ===================== -->
+<div class="styles-wrap">
+  <section class="section">
+    <div class="section-head">
+      <div class="kicker">Cedar Fencing for all Spaces</div>
+      <h2>Choose From Different Styles</h2>
+      <p>Quality × Value</p>
+    </div>
+    <div class="style-cards">
+      <div class="style-card">
+        <div class="style-card-img" style="background-image:url('img/fence/privacy-std.jpg')"></div>
+        <div class="style-card-name">Regular</div>
+      </div>
+      <div class="style-card">
+        <div class="style-card-img" style="background-image:url('img/fence/privacy-x.jpg')"></div>
+        <div class="style-card-name">X-Design</div>
+      </div>
+      <div class="style-card">
+        <div class="style-card-img" style="background-image:url('img/fence/gate-solid.jpg')"></div>
+        <div class="style-card-name">Solid Gate</div>
+      </div>
+    </div>
+
+    <div class="video-strip">
+      <div class="video-box">
+        <div class="video-play"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="video-text">
+        <h3>Watch the Intro Video</h3>
+        <p>Get a quick introduction to our cedar fencing panels — components, customizations, and product specs — with Dan (aka the Wood Guy).</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CUSTOMIZE ===================== -->
+<div class="cust">
+  <div class="cust-step">
+    <h3><span class="n">1</span> Choose Your Style</h3>
+    <div class="cust-grid">
+      <div class="cust-card">
+        <h4>Clear Cedar or Knotty Grade</h4>
+        <p>Choose from the two most popular grades — a classic look with knotty, or a clean look with clear-grade cedar.</p>
+        <div class="pills"><span class="pill">Clear Cedar</span><span class="pill">Knotty Cedar</span></div>
+      </div>
+      <div class="cust-card">
+        <h4>To X or Not to X</h4>
+        <p>Choose regular vertical-board panels, or add the diagonal X construction for extra structure and a custom look.</p>
+        <div class="pills"><span class="pill">Standard</span><span class="pill">X-Design</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cust-step">
+    <h3><span class="n">2</span> Build the Specs</h3>
+    <div class="cust-grid">
+      <div class="cust-card">
+        <h4>Pick From 3 Heights</h4>
+        <p>Garden Style — 36″ · Privacy Style — 42″ · Pool Height — 48″.</p>
+        <div class="pills"><span class="pill">36″</span><span class="pill">42″</span><span class="pill">48″</span></div>
+      </div>
+      <div class="cust-card">
+        <h4>Choose Fence Lengths</h4>
+        <p>Panels come in 6′ or 8′ lengths — 8′ means fewer posts and a faster install.</p>
+        <div class="pills"><span class="pill">6′ Panels</span><span class="pill">8′ Panels</span></div>
+      </div>
+    </div>
+    <div class="cust-cta">
+      <button class="btn-amber" onclick="goDesign()">Design My Fence — Get an Instant Estimate</button>
+    </div>
+  </div>
+</div>
+
+<!-- Disclaimer -->
+<div class="disclaimer">Let's get "real"… <strong>We offer many natural products that may vary slightly online and as samples.</strong></div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="sw-footer">
+  <div class="sw-footer-inner">
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Store Locations</a></li>
+        <li><a href="#">Schedule a Visit</a></li>
+        <li><a href="#">Job Opportunities</a></li>
+        <li><a href="#">Feedback</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">General FAQ</a></li>
+        <li><a href="#">My Account</a></li>
+        <li><a href="#">Commercial / Wholesale</a></li>
+        <li><a href="#">Pro / Architectural Group</a></li>
+        <li><a href="#">Catalogs &amp; Lookbooks</a></li>
+        <li><a href="#">Gift Cards</a></li>
+      </ul>
+    </div>
+    <div class="sw-news">
+      <h4>Sign Up for Our Newsletter</h4>
+      <p>Join Stonewood Products' email newsletter for exclusive sales, events, tips &amp; trends, new products and more!</p>
+      <div class="sw-news-form">
+        <input type="email" placeholder="Email address">
+        <button>Sign Up</button>
+      </div>
+    </div>
+  </div>
+  <div class="sw-foot-bottom">
+    <div>© Stonewood Products. All rights reserved. <a href="#">Terms of Use</a> | <a href="#">Privacy</a> | <a href="#">Index</a></div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span>1-855-590-8772</span>
+      <div class="sw-social">
+        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 160) + 'px';
+}
+function useChip(text) {
+  const el = document.getElementById('nlInput');
+  el.value = text;
+  autoResize(el);
+  el.focus();
+}
+function goDesign() {
+  const q = document.getElementById('nlInput').value.trim();
+  if (q) window.location.href = 'fencing-configurator.html?q=' + encodeURIComponent(q);
+  else window.location.href = 'fencing-configurator.html';
+}
+</script>
+</body>
+</html>

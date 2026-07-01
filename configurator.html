@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Outdoor Shower | Cape Cod Shower Kits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --dark: #2c2c2c;
+  --body: #555;
+  --muted: #999;
+  --light-bg: #f9f7f4;
+  --white: #fff;
+  --border: #e5e0da;
+  --teal: #5d7e82;
+  --teal-dark: #496569;
+  --warm: #baa980;
+  --warm-dark: #a08a62;
+  --cedar: #a07040;
+  --success: #4a7a50;
+}
+
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: 'Karla', sans-serif; color: var(--body);
+  background: var(--white); -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: 'DM Serif Display', serif; color: var(--dark); font-weight: 400; }
+button { cursor: pointer; font-family: 'Karla', sans-serif; }
+img { max-width: 100%; display: block; }
+
+/* ========== HEADER (on hero) ========== */
+.site-header {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+}
+.site-header-logo { text-decoration: none; display: flex; align-items: center; }
+.site-header-logo img { height: 56px; }
+.site-header-nav { display: flex; align-items: center; gap: 32px; }
+.site-header-nav a {
+  font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.9);
+  text-decoration: none; transition: color 0.2s;
+}
+.site-header-nav a:hover { color: #fff; }
+.site-header-right { display: flex; align-items: center; gap: 20px; }
+.site-header-phone {
+  font-size: 15px; font-weight: 700; color: #fff;
+  display: flex; align-items: center; gap: 8px; text-decoration: none;
+}
+.site-header-cart {
+  width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.3);
+  display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none;
+}
+
+/* ========== HERO ========== */
+.hero {
+  height: 100vh; width: 100vw;
+  background: linear-gradient(rgba(0,0,0,0.22), rgba(0,0,0,0.4)),
+    url('https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg') center/cover no-repeat;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 60px 32px; color: #fff;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 24px; border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 99px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; margin-bottom: 28px; backdrop-filter: blur(4px);
+}
+.hero h1 {
+  font-size: 72px; color: #fff; line-height: 1.08; margin-bottom: 20px;
+  max-width: 750px; letter-spacing: -1.5px;
+}
+.hero-sub { font-size: 22px; color: rgba(255,255,255,0.9); margin-bottom: 40px; font-weight: 400; }
+.hero-cta {
+  padding: 22px 64px; background: var(--warm); color: #fff; border: none;
+  border-radius: 6px; font-size: 20px; font-weight: 800; letter-spacing: 0.5px;
+  text-transform: uppercase; transition: all 0.25s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.hero-cta:hover { background: var(--warm-dark); transform: translateY(-2px); }
+.hero-trust {
+  display: flex; align-items: center; gap: 28px; margin-top: 20px; flex-wrap: wrap; justify-content: center;
+}
+.hero-trust-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.75);
+}
+.hero-proof {
+  display: flex; align-items: center; gap: 32px; margin-top: 36px; flex-wrap: wrap; justify-content: center;
+}
+.hero-proof-item { display: flex; align-items: center; gap: 8px; font-size: 17px; color: rgba(255,255,255,0.9); font-weight: 600; }
+.hero-proof-stars { color: #f5c542; font-size: 18px; letter-spacing: 2px; }
+.hero-proof-divider { width: 1px; height: 24px; background: rgba(255,255,255,0.25); }
+
+/* ========== BUILDER CONTAINER ========== */
+.builder {
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  display: none; flex-direction: column; background: var(--white); z-index: 200;
+}
+.builder.active { display: flex; }
+
+/* Progress bar */
+.progress-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px; height: 60px;
+  border-bottom: 1px solid var(--border); background: var(--white); flex-shrink: 0;
+}
+.progress-logo { text-decoration: none; display: flex; align-items: center; }
+.progress-logo img { height: 40px; }
+.progress-steps { display: flex; align-items: center; gap: 0; flex: 1; justify-content: center; }
+.progress-step {
+  display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--muted); cursor: pointer; transition: color 0.2s; position: relative;
+}
+.progress-step .step-num {
+  width: 28px; height: 28px; border-radius: 50%; background: #eee;
+  color: var(--muted); font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.3s;
+}
+.progress-step.active { color: var(--teal); }
+.progress-step.active .step-num { background: var(--teal); color: #fff; }
+.progress-step.done { color: var(--dark); }
+.progress-step.done .step-num { background: var(--success); color: #fff; }
+.progress-step::after {
+  content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 1px; background: var(--border);
+}
+.progress-step:last-child::after { display: none; }
+.progress-price {
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px; color: var(--teal-dark);
+}
+.progress-price small { font-family: 'Karla', sans-serif; font-size: 12px; color: var(--muted); font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; display: block; }
+
+/* Inline progress steps — centered under page subtitle */
+.progress-steps-inline {
+  display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 20px;
+}
+.progress-step {
+  display: flex; align-items: center; gap: 8px; padding: 0 16px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+  color: var(--muted); cursor: pointer; transition: color 0.2s; position: relative;
+}
+.progress-step .step-num {
+  width: 26px; height: 26px; border-radius: 50%; background: #eee;
+  color: var(--muted); font-size: 12px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  transition: all 0.3s;
+}
+.progress-step.active { color: var(--teal); }
+.progress-step.active .step-num { background: var(--teal); color: #fff; }
+.progress-step.done { color: var(--dark); }
+.progress-step.done .step-num { background: var(--success); color: #fff; }
+.progress-step::after {
+  content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 1px; background: var(--border);
+}
+.progress-step:last-child::after { display: none; }
+
+/* ========== PAGES ========== */
+.pages-wrap {
+  flex: 1; overflow: hidden; position: relative;
+}
+.page {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: translateX(60px);
+  overflow-y: auto;
+}
+.page.active {
+  opacity: 1; pointer-events: all; transform: translateX(0);
+}
+.page.exit-left {
+  opacity: 0; transform: translateX(-60px);
+}
+
+/* Page layout helpers */
+.page-center {
+  width: 100%; display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-start; padding: 32px 40px 100px; min-height: 100%;
+}
+.page-split {
+  width: 100%; display: grid; grid-template-columns: 1fr 1fr; min-height: 100%;
+}
+.page-split-img { background-size: cover; background-position: center; }
+.page-split-content {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 60px 56px;
+}
+
+.page-label {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 12px;
+}
+.page-title { font-size: 44px; margin-bottom: 8px; letter-spacing: -0.5px; }
+.page-sub { font-size: 17px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; max-width: 600px; }
+
+/* ========== MATERIAL PAGE ========== */
+.mat-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; width: 100%; }
+.mat-card {
+  border: 3px solid var(--border); border-radius: 16px; overflow: hidden;
+  cursor: pointer; transition: all 0.3s; background: var(--white);
+}
+.mat-card:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.mat-card.selected { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+.mat-card-img { height: 300px; background-size: cover; background-position: center; position: relative; }
+.mat-card-img .tag {
+  position: absolute; bottom: 14px; left: 14px;
+  padding: 6px 16px; border-radius: 99px; font-size: 11px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase; background: rgba(255,255,255,0.92); color: var(--dark);
+}
+.mat-card-body { padding: 28px; }
+.mat-card-name { font-family: 'DM Serif Display', serif; font-size: 30px; color: var(--dark); margin-bottom: 6px; }
+.mat-card-desc { font-size: 16px; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+.mat-card-price { font-size: 26px; font-weight: 800; color: var(--teal); }
+.mat-card-price small { font-size: 13px; font-weight: 400; color: var(--muted); }
+.mat-card-features { display: flex; gap: 16px; margin-top: 12px; }
+.mat-card-features span { font-size: 13px; color: var(--body); display: flex; align-items: center; gap: 5px; }
+.mat-card-features span::before { content: '✓'; color: var(--success); font-weight: 800; }
+
+/* ========== SIZE PAGE ========== */
+.mount-toggle { display: flex; gap: 4px; background: var(--light-bg); border-radius: 99px; padding: 4px; margin-bottom: 36px; }
+.mount-btn {
+  padding: 12px 32px; border: none; background: transparent; border-radius: 99px;
+  font-size: 15px; font-weight: 700; color: var(--muted); transition: all 0.2s;
+}
+.mount-btn.active { background: var(--white); color: var(--dark); box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.size-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1200px; width: 100%; }
+.size-card {
+  border: 3px solid var(--border); border-radius: 16px; overflow: hidden;
+  cursor: pointer; transition: all 0.3s; background: var(--white); text-align: center;
+}
+.size-card:hover { border-color: var(--teal); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.size-card.selected { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+.size-card-img { height: 260px; background-size: cover; background-position: center; position: relative; }
+.size-card-img .pop {
+  position: absolute; top: 14px; right: 14px;
+  padding: 6px 14px; border-radius: 99px; font-size: 11px; font-weight: 800;
+  letter-spacing: 0.8px; text-transform: uppercase; background: var(--teal); color: #fff;
+}
+.size-card-body { padding: 22px 18px; }
+.size-card-name { font-family: 'DM Serif Display', serif; font-size: 26px; color: var(--dark); margin-bottom: 2px; }
+.size-card-dim { font-size: 16px; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+.size-card-desc { font-size: 15px; color: var(--body); margin-bottom: 12px; }
+.size-card-price { font-size: 28px; font-weight: 800; color: var(--teal); }
+.size-card-price small { font-size: 12px; font-weight: 400; color: var(--muted); }
+
+/* ========== EXTRAS PAGE ========== */
+.extras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 900px; width: 100%; }
+.extra-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0; border: 2px solid var(--border); border-radius: 14px;
+  cursor: pointer; transition: all 0.2s; background: var(--white); gap: 0;
+  overflow: hidden;
+}
+.extra-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.extra-card.selected { border-color: var(--teal); box-shadow: 0 0 0 2px var(--teal); }
+.extra-img { width: 100%; height: 140px; background-size: cover; background-position: center; }
+.extra-body { padding: 16px 14px; width: 100%; }
+.extra-name { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.extra-desc { font-size: 12px; color: var(--muted); line-height: 1.4; margin-bottom: 8px; }
+.extra-price { font-size: 20px; font-weight: 800; color: var(--teal); }
+.extra-check-mark {
+  width: 24px; height: 24px; border-radius: 50%; border: 2px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; color: transparent; transition: all 0.2s; margin-top: 8px;
+}
+.extra-card.selected .extra-check-mark { background: var(--teal); border-color: var(--teal); color: #fff; }
+
+.extras-bottom { display: flex; gap: 16px; margin-top: 36px; }
+
+/* ========== CUSTOM PAGE ========== */
+.custom-wrap { max-width: 760px; width: 100%; }
+.mobile-float-cta { display: none; }
+.custom-examples { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.custom-example {
+  padding: 14px 24px; border: 1.5px solid var(--border); border-radius: 99px;
+  font-size: 16px; font-weight: 600; color: var(--body); background: var(--white);
+  transition: all 0.2s;
+}
+.custom-example:hover { border-color: var(--teal); color: var(--teal); }
+.custom-input-box {
+  background: var(--white); border: 2px solid var(--border); border-radius: 16px;
+  padding: 28px; transition: border-color 0.3s;
+}
+.custom-input-box:focus-within { border-color: var(--teal); }
+.custom-ta {
+  width: 100%; min-height: 120px; border: none; outline: none; resize: vertical;
+  font-family: 'Karla', sans-serif; font-size: 20px; line-height: 1.7; color: var(--dark);
+  background: transparent;
+}
+.custom-ta::placeholder { color: #bbb; }
+.custom-btn-row { display: flex; justify-content: flex-end; margin-top: 16px; padding-top: 16px; border-top: 1px solid #eee; }
+
+.custom-loading { display: none; flex-direction: column; align-items: center; gap: 12px; padding: 40px; color: var(--teal); }
+.custom-loading.show { display: flex; }
+.custom-dots { display: flex; gap: 6px; }
+.custom-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); animation: dp 1.2s ease-in-out infinite; }
+.custom-dots span:nth-child(2) { animation-delay: 0.2s; }
+.custom-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dp { 0%,80%,100% { opacity: 0.15; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1); } }
+
+.custom-result { display: none; animation: fadeUp 0.5s ease; }
+.custom-result.show { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.custom-result-grid { display: flex; flex-direction: column; gap: 20px; }
+.custom-sketch-wrap {
+  background: #f5f5f3; border: 1px solid #e0e0dc; border-radius: 14px;
+  padding: 28px; text-align: center;
+}
+.custom-sketch-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 12px; }
+.custom-details { background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+.custom-price { font-family: 'DM Serif Display', serif; font-size: 36px; color: var(--teal-dark); margin-bottom: 4px; }
+.custom-price-note { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.custom-list { list-style: none; }
+.custom-list li { padding: 6px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; color: var(--dark); display: flex; align-items: center; gap: 8px; }
+.custom-list li:last-child { border-bottom: none; }
+.custom-list li::before { content: '✓'; color: var(--success); font-weight: 800; font-size: 13px; }
+
+/* ========== QUOTE PAGE ========== */
+.quote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; width: 100%; }
+.quote-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+.quote-card-head { padding: 22px 28px; border-bottom: 1px solid var(--border); }
+.quote-card-head h3 { font-size: 22px; }
+.quote-card-body { padding: 24px 28px; }
+.quote-line { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 15px; }
+.quote-line:last-of-type { border-bottom: none; }
+.ql-label { color: var(--body); }
+.ql-val { color: var(--dark); font-weight: 700; }
+.quote-total { display: flex; justify-content: space-between; align-items: baseline; padding: 20px 0 0; margin-top: 12px; border-top: 2px solid var(--dark); }
+.quote-total-label { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--dark); }
+.quote-total-val { font-family: 'DM Serif Display', serif; font-size: 42px; color: var(--teal-dark); }
+.quote-shipping { margin-top: 16px; padding-top: 14px; border-top: 1px solid #f0f0f0; }
+.quote-shipping label { font-size: 13px; font-weight: 700; color: var(--dark); display: block; margin-bottom: 8px; }
+.quote-zip-row { display: flex; gap: 8px; }
+.quote-zip-row input { flex: 1; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; font-family: 'Karla'; font-size: 15px; outline: none; }
+.quote-zip-row input:focus { border-color: var(--teal); }
+.quote-zip-row button { padding: 12px 20px; background: var(--teal); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; }
+.quote-actions { padding: 0 28px 28px; }
+.quote-cta { width: 100%; padding: 18px; background: var(--warm); color: #fff; border: none; border-radius: 8px; font-size: 18px; font-weight: 800; letter-spacing: 0.3px; transition: background 0.2s; margin-bottom: 10px; }
+.quote-cta:hover { background: var(--warm-dark); }
+.quote-sec { width: 100%; padding: 14px; background: transparent; color: var(--body); border: 2px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 700; transition: all 0.2s; }
+.quote-sec:hover { border-color: var(--dark); color: var(--dark); }
+.quote-fine { text-align: center; font-size: 12px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+.quote-photo { border-radius: 16px; overflow: hidden; }
+.quote-photo img { width: 100%; height: 500px; object-fit: cover; }
+
+/* ========== NAV BUTTONS ========== */
+.page-nav {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 40px; background: linear-gradient(transparent, var(--white) 30%);
+  pointer-events: none;
+}
+.page-nav > * { pointer-events: all; }
+.nav-back {
+  padding: 14px 28px; background: transparent; border: 2px solid var(--border);
+  border-radius: 8px; font-size: 14px; font-weight: 700; color: var(--body);
+  display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+}
+.nav-back:hover { border-color: var(--dark); color: var(--dark); }
+.nav-next {
+  padding: 16px 40px; background: var(--warm); color: #fff; border: none;
+  border-radius: 8px; font-size: 16px; font-weight: 800; letter-spacing: 0.3px;
+  display: flex; align-items: center; gap: 8px; transition: all 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+.nav-next:hover { background: var(--warm-dark); }
+.nav-next.teal { background: var(--teal); }
+.nav-next.teal:hover { background: var(--teal-dark); }
+
+/* ========== BTN HELPERS ========== */
+.btn-warm {
+  padding: 16px 40px; background: var(--warm); color: #fff; border: none;
+  border-radius: 8px; font-size: 16px; font-weight: 800; transition: all 0.2s;
+}
+.btn-warm:hover { background: var(--warm-dark); }
+.btn-teal {
+  padding: 16px 40px; background: var(--teal); color: #fff; border: none;
+  border-radius: 8px; font-size: 16px; font-weight: 800; transition: all 0.2s;
+}
+.btn-teal:hover { background: var(--teal-dark); }
+.btn-outline {
+  padding: 16px 40px; background: transparent; color: var(--teal); border: 2px solid var(--teal);
+  border-radius: 8px; font-size: 16px; font-weight: 700; transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--teal); color: #fff; }
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+  .site-header-nav, .site-header-phone { display: none; }
+  .hero h1 { font-size: 42px; }
+  .hero-proof-divider { display: none; }
+  .hero-trust { gap: 12px; }
+  .mat-cards { grid-template-columns: 1fr; }
+  .size-cards { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr 1fr; }
+  .custom-result-grid { grid-template-columns: 1fr !important; }
+  .quote-grid { grid-template-columns: 1fr; }
+  .page-split { grid-template-columns: 1fr; }
+  .page-split-img { height: 300px; }
+  .progress-steps { overflow-x: auto; }
+  .progress-step .step-text { display: none; }
+  .page-split { grid-template-columns: 1fr !important; }
+  .page-split-img { height: 280px; }
+  .page-split-content { padding: 32px 24px !important; }
+  .page-title { font-size: 36px !important; }
+  .mat-card-img { height: 240px; }
+  .size-cards { grid-template-columns: 1fr 1fr !important; }
+  .size-card-img { height: 180px; }
+  /* Mobile floating CTA */
+  .mobile-float-cta {
+    display: flex !important;
+    position: fixed; bottom: 16px; left: 16px; right: 16px; z-index: 300;
+    padding: 18px; background: var(--warm); color: #fff; border: none;
+    border-radius: 12px; font-size: 18px; font-weight: 800; text-align: center;
+    justify-content: center; align-items: center; gap: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  }
+  .progress-step .step-text { display: none; }
+  .progress-price { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== HERO LANDING ==================== -->
+<div id="landing">
+  <header class="site-header">
+    <a href="#" class="site-header-logo">
+      <img src="https://capecodshowerkits.com/wp-content/uploads/2016/03/CCSK-logo2014-1.png" alt="Cape Cod Shower Kits">
+    </a>
+    <nav class="site-header-nav">
+      <a href="#">Cedar Showers</a>
+      <a href="#">PVC Showers</a>
+      <a href="#">Compare</a>
+      <a href="#">Guides</a>
+      <a href="#">Gallery</a>
+    </nav>
+    <div class="site-header-right">
+      <a href="tel:17744087600" class="site-header-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        1-774-408-7600
+      </a>
+      <a href="#" class="site-header-cart">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge"><span>☀</span> Handcrafted on Cape Cod &bull; Ships Nationwide</div>
+    <h1>Build Your Dream Outdoor Shower</h1>
+    <p class="hero-sub">Choose your material, pick your size, add extras — done.</p>
+    <button class="hero-cta" onclick="startBuilder()">Build My Shower →</button>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span>🇺🇸</span> Fast US Shipping</div>
+      <div class="hero-trust-item"><span>🟢</span> Ships This Week</div>
+      <div class="hero-trust-item"><span>🛡️</span> Satisfaction Guaranteed</div>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item"><span class="hero-proof-stars">★★★★★</span> 4.8 / 5 Rating</div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item"><strong>10,000+</strong> Showers Shipped</div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">Since <strong>2008</strong></div>
+      <div class="hero-proof-divider"></div>
+      <div class="hero-proof-item">Featured in <strong>NY Times</strong> &amp; <strong>Houzz</strong></div>
+    </div>
+  </section>
+  <div style="position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:18px;color:rgba(255,255,255,0.5);">
+    Brought to you by <strong>Stonewood Products</strong>
+  </div>
+</div>
+
+<!-- Mobile floating CTA (hidden on desktop) -->
+<button class="mobile-float-cta" style="display:none;" onclick="startBuilder()">Build My Shower →</button>
+
+<!-- ==================== BUILDER ==================== -->
+<div class="builder" id="builder">
+
+  <!-- Progress Bar -->
+  <div class="progress-bar">
+    <a href="#" class="progress-logo" onclick="exitBuilder(); return false;">
+      <img src="https://capecodshowerkits.com/wp-content/uploads/2016/03/CCSK-logo2014-1.png" alt="CCSK">
+    </a>
+    <div class="progress-steps">
+      <div class="progress-step active" onclick="goPage(0)">
+        <span class="step-num">1</span><span class="step-text">Material</span>
+      </div>
+      <div class="progress-step" onclick="goPage(1)">
+        <span class="step-num">2</span><span class="step-text">Size</span>
+      </div>
+      <div class="progress-step" onclick="goPage(2)">
+        <span class="step-num">3</span><span class="step-text">Extras</span>
+      </div>
+      <div class="progress-step" onclick="goPage(7)">
+        <span class="step-num">4</span><span class="step-text">Quote</span>
+      </div>
+    </div>
+    <div class="progress-price" id="progPrice">
+      <small>Your Build</small>
+      $0
+    </div>
+  </div>
+
+  <div class="pages-wrap">
+
+    <!-- PAGE 1: MATERIAL -->
+    <div class="page active" data-page="0">
+      <div class="page-center">
+                <h2 class="page-title">Choose Your Material</h2>
+        <p class="page-sub">Two options. Both built to last decades outdoors.</p>
+        <div class="mat-cards">
+          <div class="mat-card" data-mat="cedar" onclick="pickMaterial(this)">
+            <div class="mat-card-img" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg')"><span class="tag">Most Popular</span></div>
+            <div class="mat-card-body">
+              <div class="mat-card-name">Western Red Cedar</div>
+              <div class="mat-card-desc">Natural warmth and character. Ages to a beautiful silver-grey patina.</div>
+              <div class="mat-card-price">From $1,675 <small>/ kit</small></div>
+              <div class="mat-card-features"><span>Rot-resistant</span><span>Aromatic</span><span>15-20 yr life</span></div>
+            </div>
+          </div>
+          <div class="mat-card" data-mat="pvc" onclick="pickMaterial(this)">
+            <div class="mat-card-img" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2018/04/standard-pvc-freestanding-outdoor-shower.jpg')"><span class="tag">Zero Maintenance</span></div>
+            <div class="mat-card-body">
+              <div class="mat-card-name">Cellular PVC</div>
+              <div class="mat-card-desc">Never rots, never needs staining. Stays white forever. 0.5" thick premium.</div>
+              <div class="mat-card-price">From $2,989 <small>/ kit</small></div>
+              <div class="mat-card-features"><span>No maintenance</span><span>Won't warp</span><span>25+ yr life</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: SIZE -->
+    <div class="page" data-page="1">
+      <div class="page-center">
+                <h2 class="page-title">Choose Your Size</h2>
+        <p class="page-sub">All kits include walls, door, posts, and hardware.</p>
+        <div class="mount-toggle">
+          <button class="mount-btn active" data-mount="hm" onclick="setMount(this)">House Mount</button>
+          <button class="mount-btn" data-mount="fs" onclick="setMount(this)">Free Standing</button>
+        </div>
+        <div class="size-cards">
+          <div class="size-card" data-size="standard" onclick="pickSize(this)">
+            <div class="size-card-img" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg')"><span class="pop">Top Seller</span></div>
+            <div class="size-card-body">
+              <div class="size-card-name">Standard</div>
+              <div class="size-card-dim">52" × 52"</div>
+              <div class="size-card-desc">Perfect for one. Everything you need.</div>
+              <div class="size-card-price" id="pStd">$1,675 <small>from</small></div>
+            </div>
+          </div>
+          <div class="size-card" data-size="83" onclick="pickSize(this)">
+            <div class="size-card-img" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2016/06/outdoor-shower-kit-ideas-house-mount-83-cedar-TX-UT-NV.jpg')"></div>
+            <div class="size-card-body">
+              <div class="size-card-name">The '83</div>
+              <div class="size-card-dim">52" × 83"</div>
+              <div class="size-card-desc">Room to move. Most versatile.</div>
+              <div class="size-card-price" id="p83">$1,845 <small>from</small></div>
+            </div>
+          </div>
+          <div class="size-card" data-size="deluxe" onclick="pickSize(this)">
+            <div class="size-card-img" style="background-image:url('https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-showers-deluxe-house-mount.jpg')"></div>
+            <div class="size-card-body">
+              <div class="size-card-name">Deluxe</div>
+              <div class="size-card-dim">52" × 99"</div>
+              <div class="size-card-desc">Shower + changing room.</div>
+              <div class="size-card-price" id="pDlx">$2,355 <small>from</small></div>
+            </div>
+          </div>
+          <div class="size-card" style="border-style:dashed; display:flex; flex-direction:column;" onclick="goPage(8)">
+            <div class="size-card-img" style="background:var(--light-bg); display:flex; align-items:center; justify-content:center;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 8v8M8 12h8"/></svg>
+            </div>
+            <div class="size-card-body">
+              <div class="size-card-name">Custom Size</div>
+              <div class="size-card-dim">You choose</div>
+              <div class="size-card-desc">AI-powered custom design.</div>
+              <div class="size-card-price" style="color:var(--warm);">Get Quote</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: PRIVACY ROOF -->
+    <div class="page" data-page="2">
+      <div class="page-split">
+        <div class="page-split-img" style="background-image:url('https://capecodshowerkits.com/wp-content/uploads/2017/07/cedar-out-door-showers-slat-roof.jpg')"></div>
+        <div class="page-split-content">
+          <div class="page-label">Add-On 1 of 5</div>
+          <div style="margin-bottom:12px;align-self:flex-start;"><span style="padding:7px 20px;background:#4caf50;color:#fff;font-size:15px;font-weight:700;border-radius:99px;">Very Popular</span></div>
+          <h2 class="page-title" style="text-align:left;">Privacy Roof</h2>
+          <p class="page-sub" style="text-align:left;">Cedar slat roof for complete overhead privacy. Keeps your shower enclosed and sheltered from above.</p>
+          <div style="font-family:'DM Serif Display',serif; font-size:40px; color:var(--teal-dark); margin-bottom:32px;">+$599</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <button class="btn-warm" onclick="addExtra('roof',599); goPage(3)">Add Privacy Roof →</button>
+            <button class="btn-outline" onclick="goPage(3)" style="border-color:var(--border); color:var(--muted);">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 4: SHOWER FLOOR -->
+    <div class="page" data-page="3">
+      <div class="page-split">
+        <div class="page-split-img" style="background-image:url('https://capecodshowerkits.com/wp-content/uploads/2022/04/outdoor-shower-floor-cedar-rhode-island.jpg')"></div>
+        <div class="page-split-content">
+          <div class="page-label">Add-On 2 of 5</div>
+          <div style="margin-bottom:12px;align-self:flex-start;"><span style="padding:7px 20px;background:#4caf50;color:#fff;font-size:15px;font-weight:700;border-radius:99px;">Very Popular</span></div>
+          <h2 class="page-title" style="text-align:left;">Shower Floor</h2>
+          <p class="page-sub" style="text-align:left;">Snap-together cedar or PVC panels with built-in drainage. Keeps feet off the ground and your shower looking clean.</p>
+          <div style="font-family:'DM Serif Display',serif; font-size:40px; color:var(--teal-dark); margin-bottom:32px;">+$129</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <button class="btn-warm" onclick="addExtra('floor',129); goPage(4)">Add Shower Floor →</button>
+            <button class="btn-outline" onclick="goPage(4)" style="border-color:var(--border); color:var(--muted);">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 5: BENCH -->
+    <div class="page" data-page="4">
+      <div class="page-split">
+        <div class="page-split-img" style="background-image:url('https://capecodshowerkits.com/wp-content/uploads/2016/03/cedar-or-pvc-bench-for-outdoor-showers-add-on.jpg')"></div>
+        <div class="page-split-content">
+          <div class="page-label">Add-On 3 of 5</div>
+          <div style="margin-bottom:12px;align-self:flex-start;"><span style="padding:7px 20px;background:#4caf50;color:#fff;font-size:15px;font-weight:700;border-radius:99px;">Very Popular</span></div>
+          <h2 class="page-title" style="text-align:left;">Built-in Bench</h2>
+          <p class="page-sub" style="text-align:left;">Fold-down seat in matching material. Perfect for shaving, relaxing, or keeping towels off the ground.</p>
+          <div style="font-family:'DM Serif Display',serif; font-size:40px; color:var(--teal-dark); margin-bottom:32px;">+$129</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <button class="btn-warm" onclick="addExtra('bench',129); goPage(5)">Add Bench →</button>
+            <button class="btn-outline" onclick="goPage(5)" style="border-color:var(--border); color:var(--muted);">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 6: POST CAPS -->
+    <div class="page" data-page="5">
+      <div class="page-split">
+        <div class="page-split-img" style="background-image:url('https://capecodshowerkits.com/wp-content/uploads/2016/03/outdoor-shower-cedar-post-caps.jpg')"></div>
+        <div class="page-split-content">
+          <div class="page-label">Add-On 4 of 5</div>
+          <h2 class="page-title" style="text-align:left;">Post Caps</h2>
+          <p class="page-sub" style="text-align:left;">Finished look for all five posts. Small detail, big difference in the final appearance of your shower.</p>
+          <div style="font-family:'DM Serif Display',serif; font-size:40px; color:var(--teal-dark); margin-bottom:32px;">+$20</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <button class="btn-warm" onclick="addExtra('caps',20); goPage(6)">Add Post Caps →</button>
+            <button class="btn-outline" onclick="goPage(6)" style="border-color:var(--border); color:var(--muted);">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 7: PRE-STAIN (cedar only shown) -->
+    <div class="page" data-page="6">
+      <div class="page-split">
+        <div class="page-split-img" style="background-image:url('https://capecodshowerkits.com/wp-content/uploads/2016/03/outdoor-shower-enclosure-cedar-floor.jpg')"></div>
+        <div class="page-split-content">
+          <div class="page-label">Add-On 5 of 5</div>
+          <div style="margin-bottom:12px;align-self:flex-start;"><span style="padding:7px 20px;background:#4caf50;color:#fff;font-size:15px;font-weight:700;border-radius:99px;">Very Popular</span></div>
+          <h2 class="page-title" style="text-align:left;">Pre-Stain Your Cedar</h2>
+          <p class="page-sub" style="text-align:left;">UV-protective stain applied before shipping. Extends cedar life by 3-5 years and skips your first season of maintenance.</p>
+          <div style="font-family:'DM Serif Display',serif; font-size:40px; color:var(--teal-dark); margin-bottom:32px;">+$120</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <button class="btn-warm" onclick="addExtra('stain',120); goPage(7)">Add Pre-Stain →</button>
+            <button class="btn-outline" onclick="goPage(7)" style="border-color:var(--border); color:var(--muted);">Skip</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 8: QUOTE -->
+    <div class="page" data-page="7">
+      <div class="page-center" style="background:var(--white);">
+        <div class="page-label">Your Quote</div>
+        <h2 class="page-title">Your Outdoor Shower</h2>
+        <p class="page-sub">Review your build and complete your order.</p>
+        <div class="quote-grid">
+          <div>
+            <div class="quote-card">
+              <div class="quote-card-head"><h3 id="qName">Cedar Standard — House Mount</h3></div>
+              <div class="quote-card-body">
+                <div class="quote-line"><span class="ql-label">Kit</span><span class="ql-val" id="qKit">Standard 52" × 52"</span></div>
+                <div class="quote-line"><span class="ql-label">Material</span><span class="ql-val" id="qMat">Western Red Cedar</span></div>
+                <div class="quote-line"><span class="ql-label">Mount</span><span class="ql-val" id="qMnt">House Mount</span></div>
+                <div class="quote-line"><span class="ql-label">Included</span><span class="ql-val">Walls, door, posts, hardware</span></div>
+                <div id="qExtras"></div>
+                <div class="quote-shipping">
+                  <label>Shipping Estimate</label>
+                  <div class="quote-zip-row">
+                    <input type="text" placeholder="Enter zip code" maxlength="5" id="zipIn">
+                    <button onclick="calcShip()">Estimate</button>
+                  </div>
+                  <div id="shipResult" style="font-size:14px;color:var(--dark);margin-top:10px;"></div>
+                </div>
+                <div class="quote-total">
+                  <span class="quote-total-label">Total</span>
+                  <span class="quote-total-val" id="qTotal">$1,675</span>
+                </div>
+              </div>
+              <div class="quote-actions">
+                <button class="quote-cta">Complete Your Order →</button>
+                <button class="quote-sec">Save &amp; Email This Quote</button>
+                <div class="quote-fine">Price valid for 7 days. Call 1-774-408-7600 with questions.</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="quote-photo">
+              <img id="qImg" src="https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg" alt="Your shower">
+            </div>
+            <!-- Custom sketch shown for custom builds -->
+            <div id="qSketchWrap" style="display:none;margin-top:16px;background:#f5f5f3;border:1px solid #e0e0dc;border-radius:16px;padding:24px;text-align:center;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Your Custom Design</div>
+              <svg id="qSketch" width="100%" height="300" viewBox="0 0 480 420" preserveAspectRatio="xMidYMid meet" style="max-width:100%;"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 9: CUSTOM (AI) -->
+    <div class="page" data-page="8">
+      <div class="page-center" style="background:var(--light-bg);">
+        <button onclick="goPage(1)" style="align-self:flex-start; background:none; border:none; color:var(--teal); font-size:14px; font-weight:700; display:flex; align-items:center; gap:6px; margin-bottom:20px; cursor:pointer;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Back to Size Selection
+        </button>
+        <div class="page-label">Custom Build</div>
+        <h2 class="page-title">Design Something Unique</h2>
+        <p class="page-sub" style="font-size:20px;">Non-standard size? Multiple heads? Describe it — we'll design it and price it.</p>
+        <!-- INITIAL: Centered input -->
+        <div id="customInitView" style="max-width:760px;width:100%;">
+          <div class="custom-examples">
+            <button class="custom-example" onclick="fillExample(0)">Beach house with changing room</button>
+            <button class="custom-example" onclick="fillExample(1)">Pool shower, two heads</button>
+            <button class="custom-example" onclick="fillExample(2)">Simple rinse station</button>
+          </div>
+          <div class="custom-input-box" style="margin-top:14px;">
+            <textarea class="custom-ta" id="customIn" placeholder="I want a 6-foot wide cedar shower mounted to the side of my beach house with two shower heads and a bench..."></textarea>
+            <div class="custom-btn-row">
+              <button class="btn-teal" style="font-size:18px; padding:18px 44px;" onclick="runCustom()">Design My Shower →</button>
+            </div>
+          </div>
+          <div class="custom-loading" id="cLoading">
+            <div class="custom-dots"><span></span><span></span><span></span></div>
+            <span style="font-size:15px;font-weight:600;">Designing your shower...</span>
+          </div>
+        </div>
+
+        <!-- SPLIT VIEW: Chat left, Design right (hidden until submit) -->
+        <div id="customSplitView" style="display:none;position:absolute;top:0;left:0;width:100%;height:100%;">
+          <div style="display:grid;grid-template-columns:340px 1fr;height:100%;">
+
+            <!-- LEFT: Chat panel -->
+            <div style="display:flex;flex-direction:column;height:100%;border-right:1px solid var(--border);background:var(--white);">
+              <!-- Header -->
+              <div style="padding:18px 20px 12px;border-bottom:1px solid var(--border);flex-shrink:0;">
+                <div style="font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--teal);margin-bottom:4px;">Shower Design Chat</div>
+                <div style="font-size:12px;color:var(--muted);">Describe what you want. AI updates the design.</div>
+              </div>
+              <!-- Messages (scrollable) -->
+              <div id="chatMessages" style="flex:1;overflow-y:auto;padding:16px 20px;"></div>
+              <!-- Input (pinned bottom) -->
+              <div style="padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;background:var(--light-bg);">
+                <div style="display:flex;gap:8px;align-items:flex-end;">
+                  <textarea id="chatInput" style="flex:1;height:48px;border:2px solid var(--border);border-radius:10px;padding:12px;font-family:'Karla',sans-serif;font-size:14px;resize:none;outline:none;color:var(--dark);background:var(--white);" placeholder="Make it wider, add a bench..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendFollowUp();}"></textarea>
+                  <button onclick="sendFollowUp()" style="width:48px;height:48px;border-radius:10px;background:var(--teal);border:none;color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:pointer;">→</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Design canvas -->
+            <div style="display:flex;flex-direction:column;height:100%;background:var(--light-bg);">
+              <!-- Price bar -->
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--border);background:var(--white);flex-shrink:0;gap:16px;">
+                <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+                  <div>
+                    <span class="custom-price" id="cPrice" style="font-size:28px;">$3,500 – $4,500</span>
+                    <span style="font-size:11px;color:var(--muted);margin-left:6px;">est.</span>
+                  </div>
+                  <div style="width:1px;height:32px;background:var(--border);"></div>
+                  <ul id="cList" style="list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:var(--dark);margin:0;padding:0;">
+                    <li style="display:flex;align-items:center;gap:3px;"><span style="color:var(--success);font-weight:800;">✓</span> Cedar 6'×5'×7'</li>
+                    <li style="display:flex;align-items:center;gap:3px;"><span style="color:var(--success);font-weight:800;">✓</span> House mount</li>
+                    <li style="display:flex;align-items:center;gap:3px;"><span style="color:var(--success);font-weight:800;">✓</span> Bench</li>
+                    <li style="display:flex;align-items:center;gap:3px;"><span style="color:var(--success);font-weight:800;">✓</span> Foot wash</li>
+                  </ul>
+                </div>
+                <button class="btn-warm" style="font-size:14px;padding:12px 28px;white-space:nowrap;flex-shrink:0;" onclick="goPage(2)">Next: Add-Ons →</button>
+              </div>
+              <!-- Sketch canvas (fills remaining space, aligned to top) -->
+              <div style="flex:1;display:flex;align-items:flex-start;justify-content:center;padding:16px 16px 0;min-height:0;">
+                <svg id="cSketch" viewBox="0 0 480 420" preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;max-height:calc(100vh - 180px);"></svg>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /pages-wrap -->
+  <!-- Footer (inside each page's scroll area, not overlapping) -->
+</div><!-- /builder -->
+
+<script>
+// ==================== STATE ====================
+const S = { material: null, mount: 'hm', size: null, extras: {}, currentPage: 0, isCustom: false };
+
+const prices = {
+  cedar: { hm: { standard:1675,'83':1845,deluxe:2355 }, fs: { standard:2049,'83':2499,deluxe:3155 } },
+  pvc:   { hm: { standard:2989,'83':4460,deluxe:4288 }, fs: { standard:3688,'83':4685,deluxe:5735 } }
+};
+const matNames = { cedar:'Western Red Cedar', pvc:'Cellular PVC' };
+const sizeNames = { standard:'Standard 52" × 52"', '83':'The \'83  52" × 83"', deluxe:'Deluxe 52" × 99"' };
+const mountNames = { hm:'House Mount', fs:'Free Standing' };
+const extraNames = { floor:'Shower Floor',bench:'Bench',caps:'Post Caps',roof:'Privacy Roof',stain:'Pre-Stain',lattice:'Lattice Top' };
+
+const cedarImgs = [
+  'https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-shower-kit-enclosure.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2016/06/outdoor-shower-kit-ideas-house-mount-83-cedar-TX-UT-NV.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2015/04/outdoor-showers-deluxe-house-mount.jpg'
+];
+const pvcImgs = [
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/04/standard-pvc-freestanding-outdoor-shower.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/07/outdoor-shower-azek-style-deluxe-free-standing.jpg',
+  'https://www.stonewoodproducts.com/wp-content/uploads/2018/04/outdoor-showers-83-house-mount.jpg'
+];
+
+// ==================== RENDER INLINE STEPS ====================
+const stepLabels = ['Material','Size','Extras','Quote'];
+const stepPageMap = [0, 1, 2, 7]; // which data-page each step starts at
+function renderSteps() {
+  for (let p = 0; p < 2; p++) {
+    const el = document.getElementById('steps' + p);
+    if (!el) continue;
+    let h = '';
+    for (let i = 0; i < 4; i++) {
+      const cls = i === p ? 'active' : i < p ? 'done' : '';
+      h += `<div class="progress-step ${cls}" onclick="goPage(${stepPageMap[i]})"><span class="step-num">${i+1}</span><span class="step-text">${stepLabels[i]}</span></div>`;
+    }
+    el.innerHTML = h;
+  }
+}
+renderSteps();
+
+// ==================== BUILDER OPEN/CLOSE ====================
+function startBuilder() {
+  document.getElementById('landing').style.display = 'none';
+  document.getElementById('builder').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function exitBuilder() {
+  document.getElementById('builder').classList.remove('active');
+  document.getElementById('landing').style.display = '';
+  document.body.style.overflow = '';
+}
+
+// ==================== PAGE NAVIGATION ====================
+function goPage(n) {
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => { p.classList.remove('active','exit-left'); });
+  // Small delay for animation
+  const target = document.querySelector(`.page[data-page="${n}"]`);
+  if (n > S.currentPage) {
+    document.querySelector(`.page[data-page="${S.currentPage}"]`).classList.add('exit-left');
+  }
+  setTimeout(() => { target.classList.add('active'); }, 50);
+  S.currentPage = n;
+
+  // Determine which high-level step we're on
+  let stepIdx = 0;
+  if (n === 0) stepIdx = 0;       // Material
+  else if (n === 1) stepIdx = 1;  // Size
+  else if (n >= 2 && n <= 6) stepIdx = 2; // Extras (pages 2-6)
+  else if (n === 7) stepIdx = 3;  // Quote
+  else stepIdx = 3;               // Custom
+
+  // Update all progress step indicators
+  document.querySelectorAll('.progress-step').forEach(s => {
+    const si = parseInt(s.dataset?.stepIdx ?? s.querySelector('.step-num')?.textContent) - 1;
+    s.classList.remove('active','done');
+    if (si === stepIdx) s.classList.add('active');
+    else if (si < stepIdx) s.classList.add('done');
+  });
+
+  // Build quote when going to quote page
+  if (n === 7) buildQuote();
+}
+
+// ==================== MATERIAL ====================
+function pickMaterial(el) {
+  S.material = el.dataset.mat;
+  document.querySelectorAll('.mat-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  updateSizePrices();
+  updatePrice();
+  setTimeout(() => goPage(1), 500);
+}
+
+// ==================== MOUNT ====================
+function setMount(el) {
+  S.mount = el.dataset.mount;
+  document.querySelectorAll('.mount-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  updateSizePrices();
+  updatePrice();
+}
+
+function updateSizePrices() {
+  if (!S.material) return;
+  const p = prices[S.material][S.mount];
+  document.getElementById('pStd').innerHTML = '$' + p.standard.toLocaleString() + ' <small>from</small>';
+  document.getElementById('p83').innerHTML = '$' + p['83'].toLocaleString() + ' <small>from</small>';
+  document.getElementById('pDlx').innerHTML = '$' + p.deluxe.toLocaleString() + ' <small>from</small>';
+}
+
+// ==================== SIZE ====================
+function pickSize(el) {
+  S.size = el.dataset.size;
+  document.querySelectorAll('.size-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  updatePrice();
+  setTimeout(() => goPage(2), 500); // goes to first add-on (Privacy Roof)
+}
+
+// ==================== ADD EXTRA (from split pages) ====================
+function addExtra(key, price) {
+  S.extras[key] = price;
+  updatePrice();
+}
+
+// ==================== EXTRAS ====================
+function toggleExtra(el) {
+  const key = el.dataset.extra;
+  el.classList.toggle('selected');
+  if (el.classList.contains('selected')) S.extras[key] = parseInt(el.dataset.price) || 0;
+  else delete S.extras[key];
+  updatePrice();
+}
+
+// ==================== PRICE ====================
+function getTotal() {
+  let base = 0;
+  if (S.material && S.size) base = prices[S.material][S.mount][S.size] || 0;
+  let ext = 0;
+  Object.values(S.extras).forEach(v => ext += v);
+  return base + ext;
+}
+
+function updatePrice() {
+  if (S.isCustom) {
+    // Extract the higher price from the range (e.g. "$3,500 – $4,500" → 4500)
+    const match = S.customPrice.match(/[\d,]+/g);
+    const highPrice = match ? parseInt(match[match.length - 1].replace(/,/g, '')) : 0;
+    let extTotal = 0;
+    Object.values(S.extras).forEach(v => extTotal += v);
+    const total = highPrice + extTotal;
+    document.getElementById('progPrice').innerHTML = '<small>Your Build</small>$' + total.toLocaleString();
+  } else {
+    const t = getTotal();
+    document.getElementById('progPrice').innerHTML = '<small>Your Build</small>$' + (t > 0 ? t.toLocaleString() : '—');
+  }
+}
+
+// ==================== QUOTE ====================
+function buildQuote() {
+  if (S.isCustom) {
+    // Calculate total from high estimate + extras
+    const match = S.customPrice.match(/[\d,]+/g);
+    const highPrice = match ? parseInt(match[match.length - 1].replace(/,/g, '')) : 0;
+    let extTotal = 0;
+    Object.values(S.extras).forEach(v => extTotal += v);
+    const total = highPrice + extTotal;
+
+    document.getElementById('qName').textContent = 'Custom Design';
+    document.getElementById('qKit').textContent = 'Custom dimensions';
+    document.getElementById('qMat').textContent = 'Per your specifications';
+    document.getElementById('qMnt').textContent = 'Custom';
+    document.getElementById('qTotal').textContent = '$' + total.toLocaleString();
+
+    // Show extras
+    const el = document.getElementById('qExtras');
+    el.innerHTML = '';
+    el.innerHTML += `<div class="quote-line"><span class="ql-label">Base Custom Build</span><span class="ql-val">${S.customPrice}</span></div>`;
+    Object.keys(S.extras).forEach(k => {
+      const p = S.extras[k];
+      el.innerHTML += `<div class="quote-line"><span class="ql-label">${extraNames[k]||k}</span><span class="ql-val">${p > 0 ? '+$'+p : 'Included'}</span></div>`;
+    });
+    const sketchWrap = document.getElementById('qSketchWrap');
+    const srcSketch = document.getElementById('cSketch');
+    if (srcSketch && srcSketch.innerHTML) {
+      sketchWrap.style.display = 'block';
+      document.getElementById('qSketch').innerHTML = srcSketch.innerHTML;
+    }
+    return;
+  }
+  if (!S.material || !S.size) return;
+  const t = getTotal();
+  document.getElementById('qName').textContent = (S.material === 'cedar' ? 'Cedar' : 'PVC') + ' ' + (S.size === '83' ? "The '83" : S.size.charAt(0).toUpperCase() + S.size.slice(1)) + ' — ' + mountNames[S.mount];
+  document.getElementById('qKit').textContent = sizeNames[S.size];
+  document.getElementById('qMat').textContent = matNames[S.material];
+  document.getElementById('qMnt').textContent = mountNames[S.mount];
+  document.getElementById('qTotal').textContent = '$' + t.toLocaleString();
+
+  // Extras
+  const el = document.getElementById('qExtras');
+  el.innerHTML = '';
+  Object.keys(S.extras).forEach(k => {
+    const p = S.extras[k];
+    el.innerHTML += `<div class="quote-line"><span class="ql-label">${extraNames[k]||k}</span><span class="ql-val">${p > 0 ? '+$'+p : 'Included'}</span></div>`;
+  });
+
+  // Photo
+  const imgs = S.material === 'pvc' ? pvcImgs : cedarImgs;
+  const idx = S.size === 'standard' ? 0 : S.size === '83' ? 1 : 2;
+  document.getElementById('qImg').src = imgs[idx] || imgs[0];
+
+  // Show custom sketch if coming from custom flow
+  const sketchWrap = document.getElementById('qSketchWrap');
+  const srcSketch = document.getElementById('cSketch');
+  if (S.isCustom && srcSketch && srcSketch.innerHTML) {
+    sketchWrap.style.display = 'block';
+    document.getElementById('qSketch').innerHTML = srcSketch.innerHTML;
+  } else {
+    sketchWrap.style.display = 'none';
+  }
+}
+
+// ==================== SHIPPING ====================
+function calcShip() {
+  const zip = document.getElementById('zipIn').value;
+  if (zip.length < 5) return;
+  const f = parseInt(zip.charAt(0));
+  let est = f <= 1 ? '$95 – $145' : f <= 3 ? '$145 – $195' : f <= 5 ? '$195 – $275' : f <= 7 ? '$275 – $350' : '$350 – $425';
+  document.getElementById('shipResult').innerHTML = '<strong>Estimated: ' + est + '</strong><br>LTL freight, curbside. 7-14 business days.';
+}
+
+// ==================== CUSTOM DEMO ====================
+const examples = [
+  { text: 'I want a large cedar shower with a changing room and bench for our beach house on Nantucket. Need a foot rinse for sandy feet and good privacy.', price: '$3,500 – $4,500', items: ['Western Red Cedar, 6\' × 5\' × 7\'','House mount, 3-wall + door','Full enclosure with changing area','Built-in cedar bench','Low-mount foot wash spigot','Privacy door with latch','All hardware, posts included'] },
+  { text: 'Pool shower mounted to our pool house wall. PVC, two shower heads side by side, wide enough for two people. Need a floor grate for drainage.', price: '$4,800 – $5,600', items: ['Cellular PVC, 7\' × 4\' × 7\'','House mount, 2-wall open design','Dual shower heads (rain + wall-mount)','PVC floor grate with drainage','Extra-wide configuration','All hardware, posts included'] },
+  { text: 'Simple outdoor rinse station for our dock. Cedar, small, freestanding with a door. Nothing fancy, just need to rinse off after swimming.', price: '$1,675 – $2,100', items: ['Western Red Cedar','Freestanding 3.5\' × 3.5\' enclosure','Single rain shower head','Full enclosure with door','Hot & cold mixing valve','All hardware, posts included'] }
+];
+
+function fillExample(n) {
+  document.getElementById('customIn').value = examples[n].text;
+}
+
+function runCustom() {
+  const v = document.getElementById('customIn').value.trim();
+  if (!v) { fillExample(0); document.getElementById('customIn').value = examples[0].text; }
+  const userText = document.getElementById('customIn').value;
+  document.getElementById('cLoading').classList.add('show');
+
+  // In production this calls Claude API — demo uses keyword matching
+  let ex = examples[0];
+  if (v.toLowerCase().includes('pool') || v.toLowerCase().includes('pvc') || v.toLowerCase().includes('two')) ex = examples[1];
+  if (v.toLowerCase().includes('simple') || v.toLowerCase().includes('rinse') || v.toLowerCase().includes('dock')) ex = examples[2];
+
+  setTimeout(() => {
+    document.getElementById('cLoading').classList.remove('show');
+    S.isCustom = true;
+    S.customPrice = ex.price;
+    // Switch to split view
+    document.getElementById('customInitView').style.display = 'none';
+    document.getElementById('customSplitView').style.display = 'block';
+
+    // Update top-right price with custom estimate
+    document.getElementById('progPrice').innerHTML = '<small>Your Build</small>' + ex.price;
+
+    // Populate chat messages
+    const msgs = document.getElementById('chatMessages');
+    msgs.innerHTML = '';
+    addChatMsg(msgs, 'user', userText);
+    addChatMsg(msgs, 'ai', 'Here\'s what I\'d recommend based on your description. The plan view shows your layout with all components labeled.');
+
+    // Populate design
+    document.getElementById('cPrice').textContent = ex.price;
+    const list = document.getElementById('cList');
+    list.innerHTML = '';
+    ex.items.forEach(i => { list.innerHTML += '<li>' + i + '</li>'; });
+    drawSketch(ex === examples[2] ? 'simple' : ex === examples[1] ? 'pool' : 'beach');
+  }, 2200);
+}
+
+function addChatMsg(container, role, text) {
+  const d = document.createElement('div');
+  d.style.cssText = 'margin-bottom:16px;';
+  if (role === 'user') {
+    d.innerHTML = `<div style="background:#eef4f5;border-radius:12px;padding:14px 18px;font-size:15px;color:var(--dark);line-height:1.5;margin-left:24px;">${text}</div>`;
+  } else {
+    d.innerHTML = `<div style="display:flex;gap:10px;align-items:flex-start;">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;">AI</div>
+      <div style="font-size:14px;color:var(--dark);line-height:1.5;">${text}</div>
+    </div>`;
+  }
+  container.appendChild(d);
+}
+
+function sendFollowUp() {
+  const input = document.getElementById('chatInput');
+  const v = input.value.trim();
+  if (!v) return;
+  const msgs = document.getElementById('chatMessages');
+  addChatMsg(msgs, 'user', v);
+  input.value = '';
+  // Simulate AI response
+  setTimeout(() => {
+    addChatMsg(msgs, 'ai', 'Got it — I\'ve updated the design to reflect your changes. Check the plan view on the right.');
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 1200);
+}
+
+function drawSketch(type) {
+  const svg = document.getElementById('cSketch');
+  const W = 480, H = 420;
+  const wc = '#8a8a86', fill = '#e8e8e4', lbl = '#777', dim = '#444';
+  let s = '';
+  s += `<rect width="${W}" height="${H}" fill="#f5f5f3" rx="10"/>`;
+  for (let g = 20; g < W; g += 20) s += `<line x1="${g}" y1="0" x2="${g}" y2="${H}" stroke="#e8e8e4" stroke-width="0.5"/>`;
+  for (let g = 20; g < H; g += 20) s += `<line x1="0" y1="${g}" x2="${W}" y2="${g}" stroke="#e8e8e4" stroke-width="0.5"/>`;
+  s += `<text x="${W/2}" y="26" text-anchor="middle" font-size="10" fill="${lbl}" font-family="Karla" font-weight="700" letter-spacing="2">PLAN VIEW</text>`;
+
+  if (type === 'beach') {
+    const sw=260,sd=180,ox=(W-sw)/2-20,oy=(H-sd)/2+14,ww=5;
+    s += `<rect x="${ox-24}" y="${oy-16}" width="${sw+48}" height="16" fill="#c0c0bc" rx="2"/>`;
+    s += `<text x="${W/2}" y="${oy-22}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600" letter-spacing="1">HOUSE WALL</text>`;
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${sd}" fill="${fill}" rx="3"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${ww}" fill="${wc}"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    s += `<rect x="${ox+sw-ww}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    const dw=40,dx=ox+(sw-dw)/2;
+    s += `<rect x="${ox}" y="${oy+sd-ww}" width="${dx-ox}" height="${ww}" fill="${wc}"/>`;
+    s += `<rect x="${dx+dw}" y="${oy+sd-ww}" width="${ox+sw-dx-dw}" height="${ww}" fill="${wc}"/>`;
+    s += `<path d="M ${dx+dw} ${oy+sd} A ${dw} ${dw} 0 0 1 ${dx+dw-dw*0.7} ${oy+sd+dw*0.7}" fill="none" stroke="${wc}" stroke-width="1" stroke-dasharray="5,4" opacity="0.35"/>`;
+    // Changing area
+    s += `<rect x="${ox+sw+6}" y="${oy}" width="${60}" height="${sd}" fill="none" stroke="${wc}" stroke-width="1.5" stroke-dasharray="6,4" rx="3"/>`;
+    s += `<text x="${ox+sw+36}" y="${oy+sd/2+4}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600" transform="rotate(-90,${ox+sw+36},${oy+sd/2})">CHANGING</text>`;
+    // Heads
+    s += `<circle cx="${ox+sw*0.35}" cy="${oy+26}" r="10" fill="none" stroke="${wc}" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+    s += `<circle cx="${ox+sw*0.35}" cy="${oy+26}" r="3" fill="${wc}"/>`;
+    s += `<text x="${ox+sw*0.35}" y="${oy+44}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">RAIN</text>`;
+    // Bench + foot
+    s += `<rect x="${ox+12}" y="${oy+sd-38}" width="${sw*0.3}" height="10" fill="none" stroke="${wc}" stroke-width="1.5" rx="2"/>`;
+    s += `<text x="${ox+12+sw*0.15}" y="${oy+sd-44}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">BENCH</text>`;
+    s += `<circle cx="${ox+sw-22}" cy="${oy+sd-24}" r="5" fill="none" stroke="${wc}" stroke-width="1.5"/>`;
+    s += `<text x="${ox+sw-22}" y="${oy+sd-34}" text-anchor="middle" font-size="8" fill="${lbl}" font-family="Karla" font-weight="600">FOOT</text>`;
+    // Dims
+    addDims(s = s, ox, oy, sw, sd, '6\' 0"', '5\' 0"', '7\' 0"');
+  } else if (type === 'pool') {
+    const sw=280,sd=150,ox=(W-sw)/2,oy=(H-sd)/2+14,ww=5;
+    s += `<rect x="${ox-24}" y="${oy-16}" width="${sw+48}" height="16" fill="#c0c0bc" rx="2"/>`;
+    s += `<text x="${W/2}" y="${oy-22}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600" letter-spacing="1">POOL HOUSE</text>`;
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${sd}" fill="${fill}" rx="3"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${ww}" fill="${wc}"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    s += `<rect x="${ox+sw-ww}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    // 2 heads
+    s += `<circle cx="${ox+sw*0.33}" cy="${oy+28}" r="12" fill="none" stroke="${wc}" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+    s += `<circle cx="${ox+sw*0.33}" cy="${oy+28}" r="3" fill="${wc}"/>`;
+    s += `<text x="${ox+sw*0.33}" y="${oy+48}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">HEAD 1</text>`;
+    s += `<circle cx="${ox+sw*0.67}" cy="${oy+28}" r="12" fill="none" stroke="${wc}" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+    s += `<circle cx="${ox+sw*0.67}" cy="${oy+28}" r="3" fill="${wc}"/>`;
+    s += `<text x="${ox+sw*0.67}" y="${oy+48}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">HEAD 2</text>`;
+    // Floor grate
+    for (let i=0;i<sw-16;i+=10) s += `<rect x="${ox+8+i}" y="${oy+sd-10}" width="7" height="7" fill="none" stroke="${wc}" stroke-width="0.7" rx="1" opacity="0.4"/>`;
+    s += `<text x="${ox+sw/2}" y="${oy+sd+14}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">FLOOR GRATE</text>`;
+    addDims(s = s, ox, oy, sw, sd, '7\' 0"', '4\' 0"', '7\' 0"');
+  } else { // simple — small freestanding enclosure
+    const sw=140,sd=140,ox=(W-sw)/2,oy=(H-sd)/2+14,ww=5;
+    // Floor
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${sd}" fill="${fill}" rx="3"/>`;
+    // 4 walls (freestanding)
+    s += `<rect x="${ox}" y="${oy}" width="${sw}" height="${ww}" fill="${wc}"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    s += `<rect x="${ox+sw-ww}" y="${oy}" width="${ww}" height="${sd}" fill="${wc}"/>`;
+    // Front wall with door
+    const dw=36, dx=ox+(sw-dw)/2;
+    s += `<rect x="${ox}" y="${oy+sd-ww}" width="${dx-ox}" height="${ww}" fill="${wc}"/>`;
+    s += `<rect x="${dx+dw}" y="${oy+sd-ww}" width="${ox+sw-dx-dw}" height="${ww}" fill="${wc}"/>`;
+    s += `<path d="M ${dx+dw} ${oy+sd} A ${dw} ${dw} 0 0 1 ${dx+dw-dw*0.7} ${oy+sd+dw*0.7}" fill="none" stroke="${wc}" stroke-width="1" stroke-dasharray="5,4" opacity="0.35"/>`;
+    s += `<text x="${dx+dw/2}" y="${oy+sd+16}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">DOOR</text>`;
+    // Shower head
+    s += `<circle cx="${ox+sw/2}" cy="${oy+28}" r="10" fill="none" stroke="${wc}" stroke-width="1.5" stroke-dasharray="4,3"/>`;
+    s += `<circle cx="${ox+sw/2}" cy="${oy+28}" r="3" fill="${wc}"/>`;
+    s += `<text x="${ox+sw/2}" y="${oy+46}" text-anchor="middle" font-size="9" fill="${lbl}" font-family="Karla" font-weight="600">RAIN HEAD</text>`;
+    addDims(s = s, ox, oy, sw, sd, '3\' 6"', '3\' 6"', '7\' 0"');
+  }
+
+  svg.innerHTML = s;
+}
+
+function addDims(s, ox, oy, sw, sd, wLabel, dLabel, hLabel, W, H) {
+  if (!W) W = 480; if (!H) H = 420;
+  const dim = '#444', lbl = '#777';
+  const dy = oy + sd + 36;
+  s += `<line x1="${ox}" y1="${dy}" x2="${ox+sw}" y2="${dy}" stroke="${dim}" stroke-width="1"/>`;
+  s += `<line x1="${ox}" y1="${dy-5}" x2="${ox}" y2="${dy+5}" stroke="${dim}" stroke-width="1.5"/>`;
+  s += `<line x1="${ox+sw}" y1="${dy-5}" x2="${ox+sw}" y2="${dy+5}" stroke="${dim}" stroke-width="1.5"/>`;
+  s += `<polygon points="${ox},${dy} ${ox+6},${dy-3} ${ox+6},${dy+3}" fill="${dim}"/>`;
+  s += `<polygon points="${ox+sw},${dy} ${ox+sw-6},${dy-3} ${ox+sw-6},${dy+3}" fill="${dim}"/>`;
+  s += `<text x="${ox+sw/2}" y="${dy+16}" text-anchor="middle" font-size="14" fill="${dim}" font-family="Karla" font-weight="800">${wLabel}</text>`;
+  const dx = ox + sw + 28;
+  s += `<line x1="${dx}" y1="${oy}" x2="${dx}" y2="${oy+sd}" stroke="${dim}" stroke-width="1"/>`;
+  s += `<line x1="${dx-5}" y1="${oy}" x2="${dx+5}" y2="${oy}" stroke="${dim}" stroke-width="1.5"/>`;
+  s += `<line x1="${dx-5}" y1="${oy+sd}" x2="${dx+5}" y2="${oy+sd}" stroke="${dim}" stroke-width="1.5"/>`;
+  s += `<polygon points="${dx},${oy} ${dx-3},${oy+6} ${dx+3},${oy+6}" fill="${dim}"/>`;
+  s += `<polygon points="${dx},${oy+sd} ${dx-3},${oy+sd-6} ${dx+3},${oy+sd-6}" fill="${dim}"/>`;
+  s += `<text x="${dx}" y="${oy+sd/2+4}" text-anchor="middle" font-size="14" fill="${dim}" font-family="Karla" font-weight="800" transform="rotate(90,${dx},${oy+sd/2})">${dLabel}</text>`;
+  s += `<text x="${W-16}" y="${H-14}" text-anchor="end" font-size="11" fill="${lbl}" font-family="Karla" font-weight="600">HEIGHT: ${hLabel}</text>`;
+  // Hacky but we need to return modified s - using global innerHTML instead
+  document.getElementById('cSketch').innerHTML = s;
+}
+</script>
+</body>
+</html>
